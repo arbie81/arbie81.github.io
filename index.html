@@ -6,8 +6,10 @@
   <title>ARB.GAY</title>
   <style>
     @font-face {
-      font-family: 'Vulva';
+      font-family: 'Vulva Typography';
       src: url('vulva.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
 
     body {
@@ -20,18 +22,8 @@
     }
 
     h1, h2 {
+      color: white;
       margin: 0;
-      padding: 0;
-    }
-
-    .arb-text {
-      font-family: 'Vulva', sans-serif;
-      font-size: 72px;
-    }
-
-    h2 {
-      margin-top: 20px;
-      font-size: 24px;
     }
 
     a {
@@ -49,7 +41,6 @@
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
-      text-align: center;
     }
 
     .button {
@@ -57,7 +48,41 @@
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin: 15px 0;
+      margin-top: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .button:hover {
+      background-color: #fff;
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    .arb-text {
+      font-family: 'Vulva Typography', sans-serif;
+      font-size: 150px;
+      margin-bottom: 0; /* Remove space between ARB and Radio Art */
+    }
+
+    h2 {
+      margin-top: -10px; /* Reduced space between ARB and Radio Art */
+    }
+
+    .button-wrapper {
+      margin-top: 20px;
+    }
+
+    /* Make the WFMU link look like a button */
+    .wfmulink {
+      display: inline-block;
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 30px;
       font-weight: bold;
       text-transform: uppercase;
       border: none;
@@ -66,7 +91,7 @@
       text-decoration: none;
     }
 
-    .button:hover {
+    .wfmulink:hover {
       background-color: #fff;
       color: black;
       transform: translateY(-3px);
@@ -77,11 +102,10 @@
   <div class="container">
     <h1><span class="arb-text">ARB</span></h1>
     <h2>Radio Art</h2>
-
-    <div>
-      <a href="https://wfmu.org/playlists/A2" class="button">THE ARBITRARIUM ON WFMU</a>
-    </div>
-    <div>
+    
+    <a href="https://wfmu.org/playlists/A2" class="wfmulink">The Arbitrarium on WFMU</a>
+    
+    <div class="button-wrapper">
       <a href="statement.html" class="button">ARTIST STATEMENT</a>
     </div>
   </div>
