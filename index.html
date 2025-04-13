@@ -1,92 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head> 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARB.GAY</title>
-  
-  <style>
-    @font-face {
-      font-family: 'Vulva';
-      src: url('vulva.woff') format('woff');
-    }
-
-    body {
+body {
   background-color: #EA3323;
+  color: white; /* text color */
   font-family: 'Vulva Typography', sans-serif;
   margin: 0;
   padding: 20px;
   line-height: 1.4;
 }
 
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      border: 2px solid black;
-      padding: 30px;
-      background-color: white;
-    
-    }
+h1, h2 {
+  color: white; /* text color for headers */
+}
 
-    h1 {
-      font-size: 72px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #000;
-    }
+a {
+  color: white; /* text color for links */
+  text-decoration: none;
+}
 
-    h2 {
-      font-size: 20px;
-      margin-top: 0;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
-    }
+a:hover {
+  color: black; /* links turn black on hover */
+}
 
-    a {
-      display: block;
-      margin: 15px 0;
-      color: #000;
-      text-decoration: none;
-      border-bottom: 1px solid #000;
-      padding-bottom: 3px;
-      font-weight: bold;
-      transition: all 0.2s;
-    }
-
-    a:hover {
-      color: #Ea3323;
-      transform: translateX(5px);
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #Ea3323;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 30px;
-      font-weight: bold;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      background-color: #000;
-      color: white;
-      transform: translateY(-3px);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>ARB</h1>
-    <h2>Radio Art</h2>
-    
-    <a href="https://wfmu.org/playlists/A2">The Arbitrarium on WFMU</a>
-    
-    <a href="statement.html" class="button">ARTIST STATEMENT</a>
-  </div>
-</body>
-</html>
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: transparent; /* remove white background */
+}
