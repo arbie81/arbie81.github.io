@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head> 
   <style>
     @font-face {
@@ -7,8 +9,63 @@
 
     body {
       font-family: 'Vulva Typography', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.4;
     }
 
-    /* Your other styles... */
-  </style>
-</head>
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      border: 2px solid black;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 8px 8px 0 #000;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    a {
+      display: block;
+      margin: 15px 0;
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+      padding-bottom: 3px;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: #EC5C29;
+      transform: translateX(5px);
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #EC5C29;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
