@@ -36,14 +36,13 @@
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
-      position: relative; /* Added for absolute positioning */
     }
     .button {
       display: inline-block;
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 30px;
+      margin-top: 10px; /* Reduced from 30px */
       font-weight: bold;
       text-transform: uppercase;
       border: none;
@@ -59,18 +58,14 @@
       font-family: 'Vulva Typography', sans-serif;
       font-size: 150px;
       display: block;
-      line-height: 1;
+      margin-bottom: 0;
     }
     h2 {
-      position: absolute; /* Position absolutely */
-      top: 140px; /* Adjust this value to position exactly between ARB and buttons */
-      margin: 0;
-      padding: 0;
+      margin-top: 20px; /* Space between ARB and Radio Art */
+      margin-bottom: 50px; /* Increased spacing below Radio Art */
     }
     .button-wrapper {
-      margin-top: 20px;
-      position: relative; /* Keep position */
-      top: 30px; /* Add some space to account for the absolute positioning */
+      margin-top: 10px; /* Reduced from 20px */
     }
     /* Make the WFMU link look like a button */
     .wfmulink {
@@ -78,7 +73,8 @@
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 60px; /* Adjusted to maintain spacing with absolute positioning */
+      margin-top: 0; /* Reduced from 30px */
+      margin-bottom: 10px; /* Added to bring closer to artist statement */
       font-weight: bold;
       text-transform: uppercase;
       border: none;
