@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARB.GAY</title>
     <style>
-        @font-face {
-            font-family: 'Vulva Typography';
-            src: url('Vulva Typography.otf') format('opentype');
-        }
-
         body {
             background-color: #f0f0f0;
-            font-family: 'Vulva Typography', Courier, monospace;
+            font-family: Courier, monospace;
             margin: 0;
             padding: 20px;
             line-height: 1.4;
@@ -47,4 +45,52 @@
             text-decoration: none;
             border-bottom: 1px solid #000;
             padding-bottom: 3px;
-            font-weight
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            color: #EC5C29;
+            transform: translateX(5px);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #EC5C29;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #000;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .asterisk {
+            font-size: 30px;
+            margin: 20px 0;
+            color: #EC5C29;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ARB</h1>
+        <h2>Radio Art</h2>
+        
+        <div class="asterisk">* * *</div>
+        
+        <a href="https://wfmu.org/playlists/A2">The Arbitrarium on WFMU</a>
+        
+        <div class="asterisk">* * *</div>
+        
+        <a href="#" class="button">ARTIST STATEMENT</a>
+    </div>
+</body>
+</html>
