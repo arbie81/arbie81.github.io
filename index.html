@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARB.GAY</title>
   <style>
+    @font-face {
+      font-family: 'Vulva Typography';
+      src: url('Vulva.woff') format('woff');
+    }
+
     body {
       background-color: #EA3323;
       color: white;
@@ -14,7 +19,14 @@
       line-height: 1.4;
     }
 
-    h1, h2 {
+    h1 {
+      font-family: 'Vulva Typography', sans-serif;
+      font-size: 96px; /* Twice as big */
+      color: white;
+    }
+
+    h2 {
+      font-family: 'Futura', sans-serif;
       color: white;
     }
 
@@ -54,12 +66,6 @@
       transform: translateY(-3px);
     }
 
-    .arb-text {
-      font-family: 'Vulva Typography', sans-serif;
-      font-size: 96px;
-      font-weight: bold;
-    }
-
     .button-wrapper {
       margin-top: 20px;
     }
@@ -67,9 +73,11 @@
 </head>
 <body>
   <div class="container">
-    <h1><span class="arb-text">ARB</span></h1>
+    <h1>ARB</h1>
     <h2>Radio Art</h2>
+    
     <a href="https://wfmu.org/playlists/A2">The Arbitrarium on WFMU</a>
+    
     <div class="button-wrapper">
       <a href="statement.html" class="button">ARTIST STATEMENT</a>
     </div>
