@@ -11,7 +11,6 @@
       font-weight: normal;
       font-style: normal;
     }
-
     body {
       background-color: #EA3323;
       color: white;
@@ -20,29 +19,24 @@
       padding: 20px;
       line-height: 1.4;
     }
-
     h1, h2 {
       color: white;
       margin: 0;
     }
-
     a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-
     a:hover {
       color: black;
     }
-
     .container {
       max-width: 600px;
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
     }
-
     .button {
       display: inline-block;
       background-color: #000;
@@ -55,27 +49,26 @@
       cursor: pointer;
       text-align: center;
     }
-
     .button:hover {
       background-color: #fff;
       color: black;
       transform: translateY(-3px);
     }
-
     .arb-text {
       font-family: 'Vulva Typography', sans-serif;
       font-size: 150px;
-      margin-bottom: 0; /* Remove space between ARB and Radio Art */
+      margin-bottom: -15px; /* Negative margin to pull Radio Art closer */
+      line-height: 0.9; /* Tightens the line height */
+      display: block; /* Ensures block display for proper spacing */
     }
-
     h2 {
-      margin-top: -10px; /* Reduced space between ARB and Radio Art */
+      margin-top: 0; /* Remove negative top margin */
+      padding-top: 0; /* No top padding */
+      margin-bottom: 40px; /* Add bottom margin to maintain spacing to buttons */
     }
-
     .button-wrapper {
       margin-top: 20px;
     }
-
     /* Make the WFMU link look like a button */
     .wfmulink {
       display: inline-block;
@@ -90,7 +83,6 @@
       text-align: center;
       text-decoration: none;
     }
-
     .wfmulink:hover {
       background-color: #fff;
       color: black;
