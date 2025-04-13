@@ -75,6 +75,27 @@
     .button-wrapper {
       margin-top: 20px;
     }
+
+    /* Make the WFMU link look like a button */
+    .wfmulink {
+      display: inline-block;
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .wfmulink:hover {
+      background-color: #fff;
+      color: black;
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 <body>
@@ -82,7 +103,7 @@
     <h1><span class="arb-text">ARB</span></h1>
     <h2>Radio Art</h2>
     
-    <a href="https://wfmu.org/playlists/A2">The Arbitrarium on WFMU</a>
+    <a href="https://wfmu.org/playlists/A2" class="wfmulink">The Arbitrarium on WFMU</a>
     
     <div class="button-wrapper">
       <a href="statement.html" class="button">ARTIST STATEMENT</a>
