@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARB.GAY</title>
   <style>
     @font-face {
-      font-family: 'vulva';
+      font-family: 'Vulva';
       src: url('vulva.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
     }
 
     body {
@@ -21,16 +19,19 @@
       line-height: 1.4;
     }
 
-    h1 {
-      font-family: 'vulva', sans-serif;
-      font-size: 72px;
+    h1, h2 {
       margin: 0;
+      padding: 0;
+    }
+
+    .arb-text {
+      font-family: 'Vulva', sans-serif;
+      font-size: 72px;
     }
 
     h2 {
+      margin-top: 20px;
       font-size: 24px;
-      margin-top: -40px;
-      margin-bottom: 40px;
     }
 
     a {
@@ -48,6 +49,7 @@
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
+      text-align: center;
     }
 
     .button {
@@ -55,7 +57,7 @@
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 20px;
+      margin: 15px 0;
       font-weight: bold;
       text-transform: uppercase;
       border: none;
@@ -69,23 +71,18 @@
       color: black;
       transform: translateY(-3px);
     }
-
-    .button-wrapper {
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>ARB</h1>
-    <h2 class="radio-art">Radio Art</h2>
+    <h1><span class="arb-text">ARB</span></h1>
+    <h2>Radio Art</h2>
 
-    <div class="button-wrapper">
-      <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
+    <div>
+      <a href="https://wfmu.org/playlists/A2" class="button">THE ARBITRARIUM ON WFMU</a>
     </div>
-
-    <div class="button-wrapper">
-      <a href="statement.html" class="button">Artist Statement</a>
+    <div>
+      <a href="statement.html" class="button">ARTIST STATEMENT</a>
     </div>
   </div>
 </body>
