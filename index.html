@@ -38,17 +38,18 @@
       background-color: transparent;
     }
     .button {
-      display: inline-block;
+      display: block; /* Changed to block to stack vertically */
       background-color: #000;
       color: white;
       padding: 10px 20px;
+      margin-top: 15px; /* Consistent spacing between buttons */
       font-weight: bold;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       text-align: center;
-      margin-bottom: 15px; /* Consistent spacing between buttons */
       text-decoration: none; /* Ensure no underlines */
+      width: fit-content; /* Makes button width match content */
     }
     .button:hover {
       background-color: #fff;
