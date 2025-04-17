@@ -42,12 +42,13 @@
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 10px; /* Reduced from 30px */
       font-weight: bold;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       text-align: center;
+      margin-bottom: 15px; /* Consistent spacing between buttons */
+      text-decoration: none; /* Ensure no underlines */
     }
     .button:hover {
       background-color: #fff;
@@ -64,29 +65,6 @@
       margin-top: -20px; /* Space between ARB and Radio Art */
       margin-bottom: 50px; /* Increased spacing below Radio Art */
     }
-    .button-wrapper {
-      margin-top: 10px; /* Reduced from 20px */
-    }
-    /* Make the WFMU link look like a button */
-    .wfmulink {
-      display: inline-block;
-      background-color: #000;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 0; /* Reduced from 30px */
-      margin-bottom: 10px; /* Added to bring closer to artist statement */
-      font-weight: bold;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-    }
-    .wfmulink:hover {
-      background-color: #fff;
-      color: black;
-      transform: translateY(-3px);
-    }
   </style>
 </head>
 <body>
@@ -94,13 +72,11 @@
     <h1><span class="arb-text">ARB</span></h1>
     <h2>Radio Art</h2>
     
-    <a href="https://wfmu.org/playlists/A2" class="wfmulink">The Arbitrarium on WFMU</a>
+    <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
     
-    <div class="button-wrapper">
-      <a href="statement.html" class="button">ARTIST STATEMENT</a>
-    </div> <div class="button-wrapper">
-  <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
-</div>
+    <a href="statement.html" class="button">ARTIST STATEMENT</a>
+    
+    <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
   </div>
 </body>
 </html>
