@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ARB.GAY</title>
   <style>
     @font-face {
-      font-family: 'Vulva Typography';
+      font-family: 'Vulva';
       src: url('vulva.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
     }
+
     body {
       background-color: #EA3323;
       color: white;
@@ -19,82 +18,74 @@
       padding: 20px;
       line-height: 1.4;
     }
+
     h1, h2 {
-      color: white;
       margin: 0;
+      padding: 0;
     }
+
+    .arb-text {
+      font-family: 'Vulva', sans-serif;
+      font-size: 72px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
     a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
+
     a:hover {
       color: black;
     }
+
     .container {
       max-width: 600px;
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
+      text-align: center;
     }
+
     .button {
-      display: block;
+      display: inline-block;
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 15px;
+      margin: 15px 0;
       font-weight: bold;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       text-align: center;
       text-decoration: none;
-      width: fit-content;
     }
+
     .button:hover {
       background-color: #fff;
       color: black;
       transform: translateY(-3px);
     }
-    .arb-text {
-      font-family: 'Vulva Typography', sans-serif;
-      font-size: 150px;
-      display: block;
-      margin-bottom: 0;
-    }
-    h2 {
-      margin-top: -20px;
-      margin-bottom: 50px;
-    }
-    .instagram-button {
+
+    .insta-link {
+      display: inline-block;
       margin-top: 30px;
     }
-    .instagram-icon {
-      width: 30px;
-      height: 30px;
-      fill: white;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-    .instagram-link {
-      display: block;
-      background-color: #000;
-      color: white;
-      padding: 10px 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      width: fit-content;
-    }
-    .instagram-link:hover {
-      background-color: #fff;
-      color: black;
-      transform: translateY(-3px);
-    }
-    .instagram-link:hover .instagram-icon {
+
+    .insta-link svg {
+      width: 24px;
+      height: 24px;
       fill: black;
+      transition: fill 0.3s ease;
+    }
+
+    .insta-link:hover svg {
+      fill: white;
     }
   </style>
 </head>
@@ -102,19 +93,18 @@
   <div class="container">
     <h1><span class="arb-text">ARB</span></h1>
     <h2>Radio Art</h2>
-    
-    <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
-    
-    <a href="statement.html" class="button">ARTIST STATEMENT</a>
-    
-    <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
-    
-    <div class="instagram-button">
-      <a href="https://instagram.com/the.arbitrarium" class="instagram-link">
-        <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+
+    <div>
+      <a href="https://wfmu.org/playlists/A2" class="button">THE ARBITRARIUM ON WFMU</a>
+    </div>
+    <div>
+      <a href="statement.html" class="button">ARTIST STATEMENT</a>
+    </div>
+    <div class="insta-link">
+      <a href="https://instagram.com/the.arbitrarium" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
         </svg>
-        @the.arbitrarium
       </a>
     </div>
   </div>
