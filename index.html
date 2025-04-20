@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARB.GAY</title>
   <style>
     @font-face {
-      font-family: 'Vulva';
+      font-family: 'Vulva Typography';
       src: url('vulva.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
-
     body {
       background-color: #EA3323;
       color: white;
@@ -18,74 +19,52 @@
       padding: 20px;
       line-height: 1.4;
     }
-
     h1, h2 {
+      color: white;
       margin: 0;
-      padding: 0;
     }
-
-    .arb-text {
-      font-family: 'Vulva', sans-serif;
-      font-size: 72px;
-    }
-
-    h2 {
-      margin-top: 20px;
-      font-size: 24px;
-    }
-
     a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-
     a:hover {
       color: black;
     }
-
     .container {
       max-width: 600px;
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
-      text-align: center;
     }
-
     .button {
-      display: inline-block;
+      display: block; /* Changed to block to stack vertically */
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin: 15px 0;
+      margin-top: 15px; /* Consistent spacing between buttons */
       font-weight: bold;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       text-align: center;
-      text-decoration: none;
+      text-decoration: none; /* Ensure no underlines */
+      width: fit-content; /* Makes button width match content */
     }
-
     .button:hover {
       background-color: #fff;
       color: black;
       transform: translateY(-3px);
     }
-
-    .insta-link {
-      display: inline-block;
-      margin-top: 30px;
+    .arb-text {
+      font-family: 'Vulva Typography', sans-serif;
+      font-size: 150px;
+      display: block;
+      margin-bottom: 0;
     }
-
-    .insta-link svg {
-      width: 24px;
-      height: 24px;
-      fill: black;
-      transition: fill 0.3s ease;
-    }
-
-    .insta-link:hover svg {
-      fill: white;
+    h2 {
+      margin-top: -20px; /* Space between ARB and Radio Art */
+      margin-bottom: 50px; /* Increased spacing below Radio Art */
     }
   </style>
 </head>
@@ -93,20 +72,12 @@
   <div class="container">
     <h1><span class="arb-text">ARB</span></h1>
     <h2>Radio Art</h2>
-
-    <div>
-      <a href="https://wfmu.org/playlists/A2" class="button">THE ARBITRARIUM ON WFMU</a>
-    </div>
-    <div>
-      <a href="statement.html" class="button">ARTIST STATEMENT</a>
-    </div>
-    <div class="insta-link">
-      <a href="https://instagram.com/the.arbitrarium" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-        </svg>
-      </a>
-    </div>
+    
+    <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
+    
+    <a href="statement.html" class="button">ARTIST STATEMENT</a>
+    
+    <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
   </div>
 </body>
 </html>
