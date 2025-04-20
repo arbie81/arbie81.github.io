@@ -38,18 +38,18 @@
       background-color: transparent;
     }
     .button {
-      display: block; /* Changed to block to stack vertically */
+      display: block;
       background-color: #000;
       color: white;
       padding: 10px 20px;
-      margin-top: 15px; /* Consistent spacing between buttons */
+      margin-top: 15px;
       font-weight: bold;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       text-align: center;
-      text-decoration: none; /* Ensure no underlines */
-      width: fit-content; /* Makes button width match content */
+      text-decoration: none;
+      width: fit-content;
     }
     .button:hover {
       background-color: #fff;
@@ -63,8 +63,21 @@
       margin-bottom: 0;
     }
     h2 {
-      margin-top: -20px; /* Space between ARB and Radio Art */
-      margin-bottom: 50px; /* Increased spacing below Radio Art */
+      margin-top: -20px;
+      margin-bottom: 50px;
+    }
+    .insta {
+      display: block;
+      margin-top: 40px;
+    }
+    .insta svg {
+      width: 24px;
+      height: 24px;
+      fill: black;
+      transition: fill 0.3s ease;
+    }
+    .insta:hover svg {
+      fill: white;
     }
   </style>
 </head>
@@ -74,16 +87,14 @@
     <h2>Radio Art</h2>
     
     <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
-    
     <a href="statement.html" class="button">ARTIST STATEMENT</a>
-    
     <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
-  </div>  <div class="insta-link">
-      <a href="https://instagram.com/the.arbitrarium" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-        </svg>
-      </a>
-    </div>
+
+    <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+  </div>
 </body>
 </html>
