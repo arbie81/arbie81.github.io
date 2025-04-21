@@ -1,89 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARB Mixes</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artist Statement</title>
   <style>
+    @font-face {
+      font-family: 'Vulva Typography';
+      src: url('vulva.woff') format('woff');
+    }
     body {
-      background-color: white;
-      margin: 0;
-      padding: 20px;
-      font-family: 'Futura', sans-serif;
+  font-family: 'Futura', sans-serif;
+  background-color: #ea3323;
+  margin: 0;
+  padding: 40px;
+  color: #111;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 40px auto;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+    h1 {
+      font-size: 48px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
     }
-    .dice-layout {
-      display: grid;
-      grid-template-areas: 
-        "top-left . top-right"
-        ". middle ."
-        "bottom-left . bottom-right";
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 20px;
-      aspect-ratio: 1/1;
-      max-width: 800px;
-      margin: 40px auto;
-    }
-    .mix-image {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .mix-image:hover {
-      transform: translateY(-5px);
-    }
-    .top-left { grid-area: top-left; }
-    .top-right { grid-area: top-right; }
-    .middle { grid-area: middle; }
-    .bottom-left { grid-area: bottom-left; }
-    .bottom-right { grid-area: bottom-right; }
-    
-    .back-link {
-      display: block;
-      margin-bottom: 20px;
-      color: black;
-      text-decoration: none;
+    a {
+      display: inline-block;
+      margin-top: 30px;
       font-weight: bold;
+      color: white;
+      text-decoration: none;
+      border-bottom: 2px solid #black;
+    }
+    a:hover {
+      color: white;
+    text-decoration: underline;
+    text-decoration-color: white;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-   
-    
-    <div class="dice-layout">
-      <!-- Top left - 1st chronologically -->
-      <a href="century.html" class="top-left">
-        <img src="century.jpg" alt="Century" class="mix-image">
-      </a>
-      
-      <!-- Top right - 2nd chronologically -->
-      <a href="arbscenity.html" class="top-right">
-        <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
-      </a>
-      
-      <!-- Middle - 3rd chronologically -->
-      <a href="scum.html" class="middle">
-        <img src="scum.jpg" alt="SCUM" class="mix-image">
-      </a>
-      
-      <!-- Bottom left - 4th chronologically -->
-      <a href="dry.html" class="bottom-left">
-        <img src="dry.jpg" alt="DRY" class="mix-image">
-      </a>
-      
-      <!-- Bottom right - 5th chronologically -->
-      <a href="scherzophonia.html" class="bottom-right">
-        <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
-      </a>
-    </div>
- <a href="index.html" class="back-link">← Back to Home</a>  </div>
+  <h1>Artist Statement</h1>
+  <p>I create performance art for radio, crafting live audio assemblages that challenge conventional listening. I weave together spoken word, sound poetry, experimental music, DIY recordings, avant-garde compositions, and captured voices to form broadcasts that deliberately transgress boundaries between art forms.</p>
+
+  <p>I fracture and recombine elements of underground culture from both the late 20th century and contemporary sources, refusing to separate "historical" from "current" in my approach. Each program builds connections across seemingly disparate material—threads of resistance, shared artistic strategies, or recurring political themes.</p>
+
+  <p>This approach stems partly from my schizotypal perception, which reveals unexpected patterns and relationships across seemingly unrelated sources. I organize sounds not by era or genre, but by their resonance with ongoing social struggles and artistic innovations. I'm instinctively repelled by music that prioritizes recognition over genuine expression. My sensitivity to authenticity draws me to underground music — work born from raw expressive urgency rather than career calculation. </p>
+
+  <p>Voice remains central to my practice—whether through sound poetry, recorded dialogue, speech fragments, or other vocal expressions. These human utterances create an emotional anchor within the experimental framework, making the challenging material both accessible and engaging. While the content pushes boundaries, I ensure the listening experience remains inviting rather than alienating. The live nature of my broadcasts adds an element of risk and immediacy that recorded media cannot replicate.</p>
+
+  <p>Humor and comedy function as essential tools in my work, offering unexpected entry points into difficult subject matter. This comedic element creates moments of release and transformation, allowing listeners to process tragedy and political urgency through a different lens. The juxtaposition of the serious with the absurd reflects the complex reality of resistance movements throughout history.</p>
+
+  <p>A queer feminist methodology guides my selection process, questioning whose voices have been preserved in experimental music history and amplifying perspectives that challenge dominant cultural narratives. My compositions simultaneously preserve marginalized artistic expressions while recontextualizing these historical materials to demonstrate their urgent relevance to contemporary struggles.</p>
+
+  <p>Traditional freeform radio itself represents resistance to commercial broadcasting's limitations. My work extends this inherent protest by featuring transgressive artists whose work confronts systems of power. By juxtaposing materials from different decades, I highlight how contemporary issues echo historical struggles—revealing the persistent currents of resistance flowing through underground culture.</p>
+
+  <p>Radio creates an intimate connection with listeners wherever they are. This accessibility allows challenging artistic content to infiltrate everyday experience in ways visual art often cannot. Each broadcast offers an alternative to algorithm-curated content, creating moments of genuine discovery that defy predictable content streams.</p>
+
+  <p>Through this work, I expand what radio art can be—not just a platform for experimental sounds, but a performative space where diverse vocal expressions and sound art become tools for reimagining our relationship to art, politics, and collective memory.</p>
+
+  <a href="index.html">← Back to Home</a>
 </body>
 </html>
