@@ -59,29 +59,29 @@
     <a href="index.html" class="back-link">← Back to Home</a>
     
     <div class="dice-layout">
-      <!-- Top left -->
-      <a href="mix1.html" class="top-left">
-        <img src="mix1.jpg" alt="Mix 1" class="mix-image">
+      <!-- Top left - 1st chronologically -->
+      <a href="century.html" class="top-left">
+        <img src="century.jpg" alt="Century" class="mix-image">
       </a>
       
-      <!-- Top right -->
-      <a href="mix2.html" class="top-right">
-        <img src="mix2.jpg" alt="Mix 2" class="mix-image">
+      <!-- Top right - 2nd chronologically -->
+      <a href="arbscenity.html" class="top-right">
+        <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
       </a>
       
-      <!-- Middle -->
-      <a href="mix3.html" class="middle">
-        <img src="mix3.jpg" alt="Mix 3" class="mix-image">
+      <!-- Middle - 3rd chronologically -->
+      <a href="scum.html" class="middle">
+        <img src="scum.jpg" alt="SCUM" class="mix-image">
       </a>
       
-      <!-- Bottom left -->
-      <a href="mix4.html" class="bottom-left">
-        <img src="mix4.jpg" alt="Mix 4" class="mix-image">
+      <!-- Bottom left - 4th chronologically -->
+      <a href="dry.html" class="bottom-left">
+        <img src="dry.jpg" alt="DRY" class="mix-image">
       </a>
       
-      <!-- Bottom right -->
-      <a href="mix5.html" class="bottom-right">
-        <img src="mix5.jpg" alt="Mix 5" class="mix-image">
+      <!-- Bottom right - 5th chronologically -->
+      <a href="scherzophonia.html" class="bottom-right">
+        <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
       </a>
     </div>
   </div>
