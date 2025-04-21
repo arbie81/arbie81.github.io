@@ -1,7 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+  <meta charset="UTF-8"><!DOCTYPE html>
+<html lang="en">
+<head> 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARB Mixes</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Futura', sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .dice-layout {
+      display: grid;
+      grid-template-areas: 
+        "top-left . top-right"
+        ". middle ."
+        "bottom-left . bottom-right";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 20px;
+      aspect-ratio: 1/1;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .mix-image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .mix-image:hover {
+      transform: translateY(-5px);
+    }
+    .top-left { grid-area: top-left; }
+    .top-right { grid-area: top-right; }
+    .middle { grid-area: middle; }
+    .bottom-left { grid-area: bottom-left; }
+    .bottom-right { grid-area: bottom-right; }
+    
+    .back-link {
+      display: block;
+      margin-bottom: 20px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="dice-layout">
+      <!-- Top left - 1st chronologically -->
+      <a href="century.html" class="top-left">
+        <img src="century.jpg" alt="Century" class="mix-image">
+      </a>
+      
+      <!-- Top right - 2nd chronologically -->
+      <a href="arbscenity.html" class="top-right">
+        <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
+      </a>
+      
+      <!-- Middle - 3rd chronologically -->
+      <a href="scum.html" class="middle">
+        <img src="scum.jpg" alt="SCUM" class="mix-image">
+      </a>
+      
+      <!-- Bottom left - 4th chronologically -->
+      <a href="dry.html" class="bottom-left">
+        <img src="dry.jpg" alt="DRY" class="mix-image">
+      </a>
+      
+      <!-- Bottom right - 5th chronologically -->
+      <a href="scherzophonia.html" class="bottom-right">
+        <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARB Mixes</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
