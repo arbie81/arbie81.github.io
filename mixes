@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARB Mixes</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Futura', sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .dice-layout {
+      display: grid;
+      grid-template-areas: 
+        "top-left . top-right"
+        ". middle ."
+        "bottom-left . bottom-right";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 20px;
+      aspect-ratio: 1/1;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .mix-image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .mix-image:hover {
+      transform: translateY(-5px);
+    }
+    .top-left { grid-area: top-left; }
+    .top-right { grid-area: top-right; }
+    .middle { grid-area: middle; }
+    .bottom-left { grid-area: bottom-left; }
+    .bottom-right { grid-area: bottom-right; }
+    
+    .back-link {
+      display: block;
+      margin-bottom: 20px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="dice-layout">
+      <!-- Top left -->
+      <a href="mix1.html" class="top-left">
+        <img src="mix1.jpg" alt="Mix 1" class="mix-image">
+      </a>
+      
+      <!-- Top right -->
+      <a href="mix2.html" class="top-right">
+        <img src="mix2.jpg" alt="Mix 2" class="mix-image">
+      </a>
+      
+      <!-- Middle -->
+      <a href="mix3.html" class="middle">
+        <img src="mix3.jpg" alt="Mix 3" class="mix-image">
+      </a>
+      
+      <!-- Bottom left -->
+      <a href="mix4.html" class="bottom-left">
+        <img src="mix4.jpg" alt="Mix 4" class="mix-image">
+      </a>
+      
+      <!-- Bottom right -->
+      <a href="mix5.html" class="bottom-right">
+        <img src="mix5.jpg" alt="Mix 5" class="mix-image">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
