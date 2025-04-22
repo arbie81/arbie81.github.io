@@ -89,11 +89,41 @@
     .insta:hover svg {
       fill: white;
     }
-  </style>
+  </style> .arb-hover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.arb-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  font-family: 'Futura', sans-serif;
+  font-weight: bold;
+  padding: 10px 15px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.arb-hover-container:hover .arb-tooltip {
+  display: block;
+}
+
 </head>
 <body>
   <div class="container">
-    <h1><span class="arb-text">ARB</span></h1>
+   <h1>
+  <span class="arb-hover-container">
+    <span class="arb-text">ARB</span>
+    <span class="arb-tooltip">Alina Richard Brennaman</span>
+  </span>
+</h1>
+
     <h2>Radio Art</h2>
     
     <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
