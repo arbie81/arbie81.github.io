@@ -3,12 +3,16 @@
 <head> 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARB.GAY - Available For</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" href="favicon.ico">
-  <link rel="manifest" href="site.webmanifest">
+  <title>ARB.GAY</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script>
+    var link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      var clonedLink = link.cloneNode(true);
+      link.parentNode.replaceChild(clonedLink, link);
+    }
+  </script>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     @font-face {
       font-family: 'Vulva Typography';
@@ -23,8 +27,6 @@
       margin: 0;
       padding: 20px;
       line-height: 1.4;
-      position: relative;
-      min-height: 100vh;
     }
     h1, h2 {
       color: white;
@@ -43,6 +45,7 @@
       margin: 0 auto;
       padding: 30px;
       background-color: transparent;
+      position: relative;
     }
     .button {
       display: block;
@@ -63,65 +66,71 @@
       color: black;
       transform: translateY(-3px);
     }
+    .arb-container {
+      position: relative;
+      display: inline-block;
+    }
     .arb-text {
       font-family: 'Vulva Typography', sans-serif;
-      font-size: 75px;
+      font-size: 150px;
       display: block;
       margin-bottom: 0;
+    }
+    .arb-tooltip {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: black;
       color: white;
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      padding: 5px 10px;
+      font-size: 14px;
+      white-space: nowrap;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .arb-container:hover .arb-tooltip {
+      display: block;
     }
     h2 {
       margin-top: -20px;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
-    .services-section {
-      margin-bottom: 40px;
+    .insta {
+      display: block;
+      margin-top: 40px;
     }
-    .services-section h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
-      color: white;
+    .insta svg {
+      width: 24px;
+      height: 24px;
+      fill: black;
+      transition: fill 0.3s ease;
     }
-    .services-section p {
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    /* Footer Styles */
-    footer {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 10px;
-      font-size: 0.9em;
-      color: #888;
-      background-color: rgba(255, 255, 255, 0.7); /* Optional: adds background for readability */
-      border-top-left-radius: 10px; /* Optional: makes it a little rounded */
+    .insta:hover svg {
+      fill: white;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1><span class="arb-text">Available For</span></h1>
-    
-    <div class="services-section">
-      <h3>Music Supervision</h3>
-      <p>Nuanced music direction for film, TV, and other projects that elevate storytelling. Specializing in mid-century overlooked recordings (1955–1965) and underground music from various eras. Skilled in handling permissions and working within diverse budget constraints.</p>
-      
-      <h3>Voice Work</h3>
-      <p>Commercial, narration, and educational voiceovers recorded in my in-home studio. Character-driven audio for all types of projects. Trained at Kalmenson & Kalmenson.</p>
-      
-      <h3>Archival Projects</h3>
-      <p>Documenting ephemeral materials from underground and DIY music cultures. Making challenging and overlooked art accessible through thoughtful archival context. Experienced in organizing, preserving, and providing future access to audio collections.</p>
-    </div>
-    
-    <a href="mailto:arb@wfmu.org" class="button">Get In Touch</a><br>
-    <a href="index.html" class="back-link">← Back</a>
-  </div>
+    <h1>
+      <span class="arb-container">
+        <span class="arb-text">ARB</span>
+        <span class="arb-tooltip">Alina Richard Brennaman</span>
+      </span>
+    </h1>
+    <h2>Radio Art</h2>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 <span>Alina Richard Brennaman</span>. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+    <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
+    <a href="statement.html" class="button">ARTIST STATEMENT</a>
+    <a href="mixes.html" class="button">COMPILATIONS</a>
+    <a href="services.html" class="button">SERVICES</a>
+    <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
+    <p style="font-size: 16px; color: #000;"><strong>arb@wfmu.org</strong></p>
+
+    <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75
