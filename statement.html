@@ -1,64 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Artist Statement</title>
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARB.GAY - Artist Statement</title> <!-- Update the title text here -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
   <style>
     @font-face {
       font-family: 'Vulva Typography';
       src: url('vulva.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
     body {
-  font-family: 'Futura', sans-serif;
-  background-color: #ea3323;
-  margin: 0;
-  padding: 40px;
-  color: #111;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 40px auto;
+      background-color: #EA3323;
+      color: white;
+      font-family: 'Futura', sans-serif;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.4;
     }
-    h1 {
-      font-size: 48px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
+    h1, h2 {
+      color: white;
+      margin: 0;
     }
     a {
-      display: inline-block;
-      margin-top: 30px;
-      font-weight: bold;
       color: white;
       text-decoration: none;
-      border-bottom: 2px solid #black;
+      font-weight: bold;
     }
     a:hover {
+      color: black;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: transparent;
+    }
+    .button {
+      display: block;
+      background-color: #000;
       color: white;
-    text-decoration: underline;
-    text-decoration-color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .button:hover {
+      background-color: #fff;
+      color: black;
+      transform: translateY(-3px);
+    }
+    .arb-text {
+      font-family: 'Vulva Typography', sans-serif; /* This applies to your desired Vulva font */
+      font-size: 75px;
+      display: block;
+      margin-bottom: 0;
+      color: black;
+    }
+    h2 {
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+    .services-section {
+      margin-bottom: 40px;
+    }
+    .services-section h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: black;
+    }
+    .services-section p {
+      margin-bottom: 20px;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <h1>Artist Statement</h1>
-  <p>I create performance art for radio, crafting live audio assemblages that challenge conventional listening. I weave together spoken word, sound poetry, experimental music, DIY recordings, avant-garde compositions, and captured voices to form broadcasts that deliberately transgress boundaries between art forms.</p>
-
-  <p>I fracture and recombine elements of underground culture from both the late 20th century and contemporary sources, refusing to separate "historical" from "current" in my approach. Each program builds connections across seemingly disparate material—threads of resistance, shared artistic strategies, or recurring political themes.</p>
-
-  <p>This approach stems partly from my schizotypal perception, which reveals unexpected patterns and relationships across seemingly unrelated sources. I organize sounds not by era or genre, but by their resonance with ongoing social struggles and artistic innovations. I'm instinctively repelled by music that prioritizes recognition over genuine expression. My sensitivity to authenticity draws me to underground music — work born from raw expressive urgency rather than career calculation. </p>
-
-  <p>Voice remains central to my practice—whether through sound poetry, recorded dialogue, speech fragments, or other vocal expressions. These human utterances create an emotional anchor within the experimental framework, making the challenging material both accessible and engaging. While the content pushes boundaries, I ensure the listening experience remains inviting rather than alienating. The live nature of my broadcasts adds an element of risk and immediacy that recorded media cannot replicate.</p>
-
-  <p>Humor and comedy function as essential tools in my work, offering unexpected entry points into difficult subject matter. This comedic element creates moments of release and transformation, allowing listeners to process tragedy and political urgency through a different lens. The juxtaposition of the serious with the absurd reflects the complex reality of resistance movements throughout history.</p>
-
-  <p>A queer feminist methodology guides my selection process, questioning whose voices have been preserved in experimental music history and amplifying perspectives that challenge dominant cultural narratives. My compositions simultaneously preserve marginalized artistic expressions while recontextualizing these historical materials to demonstrate their urgent relevance to contemporary struggles.</p>
-
-  <p>Traditional freeform radio itself represents resistance to commercial broadcasting's limitations. My work extends this inherent protest by featuring transgressive artists whose work confronts systems of power. By juxtaposing materials from different decades, I highlight how contemporary issues echo historical struggles—revealing the persistent currents of resistance flowing through underground culture.</p>
-
-  <p>Radio creates an intimate connection with listeners wherever they are. This accessibility allows challenging artistic content to infiltrate everyday experience in ways visual art often cannot. Each broadcast offers an alternative to algorithm-curated content, creating moments of genuine discovery that defy predictable content streams.</p>
-
-  <p>Through this work, I expand what radio art can be—not just a platform for experimental sounds, but a performative space where diverse vocal expressions and sound art become tools for reimagining our relationship to art, politics, and collective memory.</p>
-
-  <a href="index.html">← Back to Home</a>
+  <div class="container">
+    <h1><span class="arb-text">Artist Statement</span></h1> <!-- Update the heading here as well -->
+    
+    <div class="services-section">
+      <h3>Music Supervision</h3>
+      <p>Nuanced music direction for film, TV, and other projects that elevate storytelling. Specializing in mid-century overlooked recordings (1955–1965) and underground music from various eras. Skilled in handling permissions and working within diverse budget constraints.</p>
+      
+      <h3>Voice Work</h3>
+      <p>Commercial, narration, and educational voiceovers recorded in my in-home studio. Character-driven audio for all types of projects. Trained at Kalmenson & Kalmenson.</p>
+      
+      <h3>Archival Projects</h3>
+      <p>Documenting ephemeral materials from underground and DIY music cultures. Making challenging and overlooked art accessible through thoughtful archival context. Experienced in organizing, preserving, and providing future access to audio collections.</p>
+    </div>
+    
+    <a href="mailto:arb@wfmu.org" class="button">Get In Touch</a><br>
+    <a href="index.html" class="back-link">← Back</a>
+  </div>
 </body>
 </html>
