@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARB.GAY</title>
-<!-- Primary favicon -->
-<link rel="icon" href="favicon.ico" type="image/x-icon"> <script>
-  // Force favicon refresh
-  var link = document.querySelector("link[rel~='icon']");
-  if (link) {
-    var clonedLink = link.cloneNode(true);
-    link.parentNode.replaceChild(clonedLink, link);
-  }
-</script>
-<!-- For iOS devices -->
-<link rel="apple-touch-icon" href="apple-touch-icon.png"> <style>
+  <!-- Primary favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script>
+    // Force favicon refresh
+    var link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      var clonedLink = link.cloneNode(true);
+      link.parentNode.replaceChild(clonedLink, link);
+    }
+  </script>
+  <!-- For iOS devices -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
     @font-face {
       font-family: 'Vulva Typography';
       src: url('vulva.woff') format('woff');
@@ -89,50 +91,49 @@
     .insta:hover svg {
       fill: white;
     }
-  </style> .arb-hover-container {
-  position: relative;
-  display: inline-block;
-}
 
-.arb-tooltip {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10px;
-  background-color: black;
-  color: white;
-  font-family: 'Futura', sans-serif;
-  font-weight: bold;
-  padding: 10px 15px;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-.arb-hover-container:hover .arb-tooltip {
-  display: block;
-}
-
+    /* Hover tooltip styles */
+    .arb-hover-container {
+      position: relative;
+      display: inline-block;
+    }
+    .arb-tooltip {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      padding: 10px 15px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .arb-hover-container:hover .arb-tooltip {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-   <h1>
-  <span class="arb-hover-container">
-    <span class="arb-text">ARB</span>
-    <span class="arb-tooltip">Alina Richard Brennaman</span>
-  </span>
-</h1>
-
+    <h1>
+      <span class="arb-hover-container">
+        <span class="arb-text">ARB</span>
+        <span class="arb-tooltip">Alina Richard Brennaman</span>
+      </span>
+    </h1>
     <h2>Radio Art</h2>
-    
+
     <a href="https://wfmu.org/playlists/A2" class="button">The Arbitrarium on WFMU</a>
     <a href="statement.html" class="button">ARTIST STATEMENT</a>
-<a href="mixes.html" class="button">COMPILATIONS</a><a href="services.html" class="button">SERVICES</a>
+    <a href="mixes.html" class="button">COMPILATIONS</a>
+    <a href="services.html" class="button">SERVICES</a>
     <a href="mailto:arb@wfmu.org" class="button">CONTACT</a>
-<p style="font-size: 16px; color: #000;"><strong>arb@wfmu.org</strong></p>
 
-
+    <p style="font-size: 16px; color: #000;"><strong>arb@wfmu.org</strong></p>
 
     <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta" aria-label="Instagram">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
