@@ -123,8 +123,8 @@
     .nav-item::before {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
+      top: 5px;
+      left: 5px;
       width: 100%;
       height: 100%;
       background: #EBFE58; /* Yellow hover color */
@@ -141,6 +141,8 @@
     .nav-item:hover::before {
       transform: scaleX(1);
       transform-origin: left;
+      width: 110%;
+      height: 110%;
     }
     
     .item-1 {
@@ -165,62 +167,55 @@
     }
     
     .item-4 {
-      grid-column: 1 / span 2;
-      grid-row: 4 / span 1;
-      border: 2px solid #f6f1e6;
-      transform: rotate(0.8deg);
-    }
-    
-    .item-5 {
       grid-column: 5 / span 2;
       grid-row: 3 / span 1;
       border: 2px solid #f6f1e6;
       transform: rotate(-0.7deg);
     }
     
-    /* Vertical nav item */
-    .item-vertical {
-      grid-column: 6 / span 1;
-      grid-row: 4 / span 2;
+    .item-5 {
+      grid-column: 1 / span 2;
+      grid-row: 4 / span 1;
       border: 2px solid #f6f1e6;
-      transform: rotate(0.5deg);
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+      transform: rotate(0.8deg);
     }
     
-    .social-container {
-      position: fixed;
-      top: 40px;
-      right: 40px;
+    /* Email link in nav */
+    .email-nav {
+      grid-column: 6 / span 1;
+      grid-row: 4 / span 2;
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      z-index: 20;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #f6f1e6;
+      font-weight: bold;
+      transform: rotate(0.5deg);
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .email-nav:hover {
+      color: #EBFE58;
     }
     
     .insta-link {
-      display: block;
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      z-index: 20;
     }
     
     .insta-icon {
       width: 28px;
       height: 28px;
-      fill: #E2c080;
+      fill: #f6f1e6;
       transition: fill 0.3s ease;
     }
     
     .insta-link:hover .insta-icon {
-      fill: #EBFE58;
-    }
-    
-    .email-icon {
-      width: 28px;
-      height: 28px;
-      fill: #E2c080;
-      transition: fill 0.3s ease;
-    }
-    
-    .email-link:hover .email-icon {
       fill: #EBFE58;
     }
     
@@ -268,18 +263,18 @@
       }
       
       .item-4 {
-        grid-column: 5 / span 3;
-        grid-row: 5 / span 2;
-        transform: rotate(2deg);
-      }
-      
-      .item-5 {
         grid-column: 1 / span 3;
         grid-row: 7 / span 1;
         transform: rotate(-1.5deg);
       }
       
-      .item-vertical {
+      .item-5 {
+        grid-column: 5 / span 3;
+        grid-row: 5 / span 2;
+        transform: rotate(2deg);
+      }
+      
+      .email-nav {
         grid-column: 6 / span 2;
         grid-row: 7 / span 2;
         transform: rotate(1deg);
@@ -327,31 +322,29 @@
       }
       
       .item-4 {
-        grid-column: 2 / span 2;
-        grid-row: 4 / span 1;
-        transform: rotate(3deg);
-      }
-      
-      .item-5 {
         grid-column: 1 / span 2;
         grid-row: 5 / span 1;
         transform: rotate(-2deg);
       }
       
-      .item-vertical {
+      .item-5 {
+        grid-column: 2 / span 2;
+        grid-row: 4 / span 1;
+        transform: rotate(3deg);
+      }
+      
+      .email-nav {
         grid-column: 3 / span 1;
         grid-row: 5 / span 2;
         transform: rotate(1.5deg);
       }
       
-      .social-container {
-        position: fixed;
+      .insta-link {
         top: 15px;
         right: 15px;
-        gap: 15px;
       }
       
-      .insta-icon, .email-icon {
+      .insta-icon {
         width: 24px;
         height: 24px;
       }
@@ -374,23 +367,16 @@
       <a href="https://wfmu.org/playlists/A2" class="nav-item item-1">The Arbitrarium on WFMU</a>
       <a href="statement.html" class="nav-item item-2">Artist Statement</a>
       <a href="mixes.html" class="nav-item item-3">Compilations</a>
-      <a href="services.html" class="nav-item item-4">Services</a>
-      <a href="bio.html" class="nav-item item-5">Bio</a>
-      <a href="contact.html" class="nav-item item-vertical">Contact</a>
+      <a href="bio.html" class="nav-item item-4">Bio</a>
+      <a href="services.html" class="nav-item item-5">Services</a>
+      <a href="mailto:arb@wfmu.org" class="email-nav">arb@wfmu.org</a>
     </div>
     
-    <div class="social-container">
-      <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta-link" aria-label="Instagram">
-        <svg class="insta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-        </svg>
-      </a>
-      <a href="mailto:arb@wfmu.org" class="email-link" aria-label="Email">
-        <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-      </a>
-    </div>
+    <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta-link" aria-label="Instagram">
+      <svg class="insta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
   </div>
   
   <footer>
