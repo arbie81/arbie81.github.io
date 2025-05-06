@@ -119,14 +119,14 @@
       transition: all 0.3s ease;
     }
     
-    /* Screen printing effect with dramatic offset */
+    /* True screen printing offset effect */
     .nav-item::before, .email-nav::before {
       content: '';
       position: absolute;
-      top: -8px;
-      left: -8px;
-      width: 105%;
-      height: 105%;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
       background: #EBFE58; /* Yellow hover color */
       z-index: -1;
       opacity: 0;
@@ -159,42 +159,42 @@
       grid-column: 3 / span 2; /* Bio moved to middle */
       grid-row: 3 / span 1;
       border: 2px solid #f6f1e6;
-      transform: rotate(-0.5deg);
+      transform: rotate(-2deg);
     }
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations moved to far right */
-      grid-row: 3 / span 1; /* Same row as Bio */
+      grid-row: 2 / span 1; /* Moved up slightly from Bio */
       border: 2px solid #f6f1e6;
-      transform: rotate(0.8deg);
+      transform: rotate(1.5deg);
     }
     
     .item-5 {
       grid-column: 1 / span 2;
       grid-row: 4 / span 1;
       border: 2px solid #f6f1e6;
-      transform: rotate(0.8deg);
+      transform: rotate(2deg);
     }
     
-    /* Email link in nav with smaller outline, vertical orientation */
+    /* Email link in nav with proportions matching image reference */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 4 / span 2; /* Moved up to be more visible */
+      grid-row: 4 / span 2; 
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       color: #f6f1e6;
       font-weight: bold;
-      transform: rotate(0.5deg);
+      transform: rotate(2deg);
       text-transform: uppercase;
       font-size: 16px;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      border: 1px solid #f6f1e6; /* Smaller outline */
-      padding: 8px;
-      width: 50px; /* Better width proportion */
-      height: 80%;
+      border: 2px solid #f6f1e6;
+      padding: 10px;
+      width: 20px; /* Thinner proportions matching reference */
+      height: 140px; /* Taller proportions matching reference */
       margin: auto;
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
@@ -262,15 +262,15 @@
       }
       
       .item-5 {
-        grid-column: 5 / span 3; /* Services on right side */
+        grid-column: 6 / span 3; /* Services on right side */
         grid-row: 6 / span 2;
         transform: rotate(2deg);
       }
       
       .item-4 {
-        grid-column: 5 / span 4; /* Compilations on right side */
+        grid-column: 1 / span 4; /* Compilations on LEFT side as requested */
         grid-row: 8 / span 2;
-        transform: rotate(1.8deg);
+        transform: rotate(-2deg);
       }
       
       .email-nav {
@@ -281,8 +281,8 @@
         transform: rotate(1deg);
         width: auto;
         height: auto;
-        padding: 15px 8px;
-        border: 1px solid #f6f1e6;
+        padding: 15px 5px;
+        border: 2px solid #f6f1e6;
       }
       
       .social-container {
@@ -323,7 +323,7 @@
       .item-3 {
         grid-column: 2 / span 2; /* Bio on right */
         grid-row: 3 / span 1;
-        transform: rotate(1.5deg);
+        transform: rotate(2deg);
       }
       
       .item-5 {
@@ -333,21 +333,21 @@
       }
       
       .item-4 {
-        grid-column: 2 / span 2; /* Compilations on right */
+        grid-column: 1 / span 2; /* Compilations on LEFT as per image */
         grid-row: 5 / span 1;
-        transform: rotate(2deg);
+        transform: rotate(-2deg);
       }
       
       .email-nav {
         grid-column: 3 / span 1;
-        grid-row: 6 / span 1; /* Moved up */
+        grid-row: 5 / span 1; /* Moved up */
         writing-mode: vertical-rl;
         text-orientation: mixed;
-        transform: rotate(1.5deg);
+        transform: rotate(2deg);
         width: auto;
         height: auto;
-        padding: 15px 8px;
-        border: 1px solid #f6f1e6;
+        padding: 12px 5px;
+        border: 2px solid #f6f1e6;
       }
       
       .insta-link {
