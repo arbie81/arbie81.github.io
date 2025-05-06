@@ -1,63 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Artist Statement</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Statement | ARB.GAY</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23121212' filter='url(%23noiseFilter)'/%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Ctext x='15' y='70' font-family='Helvetica Neue, Futura, sans-serif' font-size='40' font-weight='bold' fill='%23EBFE58'%3EARB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <style>
     @font-face {
-      font-family: 'Vulva Typography';
-      src: url('vulva.woff') format('woff');
+      font-family: 'Futura';
+      src: local('Futura');
+      font-weight: normal;
+      font-style: normal;
     }
-    body {
-  font-family: 'Futura', sans-serif;
-  background-color: #ebfe58;
-  margin: 0; /* Set margin to 0 to eliminate default margins */
-  padding: 40px;
-  color: #111;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-    h1 {
-      font-family: 'Vulva Typography', sans-serif; /* Changed font for title */
-      font-size: 72px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
+    
+    body { 
+      background-color: #EBFE58; /* Yellow background from hover state */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E"); 
+      color: #121212; /* Dark text on yellow background */
+      font-family: 'Helvetica Neue', 'Futura', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      overflow-x: hidden; 
+      min-height: 100vh;
+    } 
+    
+    .noise { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"); 
+      opacity: 0.08; 
+      pointer-events: none; 
+      z-index: 100; 
     }
-    a {
-      display: inline-block;
-      margin-top: 30px;
+    
+    .content-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      box-sizing: border-box;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .page-header {
+      position: relative;
+      margin-bottom: 50px;
+    }
+    
+    .page-title {
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
+      font-size: 80px;
+      line-height: 0.9;
       font-weight: bold;
-      color: white;
-      text-decoration: none;
-      border-bottom: 2px solid #black;
+      margin: 0;
+      transform: rotate(-1.5deg);
+      display: inline-block;
+      color: #121212;
+      position: relative;
+      z-index: 10;
     }
-    a:hover {
-      color: white;
-      text-decoration: underline;
-      text-decoration-color: white;
+    
+    .title-offset {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
+      background: #121212;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .statement-body {
+      position: relative;
+      z-index: 10;
+      padding: 20px 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    .statement-body p {
+      margin-bottom: 24px;
+    }
+    
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background-color: #121212;
+      color: #EBFE58;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(-1deg);
+      border: 2px solid #121212;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 15;
+      cursor: pointer;
+    }
+    
+    .back-btn::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
+      background: #f6f1e6;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      color: #121212;
+      background-color: transparent;
+    }
+    
+    .back-btn:hover::before {
+      opacity: 0.3;
+    }
+    
+    .insta-link {
+      position: fixed;
+      bottom: 80px;
+      right: 40px;
+      z-index: 20;
+    }
+    
+    .insta-icon {
+      width: 28px;
+      height: 28px;
+      fill: #121212;
+      transition: fill 0.3s ease;
+    }
+    
+    .insta-link:hover .insta-icon {
+      fill: #121212;
+      opacity: 0.7;
+    }
+    
+    footer {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: #121212;
+      opacity: 0.5;
+    }
+    
+    @media (max-width: 900px) {
+      .page-title {
+        font-size: 60px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .content-container {
+        padding: 40px 20px;
+      }
+      
+      .page-title {
+        font-size: 46px;
+      }
+      
+      .statement-body {
+        font-size: 16px;
+      }
+      
+      .insta-link {
+        bottom: 70px;
+        right: 15px;
+      }
+      
+      .insta-icon {
+        width: 24px;
+        height: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Artist Statement</h1>
-<section>
-<p>I create performance art for radio. My live audio collages transgress boundaries without sacrificing accessibility—a tension that fuels my work. Each program builds connections across subcultures, highlighting threads of subversion in sound and themes. </p>
+  <div class="noise"></div>
+  
+  <div class="content-container">
+    <div class="page-header">
+      <h1 class="page-title">
+        Artist Statement
+        <div class="title-offset"></div>
+      </h1>
+    </div>
+    
+    <div class="statement-body">
+      <p>I create performance art for radio. My live audio collages transgress boundaries without sacrificing accessibility—a tension that fuels my work. Each program builds connections across subcultures, highlighting threads of subversion in sound and themes.</p>
 
-<p>I recombine fragments of underground culture—spoken word, experimental music, sound poetry, DIY recordings, and captured voices—from around the world, spanning the late 20th century to the present. By centering voice and language, I create narratives that illuminate how contemporary issues echo historical struggles. I use comedic elements to create moments of release, allowing listeners to process tragedy, anger and political urgency through an absurdist lens. With my queer feminist spirit, I seek out, recontextualize, and amplify perspectives that challenge the established order. These elements work together to generate moments of surprise that disrupt patterns of predictable, passive listening.</p>
+      <p>I recombine fragments of underground culture—spoken word, experimental music, sound poetry, DIY recordings, and captured voices—from around the world, spanning the late 20th century to the present. By centering voice and language, I create narratives that illuminate how contemporary issues echo historical struggles. I use comedic elements to create moments of release, allowing listeners to process tragedy, anger and political urgency through an absurdist lens. With my queer feminist spirit, I seek out, recontextualize, and amplify perspectives that challenge the established order. These elements work together to generate moments of surprise that disrupt patterns of predictable, passive listening.</p>
 
-<p>Radio offers an intimate connection with listeners, enabling artistic content to infiltrate everyday life. Freeform radio exists beyond commercial constraints, creating a platform for authentic expression. My work extends this opposition by featuring nonconforming artists who confront systems of power. The live format adds risk and immediacy that recorded media cannot replicate.</p>
+      <p>Radio offers an intimate connection with listeners, enabling artistic content to infiltrate everyday life. Freeform radio exists beyond commercial constraints, creating a platform for authentic expression. My work extends this opposition by featuring nonconforming artists who confront systems of power. The live format adds risk and immediacy that recorded media cannot replicate.</p>
 
-<p>Through my weekly practice and relentless research, I transform radio into something more uncompromising, and immediate—a performative space where unheard voices reimagine our relationship to audio, protest, collective memory.</p>
-
-</section>
-
-
-
-</body>
-
-  <a href="index.html">← Back to Home</a>
+      <p>Through my weekly practice and relentless research, I transform radio into something more uncompromising, and immediate—a performative space where unheard voices reimagine our relationship to audio, protest, collective memory.</p>
+    </div>
+    
+    <a href="index.html" class="back-btn">← Back to Home</a>
+    
+    <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta-link" aria-label="Instagram">
+      <svg class="insta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+  </div>
+  
+  <footer>
+    <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
+  </footer>
 </body>
 </html>
