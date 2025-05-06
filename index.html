@@ -119,14 +119,14 @@
       transition: all 0.3s ease;
     }
     
-    /* Screen printing effect */
+    /* Enhanced screen printing effect with dramatic overhang */
     .nav-item::before, .email-nav::before {
       content: '';
       position: absolute;
-      top: 5px;
-      left: 5px;
-      width: 102%;
-      height: 102%;
+      top: -4px;
+      left: -6px;
+      width: 110%;
+      height: 110%;
       background: #EBFE58; /* Yellow hover color */
       z-index: -1;
       transform: scaleX(0);
@@ -158,17 +158,17 @@
     }
     
     .item-3 {
-      grid-column: 1 / span 2;
-      grid-row: 4 / span 1;
-      border: 2px solid #f6f1e6;
-      transform: rotate(0.8deg);
-    }
-    
-    .item-4 {
-      grid-column: 3 / span 2;
+      grid-column: 3 / span 2; /* Bio moved to middle */
       grid-row: 3 / span 1;
       border: 2px solid #f6f1e6;
       transform: rotate(-0.5deg);
+    }
+    
+    .item-4 {
+      grid-column: 5 / span 2; /* Compilations moved to far right */
+      grid-row: 4 / span 1;
+      border: 2px solid #f6f1e6;
+      transform: rotate(0.8deg);
     }
     
     .item-5 {
@@ -178,10 +178,10 @@
       transform: rotate(0.8deg);
     }
     
-    /* Email link in nav */
+    /* Email link in nav with smaller outline, vertical orientation */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 4 / span 2;
+      grid-row: 5 / span 2;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -193,15 +193,13 @@
       font-size: 16px;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      border: 2px solid #f6f1e6;
-      padding: 10px;
-      width: 80%;
-      height: 50%;
+      border: 1px solid #f6f1e6; /* Smaller outline */
+      padding: 8px;
+      width: 30px; /* Smaller width */
+      height: 70%;
       margin: auto;
-    }
-    
-    .email-nav:hover {
-      color: black;
+      writing-mode: vertical-rl; /* Vertical text orientation */
+      text-orientation: mixed;
     }
     
     .insta-link {
@@ -260,32 +258,33 @@
       }
       
       .item-3 {
-        grid-column: 2 / span 4;
-        grid-row: 5 / span 2;
-        transform: rotate(2deg);
-      }
-      
-      .item-4 {
-        grid-column: 2 / span 4;
+        grid-column: 2 / span 4; /* Bio after artist statement */
         grid-row: 4 / span 2;
         transform: rotate(-1deg);
       }
       
       .item-5 {
-        grid-column: 5 / span 3;
+        grid-column: 5 / span 3; /* Services after bio */
         grid-row: 5 / span 2;
+        transform: rotate(2deg);
+      }
+      
+      .item-4 {
+        grid-column: 2 / span 4; /* Compilations last */
+        grid-row: 7 / span 2;
         transform: rotate(2deg);
       }
       
       .email-nav {
         grid-column: 6 / span 2;
-        grid-row: 7 / span 2;
+        grid-row: 8 / span 2;
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
         width: auto;
         height: auto;
-        padding: 20px 10px;
+        padding: 15px 5px;
+        border: 1px solid #f6f1e6;
       }
       
       .social-container {
@@ -307,7 +306,7 @@
       .nav-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(7, 50px);
+        grid-template-rows: repeat(8, 50px);
         gap: 12px;
       }
       
@@ -324,32 +323,33 @@
       }
       
       .item-3 {
-        grid-column: 1 / span 2;
-        grid-row: 5 / span 1;
-        transform: rotate(-2deg);
-      }
-      
-      .item-4 {
-        grid-column: 2 / span 2;
+        grid-column: 1 / span 2; /* Bio after artist statement */
         grid-row: 3 / span 1;
         transform: rotate(-1.5deg);
       }
       
       .item-5 {
-        grid-column: 2 / span 2;
+        grid-column: 2 / span 2; /* Services after bio */
         grid-row: 4 / span 1;
         transform: rotate(3deg);
       }
       
+      .item-4 {
+        grid-column: 1 / span 2; /* Compilations last */
+        grid-row: 5 / span 1;
+        transform: rotate(-2deg);
+      }
+      
       .email-nav {
         grid-column: 3 / span 1;
-        grid-row: 5 / span 2;
+        grid-row: 6 / span 2;
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1.5deg);
         width: auto;
         height: auto;
         padding: 15px 5px;
+        border: 1px solid #f6f1e6;
       }
       
       .insta-link {
