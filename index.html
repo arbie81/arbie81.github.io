@@ -99,9 +99,42 @@
       text-align: center;
 }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
+/* Initially hide the tooltip */
+.title-tooltip {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  position: absolute;
+  width: 50%;
+  left: 0;
+  top: -190px;
+  background-color: #EBFE58;
+  color: black;
+  padding: 2px 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: bold;
+  z-index: 50;
+  text-align: center;
+}
+
+/* Make ARB letters individually trigger the tooltip */
+.letter-A:hover ~ .title-tooltip,
+.letter-R:hover ~ .title-tooltip,
+.letter-B:hover ~ .title-tooltip {
+  opacity: 1;
+}
+
+/* Make letter spans block-level for precise hover areas */
+.letter-A, .letter-R, .letter-B {
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+}
+
+/* Make arb-text not catch hover events */
+.arb-text {
+  pointer-events: none;
 }
 
     /* RADIO ART positioned to align with the O in BIO */
