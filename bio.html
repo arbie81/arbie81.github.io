@@ -4,18 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bio - ARB.GAY</title>
-  <!-- Primary favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
-  <script>
-    // Force favicon refresh
-    var link = document.querySelector("link[rel~='icon']");
-    if (link) {
-      var clonedLink = link.cloneNode(true);
-      link.parentNode.replaceChild(clonedLink, link);
-    }
-  </script>
-  <!-- For iOS devices -->
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23EA3323' filter='url(%23noiseFilter)'/%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Ctext x='15' y='70' font-family='Helvetica Neue, Futura, sans-serif' font-size='40' font-weight='bold' fill='white'%3EARB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <style>
     @font-face {
       font-family: 'Vulva Typography';
@@ -23,75 +12,176 @@
       font-weight: normal;
       font-style: normal;
     }
+    
     body {
       background-color: #EA3323;
       color: white;
-      font-family: 'Futura', sans-serif;
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
       margin: 0;
-      padding: 20px;
-      line-height: 1.4;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
+    
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 100;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
+    }
+    
     h1, h2 {
       color: white;
       margin: 0;
     }
+    
     a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
     }
+    
     a:hover {
       color: black;
     }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 30px;
-      background-color: transparent;
-    }
-    .button {
-      display: block;
-      background-color: #000;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 15px;
-      font-weight: bold;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      width: fit-content;
-    }
-    .button:hover {
-      background-color: #fff;
-      color: black;
-      transform: translateY(-3px);
-    }
+    
     .bio-title {
-      font-family: 'Vulva Typography', sans-serif;
+      font-family: 'Vulva Typography', 'Helvetica Neue', 'Futura', sans-serif;
       font-size: 150px;
       display: block;
-      margin-bottom: 0;
+      margin-bottom: 20px;
+      transform: rotate(-2deg);
+      letter-spacing: 5px;
     }
-    h2 {
-      margin-top: -20px;
-      margin-bottom: 50px;
+    
+    .bio-title span {
+      display: inline-block;
     }
+    
+    .bio-title span:nth-child(1) { transform: translateY(-2px) rotate(0.5deg); }
+    .bio-title span:nth-child(2) { transform: translateY(2px) rotate(-0.8deg); }
+    .bio-title span:nth-child(3) { transform: translateY(-1px) rotate(0.4deg); }
+    
     .bio-text {
       font-size: 18px;
-      margin-bottom: 30px;
+      line-height: 1.6;
+      margin: 40px 0;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    
+    .bio-text p {
+      margin-bottom: 20px;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: rotate(-1deg);
+      border: 2px solid black;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .back-link::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      background: #EBFE58;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .back-link:hover {
+      color: black;
+    }
+    
+    .back-link:hover::before {
+      opacity: 1;
+    }
+    
+    /* Apply letter-spacing and misalignment */
+    .back-link span {
+      display: inline-block;
+    }
+    
+    .back-link span:nth-child(odd) {
+      transform: translateY(-0.5px) rotate(0.3deg);
+    }
+    
+    .back-link span:nth-child(even) {
+      transform: translateY(0.5px) rotate(-0.3deg);
+    }
+    
+    @media (max-width: 900px) {
+      .bio-title {
+        font-size: 100px;
+      }
+      
+      .bio-text {
+        font-size: 16px;
+      }
+      
+      .container {
+        padding: 40px 20px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .bio-title {
+        font-size: 80px;
+      }
+      
+      .bio-text {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="noise"></div>
+  
   <div class="container">
-    <h1 class="bio-title">BIO</h1>
+    <h1 class="bio-title">
+      <span>B</span><span>I</span><span>O</span>
+    </h1>
+    
     <div class="bio-text">
-      <p>Alina Richard Brennaman (b. 1981, Kansas, USA) is a self-taught artist, archivist, researcher, and writer. Her work focuses on sound, radio, and experimental media, developed through years of involvement in DIY punk communities, underground music scenes, and independent travel. Since 2014, ARB has been creating radio works, and since 2019, has hosted a weekly show on WFMU. Having lived in various locations and traveled widely, she draws inspiration from cultures that exist beyond mainstream visibility. Her work documents and amplifies subversive voices while operating independently of both capitalist and academic frameworks.
-    </div><p>
-   <a href="index.html" class="back-link">← Back</a>  </div>
+      <p>Alina Richard Brennaman (b. 1981, Kansas, USA) is a self-taught artist, archivist, researcher, and writer. Her work focuses on sound, radio, and experimental media, developed through years of involvement in DIY punk communities, underground music scenes, and independent travel. Since 2014, ARB has been creating radio works, and since 2019, has hosted a weekly show on WFMU. Having lived in various locations and traveled widely, she draws inspiration from cultures that exist beyond mainstream visibility. Her work documents and amplifies subversive voices while operating independently of both capitalist and academic frameworks.</p>
+    </div>
+    
+    <a href="index.html" class="back-link">
+      <span>←</span><span> </span><span>B</span><span>a</span><span>c</span><span>k</span>
+    </a>
   </div>
 </body>
 </html>
-
