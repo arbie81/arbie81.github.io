@@ -65,22 +65,23 @@
       letter-spacing: 16px; /* Increased letter spacing for ARB */
     }
     
-    /* This adds subtle misalignment to individual letters for hand-applied feel */
+    /* Applying same analog treatment to ARB as buttons */
     .title-main span {
       display: inline-block;
       position: relative;
+      transform-origin: center;
     }
     
-    /* Applied same analog treatment as buttons */
-    .letter-A { transform: translateY(1px) rotate(0.3deg) scale(0.99); }
-    .letter-R { transform: translateY(-0.5px) rotate(-0.2deg) scale(1.01); }
-    .letter-B { transform: translateY(0.7px) rotate(0.1deg) scale(0.98); }
+    /* Enhanced analog treatment for ARB */
+    .letter-A { transform: translateY(1px) rotate(0.6deg) scale(0.99); }
+    .letter-R { transform: translateY(-0.8px) rotate(-0.4deg) scale(1.01); }
+    .letter-B { transform: translateY(1.2px) rotate(0.3deg) scale(0.98); }
     
     .title-tooltip {
       position: absolute;
-      top: 50%; /* Centered vertically */
-      left: 50%; /* Centered horizontally */
-      transform: translate(-50%, -50%) rotate(2deg);
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%) rotate(0deg);
       background-color: #EBFE58; /* Yellow tooltip background */
       color: black;
       padding: 6px 12px;
@@ -101,7 +102,7 @@
       font-size: 28px;
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
-      transform: translateX(60px) translateY(-40px) rotate(90deg); /* Moved much further RIGHT */
+      transform: translateX(4px) translateY(-40px) rotate(90deg); /* Moved much further LEFT as requested */
       transform-origin: left;
       display: inline-block;
       position: absolute;
@@ -111,18 +112,19 @@
     .subtitle span {
       display: inline-block;
       letter-spacing: 5px; /* Increased space between letters */
+      transform-origin: center;
     }
     
-    /* Applied same analog treatment as buttons */
-    .subtitle .radio-r { transform: translateY(0.4px) rotate(0.2deg) scale(0.98); }
-    .subtitle .radio-a { transform: translateY(-0.2px) rotate(-0.1deg) scale(1.01); }
-    .subtitle .radio-d { transform: translateY(0.3px) rotate(0.3deg) scale(0.99); }
-    .subtitle .radio-i { transform: translateY(-0.3px) rotate(-0.2deg) scale(1.02); }
-    .subtitle .radio-o { transform: translateY(0.2px) rotate(0.1deg) scale(0.97); }
+    /* Enhanced analog treatment for RADIO ART */
+    .subtitle .radio-r { transform: translateY(0.8px) rotate(0.4deg) scale(0.98); }
+    .subtitle .radio-a { transform: translateY(-0.5px) rotate(-0.3deg) scale(1.01); }
+    .subtitle .radio-d { transform: translateY(0.7px) rotate(0.5deg) scale(0.99); }
+    .subtitle .radio-i { transform: translateY(-0.6px) rotate(-0.4deg) scale(1.02); }
+    .subtitle .radio-o { transform: translateY(0.4px) rotate(0.2deg) scale(0.97); }
     
-    .subtitle .art-a { transform: translateY(-0.1px) rotate(-0.3deg) scale(1.01); margin-left: 14px; } /* Increased space between words */
-    .subtitle .art-r { transform: translateY(0.2px) rotate(0.2deg) scale(0.98); }
-    .subtitle .art-t { transform: translateY(-0.2px) rotate(-0.2deg) scale(1.02); }
+    .subtitle .art-a { transform: translateY(-0.3px) rotate(-0.5deg) scale(1.01); margin-left: 14px; } /* Increased space between words */
+    .subtitle .art-r { transform: translateY(0.5px) rotate(0.4deg) scale(0.98); }
+    .subtitle .art-t { transform: translateY(-0.4px) rotate(-0.3deg) scale(1.02); }
     
     .nav-grid {
       display: grid;
@@ -207,6 +209,8 @@
       grid-column: 4 / span 3;
       grid-row: 1 / span 1;
       transform: rotate(1deg);
+      width: 80%; /* Made Artist Statement button less wide as requested */
+      margin: 0 auto;
     }
     
     .item-3 {
@@ -217,9 +221,8 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 2.5 / span 1; /* Positioned slightly higher than Bio */
+      grid-row: 2 / span 1; /* Positioned slightly lower than before but higher than Bio */
       transform: rotate(1.5deg);
-      margin-top: 15px; /* Extra offset to align better */
     }
     
     .item-5 {
@@ -228,17 +231,17 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned just right */
+    /* Email link in nav positioned higher as requested */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 4 / span 2; /* Moved back up - visible but not too high */
+      grid-row: 3.5 / span 2; /* Moved up a bit */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
-      width: 20px; /* Thinner proportions matching reference */
+      width: 22px; /* Slightly wider for padding */
       height: 140px; /* Taller proportions matching reference */
       margin: auto;
-      padding: 10px;
+      padding: 15px 10px; /* Increased padding for more space around the text */
     }
     
     .insta-link {
@@ -284,127 +287,108 @@
       }
       
       .subtitle {
-        transform: translateX(-40px) translateY(-30px) rotate(90deg); /* Maintained further left position */
+        transform: translateX(0px) translateY(-30px) rotate(90deg); /* Maintained further left position */
         font-size: 22px;
       }
       
       .nav-grid {
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(12, 50px); /* Increased rows to make space */
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(8, 60px);
         gap: 15px;
         margin-bottom: 40px;
       }
       
       .item-1 {
-        grid-column: 1 / span 4;
+        grid-column: 1 / span 3;
         grid-row: 1 / span 2;
-        transform: rotate(-2deg);
+        transform: rotate(-1deg);
       }
       
       .item-2 {
-        grid-column: 5 / span 4;
-        grid-row: 2 / span 2;
-        transform: rotate(1.5deg);
+        grid-column: 4 / span 3;
+        grid-row: 1 / span 2;
+        transform: rotate(1deg);
+        width: 85%;
       }
       
       .item-3 {
-        grid-column: 5 / span 4; /* Bio on right side */
-        grid-row: 4 / span 2;
-        transform: rotate(1.5deg);
-      }
-      
-      .item-5 {
-        grid-column: 6 / span 3; /* Services on right side */
-        grid-row: 6 / span 2;
-        transform: rotate(2deg);
-      }
-      
-      .item-4 {
-        grid-column: 1 / span 4; /* Compilations on LEFT side */
-        grid-row: 4 / span 2; /* Positioned close to Bio level */
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 2;
         transform: rotate(-2deg);
       }
       
+      .item-4 {
+        grid-column: 3 / span 2;
+        grid-row: 3 / span 2;
+        transform: rotate(1deg);
+      }
+      
+      .item-5 {
+        grid-column: 5 / span 2; 
+        grid-row: 3 / span 2;
+        transform: rotate(2deg);
+      }
+      
       .email-nav {
-        grid-column: 1 / span 2;
-        grid-row: 10 / span 2; /* Positioned much lower */
+        grid-column: 3 / span 1;
+        grid-row: 5 / span 2;
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
         width: auto;
         height: auto;
-        padding: 15px 5px;
-        border: 2px solid #f6f1e6;
-      }
-      
-      .social-container {
-        top: 25px;
-        right: 25px;
+        padding: 15px 8px;
       }
     }
     
     @media (max-width: 600px) {
+      .dada-container {
+        padding: 20px 15px;
+      }
+      
       .title-main {
-        font-size: 80px;
-        letter-spacing: 8px; /* Adjusted letter spacing for mobile */
+        font-size: 72px;
+        letter-spacing: 8px;
       }
       
       .subtitle {
-        transform: translateX(-30px) translateY(-20px) rotate(90deg); /* Maintained further left position */
-        font-size: 18px;
+        transform: translateX(0px) translateY(-20px) rotate(90deg);
+        font-size: 16px;
       }
       
       .nav-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(12, 50px); /* Increased rows */
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(50px, auto);
         gap: 12px;
+        margin-top: 80px;
       }
       
-      .item-1 {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 1;
-        transform: rotate(-3deg);
+      .nav-item, .email-nav {
+        grid-column: 1 / -1;
+        width: 80%;
+        margin: 0 auto;
+        height: auto;
+        padding: 12px;
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
       }
       
-      .item-2 {
-        grid-column: 2 / span 2;
-        grid-row: 2 / span 1;
-        transform: rotate(2deg);
-      }
-      
-      .item-3 {
-        grid-column: 2 / span 2; /* Bio on right */
-        grid-row: 3 / span 1;
-        transform: rotate(2deg);
-      }
-      
-      .item-5 {
-        grid-column: 2 / span 2; /* Services on right */
-        grid-row: 4 / span 1;
-        transform: rotate(3deg);
-      }
-      
-      .item-4 {
-        grid-column: 1 / span 2; /* Compilations on LEFT */
-        grid-row: 3 / span 1; /* Positioned at similar level to Bio */
-        transform: rotate(-2deg);
-      }
+      .item-1 { transform: rotate(-2deg); }
+      .item-2 { transform: rotate(1deg); }
+      .item-3 { transform: rotate(-1deg); }
+      .item-4 { transform: rotate(2deg); }
+      .item-5 { transform: rotate(-1.5deg); }
       
       .email-nav {
-        grid-column: 3 / span 1;
-        grid-row: 10 / span 2; /* Positioned much lower */
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(2deg);
-        width: auto;
+        transform: rotate(1deg);
+        writing-mode: horizontal-tb;
         height: auto;
-        padding: 12px 5px;
-        border: 2px solid #f6f1e6;
+        width: 60%;
       }
       
       .insta-link {
-        bottom: 70px;
+        bottom: 50px;
         right: 15px;
       }
       
@@ -450,7 +434,7 @@
         <span class="word-space"></span>
         <span class="l-7">W</span><span class="l-8">F</span><span class="l-9">M</span><span class="l-10">U</span>
       </a>
-      <a href="statement.html" class="nav-item item-2" style="width: 90%; margin: 0 auto;">
+      <a href="statement.html" class="nav-item item-2">
         <span class="l-2">A</span><span class="l-3">r</span><span class="l-4">t</span><span class="l-5">i</span><span class="l-6">s</span><span class="l-7">t</span>
         <span class="word-space"></span>
         <span class="l-8">S</span><span class="l-9">t</span><span class="l-10">a</span><span class="l-1">t</span><span class="l-2">e</span><span class="l-3">m</span><span class="l-4">e</span><span class="l-5">n</span><span class="l-6">t</span>
