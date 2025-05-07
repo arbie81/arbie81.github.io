@@ -82,9 +82,9 @@
     
     .title-tooltip {
       position: absolute;
-      top: 40%; /* Position directly over the ARB text */
+      top: 30%; /* Position directly over the ARB text */
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -30%); /* Center it over ARB */
       background-color: #EBFE58; /* Yellow tooltip background */
       color: black;
       padding: 6px 12px;
@@ -106,10 +106,13 @@
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
       position: absolute;
-      top: -30px; /* Position above ARB */
-      left: 0; /* Align with left of ARB */
+      top: 70px; /* Position at Bio's O level */
+      left: 300px; /* Position above Bio's O */
       font-weight: bold;
       white-space: nowrap; /* Keep all text on one line */
+      transform: rotate(90deg); /* Make it vertical */
+      transform-origin: left top; /* Rotate from the top left corner */
+      z-index: 5;
     }
     
     .subtitle span {
@@ -224,7 +227,7 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 2 / span 1; /* Raised up one row to be higher */
+      grid-row: 2.5 / span 1; /* Raised up half as much as before */
       transform: rotate(1.5deg);
     }
     
@@ -234,10 +237,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned higher */
+    /* Email link in nav positioned higher but not too high */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 3 / span 2; /* Raised up two rows to be between compilations and services */
+      grid-row: 4 / span 2; /* Raised up half as much as before */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -277,9 +280,9 @@
     
     footer {
       position: fixed;
-      bottom: 10px;
+      bottom: 5px;
       right: 20px;
-      font-size: 12px;
+      font-size: 10px; /* Smaller font size */
       color: #444; /* dark gray, barely visible */
     }
     
@@ -346,18 +349,19 @@
     
     @media (max-width: 600px) {
       .dada-container {
-        padding: 20px 15px;
+        padding: 10px 15px; /* Reduced top padding */
       }
       
       .title-main {
         font-size: 72px;
         letter-spacing: 8px;
+        margin-bottom: 10px; /* Less space after title */
       }
       
       .subtitle {
         position: absolute;
-        top: 10px; /* Position at top of screen for mobile */
-        right: 10px; /* Positioned at top right */
+        top: 70px; /* Positioned near the top */
+        right: 5px; /* At far right edge */
         transform: rotate(90deg); /* Rotated vertically */
         transform-origin: top right;
         font-size: 16px;
@@ -368,27 +372,29 @@
       .nav-grid {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        margin-top: 30px; /* Moved closer to title */
-        padding-bottom: 80px; /* Add space at bottom */
+        gap: 10px; /* Reduced gap between items */
+        margin-top: 10px; /* Much closer to title */
+        padding-bottom: 0; /* No extra padding at bottom */
       }
       
       .nav-item {
         width: 75%;
         height: auto;
-        padding: 12px;
+        padding: 8px; /* Reduced padding to make items more compact */
         writing-mode: horizontal-tb;
         text-orientation: mixed;
+        font-size: 14px; /* Smaller font size to fit better */
       }
       
       .email-nav {
-        width: 22px; /* Keep narrow for vertical orientation */
-        height: 140px; /* Taller as it's vertical */
+        width: 20px; /* Slightly narrower for vertical orientation */
+        height: 110px; /* Shorter to fit on one screen */
         writing-mode: vertical-rl; /* Keep vertical for mobile */
         text-orientation: mixed;
-        padding: 15px 8px;
+        padding: 12px 6px; /* Reduced padding */
         align-self: flex-end;
         margin-right: 10px;
+        font-size: 14px; /* Smaller font size to fit better */
       }
       
       /* Left-aligned items */
