@@ -51,8 +51,7 @@
       margin-bottom: 60px;
       z-index: 10;
     }
-    
-    .title-main {
+   .title-main {
       font-family: 'Helvetica Neue', 'Futura', sans-serif;
       font-size: 180px;
       line-height: 0.8;
@@ -60,13 +59,18 @@
       transform: rotate(-2deg);
       display: inline-block;
       position: relative;
-      cursor: help;
       font-weight: bold;
       letter-spacing: 16px; /* Increased letter spacing for ARB */
     }
     
-    /* Applying analog treatment to ARB */
-    .title-main span {
+    /* Applying analog treatment to ARB with wrapper */
+    .arb-wrapper {
+      display: inline-block;
+      position: relative;
+      cursor: help; /* Only show help cursor over ARB wrapper */
+    }
+    
+    .title-main span.letter {
       display: inline-block;
       position: relative;
       transform-origin: center;
@@ -83,7 +87,7 @@
     /* Tooltip that appears directly over ARB letters */
     .title-tooltip {
       position: absolute;
-      width: 50%;
+      width: 100%;
       left: 0;
       top: -190px; /* Position above the ARB */
       background-color: #EBFE58; /* Yellow tooltip background */
@@ -97,18 +101,12 @@
       pointer-events: none;
       z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
-}
+    }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
-}
-
-    
-    .title-main:hover .title-tooltip {
+    /* Make tooltip visible only when hovering over ARB wrapper */
+    .arb-wrapper:hover .title-tooltip {
       opacity: 1;
     }
-    
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
