@@ -82,7 +82,7 @@
     
     .title-tooltip {
       position: absolute;
-      top: 100px; /* Position directly over the ARB text */
+      top: 40%; /* Position directly over the ARB text */
       left: 50%;
       transform: translateX(-50%);
       background-color: #EBFE58; /* Yellow tooltip background */
@@ -105,11 +105,12 @@
       font-size: 28px;
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
-      transform: translateX(-250px) translateY(-40px) rotate(90deg); /* Moved much further LEFT as requested - 2.5" left */
+      transform: translateX(-130px) translateY(-40px) rotate(90deg); /* Position halfway between original and B in ARB */
       transform-origin: left;
       display: inline-block;
       position: absolute;
       font-weight: bold;
+      white-space: nowrap; /* Keep all text on one line */
     }
     
     .subtitle span {
@@ -224,7 +225,7 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 2.5 / span 1; /* Lowered slightly but still higher than Bio */
+      grid-row: 3 / span 1; /* Lowered to align better with Bio */
       transform: rotate(1.5deg);
     }
     
@@ -234,10 +235,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned lower as requested */
+    /* Email link in nav positioned at Bio button bottom level */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 4.5 / span 2; /* Lowered by 3/4" (moved down 1 row) */
+      grid-row: 5 / span 2; /* Lowered significantly to match bottom of Bio */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -290,7 +291,7 @@
       }
       
       .subtitle {
-        transform: translateX(-140px) translateY(-30px) rotate(90deg); /* Maintained further left position */
+        transform: translateX(-80px) translateY(-30px) rotate(90deg); /* Maintained further left position */
         font-size: 22px;
       }
       
@@ -355,45 +356,51 @@
       }
       
       .subtitle {
-        transform: translateX(-90px) translateY(-20px) rotate(90deg);
+        transform: translateX(-60px) translateY(-20px) rotate(90deg);
         font-size: 16px;
+        display: block; /* Ensure it's visible on mobile */
       }
       
-      /* Completely revised mobile layout */
+      /* Alternating left/right layout for mobile */
       .nav-grid {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        margin-top: 100px;
-        align-items: center;
+        gap: 15px;
+        margin-top: 30px; /* Moved closer to title */
+        padding-bottom: 80px; /* Add space at bottom */
       }
       
       .nav-item, .email-nav {
-        width: 80%;
-        max-width: 280px;
-        margin: 5px auto;
+        width: 75%;
         height: auto;
         padding: 12px;
         writing-mode: horizontal-tb;
         text-orientation: mixed;
-        display: flex;
-        justify-content: center;
-        transform: none !important; /* Remove rotation for readability */
       }
       
-      /* Add some offset to create a staggered effect instead of rotation */
-      .item-1 { transform: translateX(-10px) !important; }
-      .item-2 { transform: translateX(15px) !important; width: 65%; }
-      .item-3 { transform: translateX(-5px) !important; }
-      .item-4 { transform: translateX(10px) !important; }
-      .item-5 { transform: translateX(-15px) !important; }
+      /* Left-aligned items */
+      .item-1, .item-3, .item-5 {
+        align-self: flex-start;
+        margin-left: 10px;
+      }
+      
+      /* Right-aligned items */
+      .item-2, .item-4, .email-nav {
+        align-self: flex-end;
+        margin-right: 10px;
+      }
+      
+      .item-1 { transform: rotate(-2deg); }
+      .item-2 { transform: rotate(1deg); }
+      .item-3 { transform: rotate(-1deg); }
+      .item-4 { transform: rotate(2deg); }
+      .item-5 { transform: rotate(-1.5deg); }
       
       .email-nav {
-        transform: translateX(5px) !important;
+        transform: rotate(1deg);
         writing-mode: horizontal-tb;
         height: auto;
         width: 60%;
-        order: 6; /* Move to bottom */
       }
       
       .insta-link {
