@@ -62,7 +62,18 @@
       position: relative;
       cursor: help;
       font-weight: bold;
+      letter-spacing: 6px; /* Add subtle letter spacing */
     }
+    
+    /* This adds subtle misalignment to individual letters for hand-applied feel */
+    .title-main span {
+      display: inline-block;
+      position: relative;
+    }
+    
+    .letter-A { transform: translateY(1px) rotate(0.3deg); }
+    .letter-R { transform: translateY(-0.5px) rotate(-0.2deg); }
+    .letter-B { transform: translateY(0.7px) rotate(0.1deg); }
     
     .title-tooltip {
       position: absolute;
@@ -104,7 +115,8 @@
       margin-top: 40px;
     }
     
-    .nav-item {
+    /* Common styles for all navigation items */
+    .nav-item, .email-nav {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -112,17 +124,17 @@
       color: #f6f1e6;
       font-weight: bold;
       position: relative;
-      overflow: hidden;
+      overflow: visible; /* Changed from hidden to allow overflow */
       text-transform: uppercase;
       font-size: 16px;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      /* Fixed: Making the item have the right z-index for the hover effect */
+      border: 2px solid #f6f1e6;
       z-index: 1;
     }
     
-    /* True screen printing offset effect - fixed to match email button */
-    .nav-item::before {
+    /* Offset effect for hover - fixed to match email button */
+    .nav-item::before, .email-nav::before {
       content: '';
       position: absolute;
       top: 6px;
@@ -135,94 +147,55 @@
       transition: opacity 0.3s ease;
     }
     
-    .nav-item:hover {
-      color: black;
+    .nav-item:hover::before, .email-nav:hover::before {
+      opacity: 1;
     }
     
-    .nav-item:hover::before {
-      opacity: 1;
+    .nav-item:hover, .email-nav:hover {
+      color: black;
     }
     
     .item-1 {
       grid-column: 1 / span 2;
       grid-row: 1 / span 2;
-      border: 2px solid #f6f1e6;
       transform: rotate(-1deg);
     }
     
     .item-2 {
       grid-column: 4 / span 3;
       grid-row: 1 / span 1;
-      border: 2px solid #f6f1e6;
       transform: rotate(1deg);
     }
     
     .item-3 {
       grid-column: 3 / span 2; /* Bio moved to middle */
       grid-row: 3 / span 1;
-      border: 2px solid #f6f1e6;
       transform: rotate(-2deg);
     }
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations moved to far right */
-      grid-row: 2 / span 1; /* Moved up slightly from Bio */
-      border: 2px solid #f6f1e6;
+      grid-row: 2 / span 1; /* Position slightly above bio */
       transform: rotate(1.5deg);
     }
     
     .item-5 {
       grid-column: 1 / span 2;
       grid-row: 4 / span 1;
-      border: 2px solid #f6f1e6;
       transform: rotate(2deg);
     }
     
     /* Email link in nav with proportions matching image reference */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 4 / span 2; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #f6f1e6;
-      font-weight: bold;
+      grid-row: 3 / span 2; /* Raised slightly from row 4 to row 3 */
+      writing-mode: vertical-rl; /* Vertical text orientation */
+      text-orientation: mixed;
       transform: rotate(2deg);
-      text-transform: uppercase;
-      font-size: 16px;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      border: 2px solid #f6f1e6;
-      padding: 10px;
       width: 20px; /* Thinner proportions matching reference */
       height: 140px; /* Taller proportions matching reference */
       margin: auto;
-      writing-mode: vertical-rl; /* Vertical text orientation */
-      text-orientation: mixed;
-      /* Fixed: Making the item have the right z-index for the hover effect */
-      z-index: 1;
-    }
-    
-    .email-nav::before {
-      content: '';
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 100%;
-      height: 100%;
-      background: #EBFE58; /* Yellow hover color */
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .email-nav:hover {
-      color: black;
-    }
-    
-    .email-nav:hover::before {
-      opacity: 1;
+      padding: 10px;
     }
     
     .insta-link {
@@ -254,6 +227,7 @@
     @media (max-width: 900px) {
       .title-main {
         font-size: 120px;
+        letter-spacing: 4px; /* Adjust letter spacing for smaller screens */
       }
       
       .subtitle {
@@ -300,14 +274,13 @@
       
       .email-nav {
         grid-column: 1 / span 2;
-        grid-row: 6 / span 2; /* Moved up closer to elements */
+        grid-row: 5 / span 2; /* Raised slightly */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
         width: auto;
         height: auto;
         padding: 15px 5px;
-        border: 2px solid #f6f1e6;
       }
       
       .social-container {
@@ -319,6 +292,7 @@
     @media (max-width: 600px) {
       .title-main {
         font-size: 80px;
+        letter-spacing: 3px; /* Adjust letter spacing for mobile */
       }
       
       .subtitle {
@@ -365,14 +339,13 @@
       
       .email-nav {
         grid-column: 3 / span 1;
-        grid-row: 5 / span 1; /* Moved up */
+        grid-row: 4 / span 1; /* Raised slightly */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(2deg);
         width: auto;
         height: auto;
         padding: 12px 5px;
-        border: 2px solid #f6f1e6;
       }
       
       .insta-link {
@@ -393,7 +366,7 @@
   <div class="dada-container">
     <div class="title-block">
       <h1 class="title-main">
-        ARB
+        <span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span>
         <span class="title-tooltip">Alina Richard Brennaman</span>
       </h1>
       <div class="subtitle">Radio Art</div>
