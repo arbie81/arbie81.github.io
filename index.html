@@ -65,23 +65,26 @@
       letter-spacing: 16px; /* Increased letter spacing for ARB */
     }
     
-    /* Applying same analog treatment to ARB as buttons */
+    /* Applying analog treatment to ARB */
     .title-main span {
       display: inline-block;
       position: relative;
       transform-origin: center;
+      /* Enhanced analog effect for ARB letters */
+      margin-right: 4px;
+      margin-left: 4px;
     }
     
     /* Enhanced analog treatment for ARB */
-    .letter-A { transform: translateY(1px) rotate(0.6deg) scale(0.99); }
-    .letter-R { transform: translateY(-0.8px) rotate(-0.4deg) scale(1.01); }
-    .letter-B { transform: translateY(1.2px) rotate(0.3deg) scale(0.98); }
+    .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); }
+    .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
+    .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
     .title-tooltip {
       position: absolute;
-      top: 50%; 
-      left: 50%; 
-      transform: translate(-50%, -50%) rotate(0deg);
+      top: 100px; /* Position directly over the ARB text */
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #EBFE58; /* Yellow tooltip background */
       color: black;
       padding: 6px 12px;
@@ -102,7 +105,7 @@
       font-size: 28px;
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
-      transform: translateX(4px) translateY(-40px) rotate(90deg); /* Moved much further LEFT as requested */
+      transform: translateX(-250px) translateY(-40px) rotate(90deg); /* Moved much further LEFT as requested - 2.5" left */
       transform-origin: left;
       display: inline-block;
       position: absolute;
@@ -116,15 +119,15 @@
     }
     
     /* Enhanced analog treatment for RADIO ART */
-    .subtitle .radio-r { transform: translateY(0.8px) rotate(0.4deg) scale(0.98); }
-    .subtitle .radio-a { transform: translateY(-0.5px) rotate(-0.3deg) scale(1.01); }
-    .subtitle .radio-d { transform: translateY(0.7px) rotate(0.5deg) scale(0.99); }
-    .subtitle .radio-i { transform: translateY(-0.6px) rotate(-0.4deg) scale(1.02); }
-    .subtitle .radio-o { transform: translateY(0.4px) rotate(0.2deg) scale(0.97); }
+    .subtitle .radio-r { transform: translateY(1.8px) rotate(1.1deg) scale(0.97); }
+    .subtitle .radio-a { transform: translateY(-1.2px) rotate(-0.9deg) scale(1.03); }
+    .subtitle .radio-d { transform: translateY(1.5px) rotate(1.2deg) scale(0.98); }
+    .subtitle .radio-i { transform: translateY(-1.4px) rotate(-1.1deg) scale(1.04); }
+    .subtitle .radio-o { transform: translateY(1.1px) rotate(0.8deg) scale(0.96); }
     
-    .subtitle .art-a { transform: translateY(-0.3px) rotate(-0.5deg) scale(1.01); margin-left: 14px; } /* Increased space between words */
-    .subtitle .art-r { transform: translateY(0.5px) rotate(0.4deg) scale(0.98); }
-    .subtitle .art-t { transform: translateY(-0.4px) rotate(-0.3deg) scale(1.02); }
+    .subtitle .art-a { transform: translateY(-0.9px) rotate(-1.3deg) scale(1.02); margin-left: 22px; } /* Increased space between words */
+    .subtitle .art-r { transform: translateY(1.2px) rotate(1.1deg) scale(0.97); }
+    .subtitle .art-t { transform: translateY(-1.1px) rotate(-0.9deg) scale(1.03); }
     
     .nav-grid {
       display: grid;
@@ -209,7 +212,7 @@
       grid-column: 4 / span 3;
       grid-row: 1 / span 1;
       transform: rotate(1deg);
-      width: 80%; /* Made Artist Statement button less wide as requested */
+      width: 65%; /* Made Artist Statement button less wide as requested */
       margin: 0 auto;
     }
     
@@ -221,7 +224,7 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 2 / span 1; /* Positioned slightly lower than before but higher than Bio */
+      grid-row: 2.5 / span 1; /* Lowered slightly but still higher than Bio */
       transform: rotate(1.5deg);
     }
     
@@ -231,10 +234,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned higher as requested */
+    /* Email link in nav positioned lower as requested */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 3.5 / span 2; /* Moved up a bit */
+      grid-row: 4.5 / span 2; /* Lowered by 3/4" (moved down 1 row) */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -287,7 +290,7 @@
       }
       
       .subtitle {
-        transform: translateX(0px) translateY(-30px) rotate(90deg); /* Maintained further left position */
+        transform: translateX(-140px) translateY(-30px) rotate(90deg); /* Maintained further left position */
         font-size: 22px;
       }
       
@@ -308,7 +311,7 @@
         grid-column: 4 / span 3;
         grid-row: 1 / span 2;
         transform: rotate(1deg);
-        width: 85%;
+        width: 70%;
       }
       
       .item-3 {
@@ -352,39 +355,45 @@
       }
       
       .subtitle {
-        transform: translateX(0px) translateY(-20px) rotate(90deg);
+        transform: translateX(-90px) translateY(-20px) rotate(90deg);
         font-size: 16px;
       }
       
+      /* Completely revised mobile layout */
       .nav-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-auto-rows: minmax(50px, auto);
-        gap: 12px;
-        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 100px;
+        align-items: center;
       }
       
       .nav-item, .email-nav {
-        grid-column: 1 / -1;
         width: 80%;
-        margin: 0 auto;
+        max-width: 280px;
+        margin: 5px auto;
         height: auto;
         padding: 12px;
         writing-mode: horizontal-tb;
         text-orientation: mixed;
+        display: flex;
+        justify-content: center;
+        transform: none !important; /* Remove rotation for readability */
       }
       
-      .item-1 { transform: rotate(-2deg); }
-      .item-2 { transform: rotate(1deg); }
-      .item-3 { transform: rotate(-1deg); }
-      .item-4 { transform: rotate(2deg); }
-      .item-5 { transform: rotate(-1.5deg); }
+      /* Add some offset to create a staggered effect instead of rotation */
+      .item-1 { transform: translateX(-10px) !important; }
+      .item-2 { transform: translateX(15px) !important; width: 65%; }
+      .item-3 { transform: translateX(-5px) !important; }
+      .item-4 { transform: translateX(10px) !important; }
+      .item-5 { transform: translateX(-15px) !important; }
       
       .email-nav {
-        transform: rotate(1deg);
+        transform: translateX(5px) !important;
         writing-mode: horizontal-tb;
         height: auto;
         width: 60%;
+        order: 6; /* Move to bottom */
       }
       
       .insta-link {
