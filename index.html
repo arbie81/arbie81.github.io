@@ -62,18 +62,7 @@
       position: relative;
       cursor: help;
       font-weight: bold;
-      letter-spacing: 6px; /* Added letter spacing */
     }
-    
-    /* Create analog lettering effect with transforms on each letter */
-    .title-main span {
-      display: inline-block;
-      transform-origin: center;
-    }
-    
-    .title-main span:nth-child(1) { transform: translateY(-2px) rotate(1deg); }
-    .title-main span:nth-child(2) { transform: translateY(1px) rotate(-0.5deg); }
-    .title-main span:nth-child(3) { transform: translateY(-1px) rotate(0.8deg); }
     
     .title-tooltip {
       position: absolute;
@@ -106,22 +95,6 @@
       font-weight: bold;
     }
     
-    /* Adding letter spacing and subtle misalignment to subtitle */
-    .subtitle span {
-      display: inline-block;
-      letter-spacing: 2px;
-    }
-    
-    .subtitle span:nth-child(1) { transform: translateY(-1px); }
-    .subtitle span:nth-child(2) { transform: translateY(1px) rotate(0.5deg); }
-    .subtitle span:nth-child(3) { transform: translateY(-0.5px); }
-    .subtitle span:nth-child(4) { transform: translateY(0.8px) rotate(-0.3deg); }
-    .subtitle span:nth-child(5) { transform: translateY(-0.7px); }
-    .subtitle span:nth-child(6) { transform: translateY(0.5px) rotate(0.5deg); }
-    .subtitle span:nth-child(7) { transform: translateY(-0.3px); }
-    .subtitle span:nth-child(8) { transform: translateY(0.7px) rotate(-0.2deg); }
-    .subtitle span:nth-child(9) { transform: translateY(-0.5px); }
-    
     .nav-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -139,36 +112,23 @@
       color: #f6f1e6;
       font-weight: bold;
       position: relative;
-      overflow: visible; /* Changed from hidden to visible */
+      overflow: hidden;
       text-transform: uppercase;
       font-size: 16px;
-      letter-spacing: 2px; /* Increased letter spacing */
+      letter-spacing: 1px;
       transition: all 0.3s ease;
+      /* Fixed: Making the item have the right z-index for the hover effect */
       z-index: 1;
     }
     
-    /* Apply subtle text misalignment to each nav item */
-    .nav-item span {
-      display: inline-block;
-      position: relative;
-    }
-    
-    .nav-item span:nth-child(odd) { 
-      transform: translateY(-0.8px) rotate(0.2deg); 
-    }
-    
-    .nav-item span:nth-child(even) { 
-      transform: translateY(0.8px) rotate(-0.3deg); 
-    }
-    
-    /* Fixed hover effect - now the yellow appears behind the text but stays within borders */
+    /* True screen printing offset effect - fixed to match email button */
     .nav-item::before {
       content: '';
       position: absolute;
       top: 6px;
       left: 6px;
-      width: calc(100% - 12px); /* Adjust to ensure it stays within the border */
-      height: calc(100% - 12px);
+      width: 100%;
+      height: 100%;
       background: #EBFE58; /* Yellow hover color */
       z-index: -1;
       opacity: 0;
@@ -206,7 +166,7 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations moved to far right */
-      grid-row: 3 / span 1; /* Lowered from 2 to 3 */
+      grid-row: 2 / span 1; /* Moved up slightly from Bio */
       border: 2px solid #f6f1e6;
       transform: rotate(1.5deg);
     }
@@ -218,10 +178,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link - raised as requested */
+    /* Email link in nav with proportions matching image reference */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 3 / span 2; /* Moved from 4 to 3 to raise it */
+      grid-row: 4 / span 2; 
       display: flex;
       align-items: center;
       justify-content: center;
@@ -240,22 +200,8 @@
       margin: auto;
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
-      position: relative;
+      /* Fixed: Making the item have the right z-index for the hover effect */
       z-index: 1;
-    }
-    
-    /* Apply letter-spacing and misalignment to email text */
-    .email-nav span {
-      display: inline-block;
-      letter-spacing: 2px;
-    }
-    
-    .email-nav span:nth-child(odd) { 
-      transform: translateX(-0.5px) rotate(0.5deg); 
-    }
-    
-    .email-nav span:nth-child(even) { 
-      transform: translateX(0.5px) rotate(-0.5deg); 
     }
     
     .email-nav::before {
@@ -263,8 +209,8 @@
       position: absolute;
       top: 6px;
       left: 6px;
-      width: calc(100% - 12px);
-      height: calc(100% - 12px);
+      width: 100%;
+      height: 100%;
       background: #EBFE58; /* Yellow hover color */
       z-index: -1;
       opacity: 0;
@@ -348,13 +294,13 @@
       
       .item-4 {
         grid-column: 1 / span 4; /* Compilations on LEFT side as requested */
-        grid-row: 9 / span 2; /* Moved lower */
+        grid-row: 8 / span 2;
         transform: rotate(-2deg);
       }
       
       .email-nav {
         grid-column: 1 / span 2;
-        grid-row: 5 / span 2; /* Moved up */
+        grid-row: 6 / span 2; /* Moved up closer to elements */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
@@ -362,6 +308,11 @@
         height: auto;
         padding: 15px 5px;
         border: 2px solid #f6f1e6;
+      }
+      
+      .social-container {
+        top: 25px;
+        right: 25px;
       }
     }
     
@@ -408,13 +359,13 @@
       
       .item-4 {
         grid-column: 1 / span 2; /* Compilations on LEFT as per image */
-        grid-row: 6 / span 1; /* Moved lower */
+        grid-row: 5 / span 1;
         transform: rotate(-2deg);
       }
       
       .email-nav {
         grid-column: 3 / span 1;
-        grid-row: 4 / span 1; /* Moved up */
+        grid-row: 5 / span 1; /* Moved up */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(2deg);
@@ -442,39 +393,19 @@
   <div class="dada-container">
     <div class="title-block">
       <h1 class="title-main">
-        <span>A</span><span>R</span><span>B</span>
+        ARB
         <span class="title-tooltip">Alina Richard Brennaman</span>
       </h1>
-      <div class="subtitle">
-        <span>R</span><span>a</span><span>d</span><span>i</span><span>o</span>
-        <span> </span>
-        <span>A</span><span>r</span><span>t</span>
-      </div>
+      <div class="subtitle">Radio Art</div>
     </div>
     
     <div class="nav-grid">
-      <a href="https://wfmu.org/playlists/A2" class="nav-item item-1">
-        <span>T</span><span>h</span><span>e</span><span> </span>
-        <span>A</span><span>r</span><span>b</span><span>i</span><span>t</span><span>r</span><span>a</span><span>r</span><span>i</span><span>u</span><span>m</span>
-        <span> </span><span>o</span><span>n</span><span> </span><span>W</span><span>F</span><span>M</span><span>U</span>
-      </a>
-      <a href="statement.html" class="nav-item item-2">
-        <span>A</span><span>r</span><span>t</span><span>i</span><span>s</span><span>t</span>
-        <span> </span>
-        <span>S</span><span>t</span><span>a</span><span>t</span><span>e</span><span>m</span><span>e</span><span>n</span><span>t</span>
-      </a>
-      <a href="bio.html" class="nav-item item-3">
-        <span>B</span><span>i</span><span>o</span>
-      </a>
-      <a href="mixes.html" class="nav-item item-4">
-        <span>C</span><span>o</span><span>m</span><span>p</span><span>i</span><span>l</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
-      </a>
-      <a href="services.html" class="nav-item item-5">
-        <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
-      </a>
-      <a href="mailto:arb@wfmu.org" class="email-nav">
-        <span>a</span><span>r</span><span>b</span><span>@</span><span>w</span><span>f</span><span>m</span><span>u</span><span>.</span><span>o</span><span>r</span><span>g</span>
-      </a>
+      <a href="https://wfmu.org/playlists/A2" class="nav-item item-1">The Arbitrarium on WFMU</a>
+      <a href="statement.html" class="nav-item item-2">Artist Statement</a>
+      <a href="bio.html" class="nav-item item-3">Bio</a>
+      <a href="mixes.html" class="nav-item item-4">Compilations</a>
+      <a href="services.html" class="nav-item item-5">Services</a>
+      <a href="mailto:arb@wfmu.org" class="email-nav">arb@wfmu.org</a>
     </div>
     
     <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta-link" aria-label="Instagram">
