@@ -12,7 +12,6 @@
       font-weight: normal;
       font-style: normal;
     }
-    
     body { 
       background-color: #121212; 
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E"); 
@@ -23,7 +22,6 @@
       overflow-x: hidden; 
       min-height: 100vh; 
     } 
-    
     .noise { 
       position: fixed; 
       top: 0; 
@@ -99,13 +97,17 @@
       text-align: center;
 }
 
-//* Make tooltip visible when hovering over the ARB letters */
+//* Make tooltip visible when hovering over individual ARB letters */
 .title-main .letter-A:hover ~ .title-tooltip,
 .title-main .letter-R:hover ~ .title-tooltip,
 .title-main .letter-B:hover ~ .title-tooltip {
   opacity: 1; /* Shows the tooltip */
-}
 
+}
+/* Position the tooltip properly */
+.title-main {
+  position: relative;
+}
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
@@ -475,7 +477,9 @@
   <div class="dada-container">
     <div class="title-block">
       <h1 class="title-main">
-  <span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span>
+  <span class="arb-text">
+    <span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span>
+  </span>
   <span class="title-tooltip">
     <span class="tooltip-span tooltip-word">
       <span class="l-1">A</span><span class="l-2">l</span><span class="l-3">i</span><span class="l-4">n</span><span class="l-5">a</span>
