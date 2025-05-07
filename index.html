@@ -71,14 +71,15 @@
       position: relative;
     }
     
-    .letter-A { transform: translateY(1px) rotate(0.3deg); }
-    .letter-R { transform: translateY(-0.5px) rotate(-0.2deg); }
-    .letter-B { transform: translateY(0.7px) rotate(0.1deg); }
+    /* Applied same analog treatment as buttons */
+    .letter-A { transform: translateY(1px) rotate(0.3deg) scale(0.99); }
+    .letter-R { transform: translateY(-0.5px) rotate(-0.2deg) scale(1.01); }
+    .letter-B { transform: translateY(0.7px) rotate(0.1deg) scale(0.98); }
     
     .title-tooltip {
       position: absolute;
-      top: 45%; /* Slightly offset from center */
-      left: 48%; /* Slightly offset from center */
+      top: 50%; /* Centered vertically */
+      left: 50%; /* Centered horizontally */
       transform: translate(-50%, -50%) rotate(2deg);
       background-color: #EBFE58; /* Yellow tooltip background */
       color: black;
@@ -100,7 +101,7 @@
       font-size: 28px;
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
-      transform: translateX(-60px) translateY(-40px) rotate(90deg); /* Moved much further left */
+      transform: translateX(60px) translateY(-40px) rotate(90deg); /* Moved much further RIGHT */
       transform-origin: left;
       display: inline-block;
       position: absolute;
@@ -112,15 +113,16 @@
       letter-spacing: 5px; /* Increased space between letters */
     }
     
-    .subtitle .radio-r { transform: translateY(0.4px) rotate(0.2deg); }
-    .subtitle .radio-a { transform: translateY(-0.2px) rotate(-0.1deg); }
-    .subtitle .radio-d { transform: translateY(0.3px) rotate(0.3deg); }
-    .subtitle .radio-i { transform: translateY(-0.3px) rotate(-0.2deg); }
-    .subtitle .radio-o { transform: translateY(0.2px) rotate(0.1deg); }
+    /* Applied same analog treatment as buttons */
+    .subtitle .radio-r { transform: translateY(0.4px) rotate(0.2deg) scale(0.98); }
+    .subtitle .radio-a { transform: translateY(-0.2px) rotate(-0.1deg) scale(1.01); }
+    .subtitle .radio-d { transform: translateY(0.3px) rotate(0.3deg) scale(0.99); }
+    .subtitle .radio-i { transform: translateY(-0.3px) rotate(-0.2deg) scale(1.02); }
+    .subtitle .radio-o { transform: translateY(0.2px) rotate(0.1deg) scale(0.97); }
     
-    .subtitle .art-a { transform: translateY(-0.1px) rotate(-0.3deg); margin-left: 14px; } /* Increased space between words */
-    .subtitle .art-r { transform: translateY(0.2px) rotate(0.2deg); }
-    .subtitle .art-t { transform: translateY(-0.2px) rotate(-0.2deg); }
+    .subtitle .art-a { transform: translateY(-0.1px) rotate(-0.3deg) scale(1.01); margin-left: 14px; } /* Increased space between words */
+    .subtitle .art-r { transform: translateY(0.2px) rotate(0.2deg) scale(0.98); }
+    .subtitle .art-t { transform: translateY(-0.2px) rotate(-0.2deg) scale(1.02); }
     
     .nav-grid {
       display: grid;
@@ -215,9 +217,9 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 3 / span 1; /* Positioned closer to Bio level */
+      grid-row: 2.5 / span 1; /* Positioned slightly higher than Bio */
       transform: rotate(1.5deg);
-      margin-top: 10px; /* Extra offset to align better */
+      margin-top: 15px; /* Extra offset to align better */
     }
     
     .item-5 {
@@ -226,10 +228,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned lower */
+    /* Email link in nav positioned just right */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 7 / span 2; /* Moved much lower */
+      grid-row: 4 / span 2; /* Moved back up - visible but not too high */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -237,7 +239,6 @@
       height: 140px; /* Taller proportions matching reference */
       margin: auto;
       padding: 10px;
-      margin-bottom: 40px; /* Ensures it's visible and not cut off */
     }
     
     .insta-link {
@@ -449,7 +450,7 @@
         <span class="word-space"></span>
         <span class="l-7">W</span><span class="l-8">F</span><span class="l-9">M</span><span class="l-10">U</span>
       </a>
-      <a href="statement.html" class="nav-item item-2">
+      <a href="statement.html" class="nav-item item-2" style="width: 90%; margin: 0 auto;">
         <span class="l-2">A</span><span class="l-3">r</span><span class="l-4">t</span><span class="l-5">i</span><span class="l-6">s</span><span class="l-7">t</span>
         <span class="word-space"></span>
         <span class="l-8">S</span><span class="l-9">t</span><span class="l-10">a</span><span class="l-1">t</span><span class="l-2">e</span><span class="l-3">m</span><span class="l-4">e</span><span class="l-5">n</span><span class="l-6">t</span>
