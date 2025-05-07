@@ -80,39 +80,34 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-   /* Adjust tooltip to appear only when hovering over the ARB letters */
-.title-main {
-  position: relative;
+    /* Tooltip that appears directly over ARB letters */
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
 }
 
-.title-main .arb-text {
-  display: inline-block;
-  position: relative;
-}
-
+/* Make tooltip visible when hovering over ARB text */
 .title-main .arb-text:hover + .title-tooltip {
-  opacity: 1;
+  opacity: 1; /* Shows the tooltip */
 }
 
-/* Tooltip style */
-.title-tooltip {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  top: -190px; /* Position above the ARB */
-  background-color: #EBFE58; /* Yellow tooltip background */
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 50; /* Higher z-index to appear on top */
-  text-align: center;
-}
-
+    
+    .title-main:hover .title-tooltip {
+      opacity: 1;
+    }
     
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
