@@ -60,7 +60,6 @@
       transform: rotate(-2deg);
       display: inline-block;
       position: relative;
-      cursor: help;
       font-weight: bold;
       letter-spacing: 16px; /* Increased letter spacing for ARB */
     }
@@ -80,6 +79,13 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
+    /* Create a container for ARB letters to handle hover */
+    .arb-container {
+      display: inline-block;
+      position: relative;
+      cursor: help;
+    }
+    
     /* Tooltip that appears directly over ARB letters */
     .title-tooltip {
       position: absolute;
@@ -97,19 +103,13 @@
       pointer-events: none;
       z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
-}
+    }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
-}
-
-    
-    .title-main:hover .title-tooltip {
-      opacity: 1;
+    /* Make tooltip visible only when hovering over ARB container */
+    .arb-container:hover .title-tooltip {
+      opacity: 1; /* Shows the tooltip */
     }
     
-    /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
       text-transform: uppercase;
@@ -267,7 +267,8 @@
       padding: 15px 10px; /* Increased padding for more space around the text */
       transform: translateY(150px); 
       transform: translateX(80px); 
-}
+    }
+    
     .insta-link {
       position: fixed;
       bottom: 80px;
@@ -478,18 +479,20 @@
   <div class="dada-container">
     <div class="title-block">
       <h1 class="title-main">
-        <span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span>
-        <span class="title-tooltip">
-          <span class="tooltip-span tooltip-word">
-            <span class="l-1">A</span><span class="l-2">l</span><span class="l-3">i</span><span class="l-4">n</span><span class="l-5">a</span>
-          </span>
-          <span class="tooltip-span tooltip-word">
-            <span class="l-6">R</span><span class="l-7">i</span><span class="l-8">c</span><span class="l-9">h</span><span class="l-10">a</span><span class="l-1">r</span><span class="l-2">d</span>
-          </span>
-          <span class="tooltip-span">
-            <span class="l-3">B</span><span class="l-4">r</span><span class="l-5">e</span><span class="l-6">n</span><span class="l-7">n</span><span class="l-8">a</span><span class="l-9">m</span><span class="l-10">a</span><span class="l-1">n</span>
-          </span>
-        </span>
+        <div class="arb-container">
+          <span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span>
+          <div class="title-tooltip">
+            <span class="tooltip-span tooltip-word">
+              <span class="l-1">A</span><span class="l-2">l</span><span class="l-3">i</span><span class="l-4">n</span><span class="l-5">a</span>
+            </span>
+            <span class="tooltip-span tooltip-word">
+              <span class="l-6">R</span><span class="l-7">i</span><span class="l-8">c</span><span class="l-9">h</span><span class="l-10">a</span><span class="l-1">r</span><span class="l-2">d</span>
+            </span>
+            <span class="tooltip-span">
+              <span class="l-3">B</span><span class="l-4">r</span><span class="l-5">e</span><span class="l-6">n</span><span class="l-7">n</span><span class="l-8">a</span><span class="l-9">m</span><span class="l-10">a</span><span class="l-1">n</span>
+            </span>
+          </div>
+        </div>
       </h1>
       <div class="subtitle">
         <span class="radio-r">R</span><span class="radio-a">a</span><span class="radio-d">d</span><span class="radio-i">i</span><span class="radio-o">o</span>
