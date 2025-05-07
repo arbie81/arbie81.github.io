@@ -99,8 +99,10 @@
       text-align: center;
 }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
+//* Make tooltip visible when hovering over the ARB letters */
+.title-main .letter-A:hover ~ .title-tooltip,
+.title-main .letter-R:hover ~ .title-tooltip,
+.title-main .letter-B:hover ~ .title-tooltip {
   opacity: 1; /* Shows the tooltip */
 }
 
