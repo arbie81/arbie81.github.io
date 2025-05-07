@@ -105,10 +105,9 @@
       font-size: 28px;
       text-transform: uppercase;
       letter-spacing: 3px; /* Base letter spacing */
-      transform: translateX(-130px) translateY(-40px) rotate(90deg); /* Position halfway between original and B in ARB */
-      transform-origin: left;
-      display: inline-block;
       position: absolute;
+      top: -30px; /* Position above ARB */
+      left: 0; /* Align with left of ARB */
       font-weight: bold;
       white-space: nowrap; /* Keep all text on one line */
     }
@@ -225,7 +224,7 @@
     
     .item-4 {
       grid-column: 5 / span 2; /* Compilations on right */
-      grid-row: 3 / span 1; /* Lowered to align better with Bio */
+      grid-row: 2 / span 1; /* Raised up one row to be higher */
       transform: rotate(1.5deg);
     }
     
@@ -235,10 +234,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav positioned at Bio button bottom level */
+    /* Email link in nav positioned higher */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 5 / span 2; /* Lowered significantly to match bottom of Bio */
+      grid-row: 3 / span 2; /* Raised up two rows to be between compilations and services */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -291,7 +290,7 @@
       }
       
       .subtitle {
-        transform: translateX(-80px) translateY(-30px) rotate(90deg); /* Maintained further left position */
+        top: -25px; /* Position above ARB for tablets */
         font-size: 22px;
       }
       
@@ -334,8 +333,8 @@
       }
       
       .email-nav {
-        grid-column: 3 / span 1;
-        grid-row: 5 / span 2;
+        grid-column: 5 / span 2; /* Positioned on right side */
+        grid-row: 5 / span 2; /* Still below other buttons */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
@@ -356,7 +355,11 @@
       }
       
       .subtitle {
-        transform: translateX(-60px) translateY(-20px) rotate(90deg);
+        position: absolute;
+        top: 10px; /* Position at top of screen for mobile */
+        right: 10px; /* Positioned at top right */
+        transform: rotate(90deg); /* Rotated vertically */
+        transform-origin: top right;
         font-size: 16px;
         display: block; /* Ensure it's visible on mobile */
       }
@@ -370,7 +373,7 @@
         padding-bottom: 80px; /* Add space at bottom */
       }
       
-      .nav-item, .email-nav {
+      .nav-item {
         width: 75%;
         height: auto;
         padding: 12px;
@@ -378,14 +381,24 @@
         text-orientation: mixed;
       }
       
+      .email-nav {
+        width: 22px; /* Keep narrow for vertical orientation */
+        height: 140px; /* Taller as it's vertical */
+        writing-mode: vertical-rl; /* Keep vertical for mobile */
+        text-orientation: mixed;
+        padding: 15px 8px;
+        align-self: flex-end;
+        margin-right: 10px;
+      }
+      
       /* Left-aligned items */
-      .item-1, .item-3, .item-5 {
+      .item-1, .item-5 {
         align-self: flex-start;
         margin-left: 10px;
       }
       
       /* Right-aligned items */
-      .item-2, .item-4, .email-nav {
+      .item-2, .item-3, .item-4 {
         align-self: flex-end;
         margin-right: 10px;
       }
@@ -398,9 +411,6 @@
       
       .email-nav {
         transform: rotate(1deg);
-        writing-mode: horizontal-tb;
-        height: auto;
-        width: 60%;
       }
       
       .insta-link {
