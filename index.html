@@ -62,7 +62,7 @@
       position: relative;
       cursor: help;
       font-weight: bold;
-      letter-spacing: 6px; /* Add subtle letter spacing */
+      letter-spacing: 16px; /* Increased letter spacing for ARB */
     }
     
     /* This adds subtle misalignment to individual letters for hand-applied feel */
@@ -77,8 +77,8 @@
     
     .title-tooltip {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 45%; /* Slightly offset from center */
+      left: 48%; /* Slightly offset from center */
       transform: translate(-50%, -50%) rotate(2deg);
       background-color: #EBFE58; /* Yellow tooltip background */
       color: black;
@@ -89,6 +89,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
     }
     
     .title-main:hover .title-tooltip {
@@ -98,8 +99,8 @@
     .subtitle {
       font-size: 28px;
       text-transform: uppercase;
-      letter-spacing: 0px; /* Base letter spacing */
-      transform: translateX(120px) translateY(-40px) rotate(90deg);
+      letter-spacing: 3px; /* Base letter spacing */
+      transform: translateX(-60px) translateY(-40px) rotate(90deg); /* Moved much further left */
       transform-origin: left;
       display: inline-block;
       position: absolute;
@@ -108,7 +109,7 @@
     
     .subtitle span {
       display: inline-block;
-      letter-spacing: 3px; /* Space between letters */
+      letter-spacing: 5px; /* Increased space between letters */
     }
     
     .subtitle .radio-r { transform: translateY(0.4px) rotate(0.2deg); }
@@ -117,14 +118,14 @@
     .subtitle .radio-i { transform: translateY(-0.3px) rotate(-0.2deg); }
     .subtitle .radio-o { transform: translateY(0.2px) rotate(0.1deg); }
     
-    .subtitle .art-a { transform: translateY(-0.1px) rotate(-0.3deg); margin-left: 8px; }
+    .subtitle .art-a { transform: translateY(-0.1px) rotate(-0.3deg); margin-left: 14px; } /* Increased space between words */
     .subtitle .art-r { transform: translateY(0.2px) rotate(0.2deg); }
     .subtitle .art-t { transform: translateY(-0.2px) rotate(-0.2deg); }
     
     .nav-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(6, 80px);
+      grid-template-rows: repeat(8, 80px); /* Increased rows to accommodate lower elements */
       gap: 20px;
       position: relative;
       margin-top: 40px;
@@ -174,25 +175,25 @@
     .nav-item span, .email-nav span {
       display: inline-block;
       position: relative;
-      letter-spacing: 1px; /* Space between letters */
+      letter-spacing: 2px; /* Increased space between letters */
     }
     
     /* Add space between words */
     .word-space {
-      margin-left: 8px;
+      margin-left: 14px; /* Increased space between words */
     }
     
     /* Very subtle variations to create hand-applied look */
-    .l-1 { transform: translateY(0.3px); }
-    .l-2 { transform: translateY(-0.2px) translateX(0.2px); }
-    .l-3 { transform: translateY(0.1px) translateX(-0.1px); }
-    .l-4 { transform: translateY(-0.3px); }
-    .l-5 { transform: translateY(0.2px) translateX(0.1px); }
-    .l-6 { transform: translateY(-0.1px) translateX(-0.2px); }
-    .l-7 { transform: translateY(0.4px); }
-    .l-8 { transform: translateY(-0.2px) translateX(0.3px); }
-    .l-9 { transform: translateY(0.2px); }
-    .l-10 { transform: translateY(-0.4px) translateX(-0.1px); }
+    .l-1 { transform: translateY(0.3px) rotate(0.1deg); }
+    .l-2 { transform: translateY(-0.2px) translateX(0.2px) rotate(-0.1deg); }
+    .l-3 { transform: translateY(0.1px) translateX(-0.1px) rotate(0.2deg); }
+    .l-4 { transform: translateY(-0.3px) rotate(-0.2deg); }
+    .l-5 { transform: translateY(0.2px) translateX(0.1px) rotate(0.3deg); }
+    .l-6 { transform: translateY(-0.1px) translateX(-0.2px) rotate(-0.1deg); }
+    .l-7 { transform: translateY(0.4px) rotate(0.2deg); }
+    .l-8 { transform: translateY(-0.2px) translateX(0.3px) rotate(-0.3deg); }
+    .l-9 { transform: translateY(0.2px) rotate(0.1deg); }
+    .l-10 { transform: translateY(-0.4px) translateX(-0.1px) rotate(-0.2deg); }
     
     .item-1 {
       grid-column: 1 / span 2;
@@ -207,16 +208,16 @@
     }
     
     .item-3 {
-      grid-column: 3 / span 2; /* Bio moved to middle */
+      grid-column: 3 / span 2; /* Bio positioned in middle */
       grid-row: 3 / span 1;
       transform: rotate(-2deg);
     }
     
     .item-4 {
-      grid-column: 5 / span 2; /* Compilations moved to far right */
-      grid-row: 2.7 / span 1; /* Position above bio but lower than before */
+      grid-column: 5 / span 2; /* Compilations on right */
+      grid-row: 3 / span 1; /* Positioned closer to Bio level */
       transform: rotate(1.5deg);
-      margin-top: 10px; /* Extra offset to move it down */
+      margin-top: 10px; /* Extra offset to align better */
     }
     
     .item-5 {
@@ -225,10 +226,10 @@
       transform: rotate(2deg);
     }
     
-    /* Email link in nav with proportions matching image reference */
+    /* Email link in nav positioned lower */
     .email-nav {
       grid-column: 6 / span 1;
-      grid-row: 3.75 / span 2; /* Positioned between 3 and 4 */
+      grid-row: 7 / span 2; /* Moved much lower */
       writing-mode: vertical-rl; /* Vertical text orientation */
       text-orientation: mixed;
       transform: rotate(2deg);
@@ -236,7 +237,7 @@
       height: 140px; /* Taller proportions matching reference */
       margin: auto;
       padding: 10px;
-      margin-top: 15px; /* Extra offset to move it down */
+      margin-bottom: 40px; /* Ensures it's visible and not cut off */
     }
     
     .insta-link {
@@ -259,12 +260,12 @@
     
     .tooltip-span {
       display: inline-block;
-      letter-spacing: 1px; /* Spacing between letters */
+      letter-spacing: 2px; /* Increased spacing between letters */
       position: relative;
     }
     
     .tooltip-word {
-      margin-right: 5px; /* Space between words */
+      margin-right: 8px; /* Increased space between words */
     }
     
     footer {
@@ -278,17 +279,17 @@
     @media (max-width: 900px) {
       .title-main {
         font-size: 120px;
-        letter-spacing: 4px; /* Adjust letter spacing for smaller screens */
+        letter-spacing: 12px; /* Adjusted letter spacing for smaller screens */
       }
       
       .subtitle {
-        transform: translateX(120px) translateY(-30px) rotate(90deg);
+        transform: translateX(-40px) translateY(-30px) rotate(90deg); /* Maintained further left position */
         font-size: 22px;
       }
       
       .nav-grid {
         grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(9, 50px);
+        grid-template-rows: repeat(12, 50px); /* Increased rows to make space */
         gap: 15px;
         margin-bottom: 40px;
       }
@@ -318,14 +319,14 @@
       }
       
       .item-4 {
-        grid-column: 1 / span 4; /* Compilations on LEFT side as requested */
-        grid-row: 8 / span 2;
+        grid-column: 1 / span 4; /* Compilations on LEFT side */
+        grid-row: 4 / span 2; /* Positioned close to Bio level */
         transform: rotate(-2deg);
       }
       
       .email-nav {
         grid-column: 1 / span 2;
-        grid-row: 5.5 / span 2; /* Adjusted position */
+        grid-row: 10 / span 2; /* Positioned much lower */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(1deg);
@@ -344,18 +345,18 @@
     @media (max-width: 600px) {
       .title-main {
         font-size: 80px;
-        letter-spacing: 3px; /* Adjust letter spacing for mobile */
+        letter-spacing: 8px; /* Adjusted letter spacing for mobile */
       }
       
       .subtitle {
-        transform: translateX(80px) translateY(-20px) rotate(90deg);
+        transform: translateX(-30px) translateY(-20px) rotate(90deg); /* Maintained further left position */
         font-size: 18px;
       }
       
       .nav-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(8, 50px);
+        grid-template-rows: repeat(12, 50px); /* Increased rows */
         gap: 12px;
       }
       
@@ -384,14 +385,14 @@
       }
       
       .item-4 {
-        grid-column: 1 / span 2; /* Compilations on LEFT as per image */
-        grid-row: 5 / span 1;
+        grid-column: 1 / span 2; /* Compilations on LEFT */
+        grid-row: 3 / span 1; /* Positioned at similar level to Bio */
         transform: rotate(-2deg);
       }
       
       .email-nav {
         grid-column: 3 / span 1;
-        grid-row: 4.5 / span 1; /* Adjusted position */
+        grid-row: 10 / span 2; /* Positioned much lower */
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(2deg);
