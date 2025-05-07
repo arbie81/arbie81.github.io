@@ -97,7 +97,30 @@
       pointer-events: none;
       z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
-    }
+    }/* Tooltip styling */
+.title-tooltip {
+  position: absolute;
+  width: 50%; /* Adjust this to control the width of the tooltip */
+  left: 0;
+  top: -190px; /* Controls vertical position of the tooltip */
+  background-color: #EBFE58; /* Tooltip background color */
+  color: black;
+  padding: 2px 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: bold;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Allows mouse events to pass through tooltip */
+  z-index: 50; /* Ensures the tooltip appears on top */
+  text-align: center;
+}
+
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
+}
+
     
     .title-main:hover .title-tooltip {
       opacity: 1;
