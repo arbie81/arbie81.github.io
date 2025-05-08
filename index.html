@@ -376,109 +376,115 @@
     }
     
     @media (max-width: 600px) {
-      .dada-container {
-        padding: 10px 15px; /* Reduced top padding */
-      }
-      
-      .title-main {
-        font-size: 72px;
-        letter-spacing: 8px;
-        margin-bottom: 10px; /* Less space after title */
-      }
-      
-      /* RADIO ART positioned on mobile to be fully visible */
-      .subtitle {
-        position: absolute;
-        top: 120px; /* Positioned lower to ensure full visibility */
-        right: 90px; /* Moved to the left of email button */
-        left: auto; /* Reset left positioning */
-        transform: rotate(90deg); /* Rotated vertically */
-        transform-origin: top right;
-        font-size: 16px;
-        display: block; /* Ensure it's visible on mobile */
-      }
-      
-      /* Tooltip position for mobile */
-      .title-tooltip {
-        width: 80%;
-        left: 0;
-        top: -70px;
-        text-align: center;
-      }
-      
-      /* Alternating left/right layout for mobile with increased spacing between buttons */
-      .nav-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px; /* Significantly increased gap between items */
-        margin-top: 5px; /* Positioned as close as possible to ARB */
-        padding-bottom: 40px; /* Add padding at bottom for scrolling */
-      }
-      
-      .nav-item {
-        width: 75%;
-        height: auto;
-        padding: 8px; /* Reduced padding to make items more compact */
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        font-size: 14px; /* Smaller font size to fit better */
-      }
-      
-      .email-nav {
-        width: 20px; /* Slightly narrower for vertical orientation */
-        height: 110px; /* Shorter to fit on one screen */
-        writing-mode: vertical-rl; /* Keep vertical for mobile */
-        text-orientation: mixed;
-        padding: 12px 6px; /* Reduced padding */
-        align-self: flex-end;
-        margin-right: 10px;
-        font-size: 14px; /* Smaller font size to fit better */
-      }
-      
-      /* Left-aligned items */
-      .item-1, .item-5 {
-        align-self: flex-start;
-        margin-left: 10px;
-      }
-      
-      /* Right-aligned items */
-      .item-2, .item-3, .item-4 {
-        align-self: flex-end;
-        margin-right: 10px;
-      }
-      
-      /* Specifically position the first button right up against ARB */
-      .item-1 { 
-        transform: rotate(-2deg); 
-        margin-top: 5px; /* Minimal space after ARB */
-      }
-      
-      /* Space out remaining buttons evenly */
-      .item-2 { transform: rotate(1deg); }
-      .item-3 { transform: rotate(-1deg); }
-      .item-4 { transform: rotate(2deg); }
-      
-      /* Keep services button at the bottom */
-      .item-5 { 
-        transform: rotate(-1.5deg);
-        margin-bottom: 20px; /* Add space before footer */
-      }
-      
-      .email-nav {
-        transform: rotate(1deg);
-        margin-top: 10px; /* Add space after services */
-      }
-      
-      .insta-link {
-        bottom: 50px;
-        right: 15px;
-      }
-      
-      .insta-icon {
-        width: 24px;
-        height: 24px;
-      }
-    }
+  .dada-container {
+    padding: 20px 15px; /* Adjusted padding */
+  }
+  
+  .title-block {
+    margin-bottom: 60px; /* Reduced margin after title */
+  }
+  
+  .title-main {
+    font-size: 100px; /* Larger font size to match screenshot */
+    letter-spacing: -5px; /* Tighter letter spacing */
+    margin-top: 0; /* Ensure it's at the top */
+    transform: rotate(-2deg); /* Match desktop rotation */
+  }
+  
+  /* RADIO ART positioned vertically on the right */
+  .subtitle {
+    font-size: 22px; /* Larger font size */
+    position: absolute;
+    top: 10px; /* Position at top */
+    right: 10px; /* Position on right */
+    left: auto; /* Clear left positioning */
+    transform: rotate(90deg); /* Vertical orientation */
+    transform-origin: right top;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .nav-grid {
+    display: block; /* Change to block layout for mobile */
+    margin-top: 80px; /* Space after ARB */
+    transform: none;
+    position: relative;
+  }
+  
+  /* Common styling for all nav items in mobile */
+  .nav-item, .email-nav {
+    display: block;
+    margin: 28px 0; /* More spacing between items */
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Position each item specifically to match screenshot */
+  .item-1 {
+    position: relative;
+    width: 75%;
+    margin: 20px auto 40px 0; /* Positioned left-aligned */
+    transform: rotate(-2deg); /* Match screenshot rotation */
+  }
+  
+  .item-2 {
+    position: relative;
+    width: 60%;
+    margin: 40px 0 40px auto; /* Positioned right-aligned */
+    transform: rotate(1deg);
+  }
+  
+  .item-3 {
+    position: relative;
+    width: 40%;
+    margin: 40px auto 40px 20px; /* Positioned more left-aligned, with some offset */
+    transform: rotate(-1deg);
+  }
+  
+  .item-4 {
+    position: relative;
+    width: 60%;
+    margin: 40px 0 40px auto; /* Positioned right-aligned */
+    transform: rotate(2deg);
+  }
+  
+  .item-5 {
+    position: relative;
+    width: 55%;
+    margin: 40px auto 40px 0; /* Positioned left-aligned */
+    transform: rotate(-1.5deg);
+  }
+  
+  /* Email link should be vertical and on right side */
+  .email-nav {
+    position: absolute;
+    right: 0;
+    top: 230px; /* Position next to other items */
+    writing-mode: vertical-rl;
+    height: 180px;
+    width: 15px;
+    padding: 10px 10px;
+    transform: rotate(1deg);
+    margin: 0;
+  }
+  
+  /* Instagram positioned at bottom right */
+  .insta-link {
+    bottom: 60px;
+    right: 20px;
+  }
+  
+  /* Improve tooltip positioning for mobile */
+  .title-tooltip {
+    top: -100px;
+    width: 100%;
+    text-align: center;
+  }
+}
   </style>
 </head>
 <body>
