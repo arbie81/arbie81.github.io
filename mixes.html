@@ -1,22 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARB Mixes</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Mixes - ARB.GAY</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23121212' filter='url(%23noiseFilter)'/%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Ctext x='15' y='70' font-family='Helvetica Neue, Futura, sans-serif' font-size='40' font-weight='bold' fill='%23EBFE58'%3EARB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <style>
+    @font-face {
+      font-family: 'Vulva Typography';
+      src: url('vulva.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
     body {
-      background-color: white;
+      background-color: #121212; 
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E"); 
+      color: #f6f1e6;
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
       margin: 0;
-      padding: 20px;
-      font-family: 'Futura', sans-serif;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
+    
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 100;
+    }
+    
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 60px 30px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
     }
+    
+    .title-block {
+      position: relative;
+      margin-bottom: 20px;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .mixes-title {
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
+      font-size: 100px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      transform: rotate(-0.2deg);
+      letter-spacing: 5px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    
+    /* Subtle analog treatment to MIXES letters */
+    .mixes-title span {
+      display: inline-block;
+      position: relative;
+      transform-origin: center;
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+    
+    /* Subtle letter variations */
+    .letter-M { transform: translateY(0.7px) rotate(0.3deg) scale(0.995); }
+    .letter-I { transform: translateY(-0.5px) rotate(-0.2deg) scale(1.005); }
+    .letter-X { transform: translateY(0.4px) rotate(0.2deg) scale(0.997); }
+    .letter-E { transform: translateY(-0.3px) rotate(-0.1deg) scale(1.002); }
+    .letter-S { transform: translateY(0.5px) rotate(0.1deg) scale(0.998); }
+    
+    .mixes-container {
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
     .dice-layout {
       display: grid;
       grid-template-areas: 
@@ -25,65 +96,198 @@
         "bottom-left . bottom-right";
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 30px;
       aspect-ratio: 1/1;
       max-width: 800px;
       margin: 40px auto;
+      transform: rotate(-0.3deg);
     }
+    
+    .mix-item {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    
     .mix-image {
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
+      filter: grayscale(15%) contrast(110%);
+      border: 2px solid rgba(246, 241, 230, 0.2);
     }
-    .mix-image:hover {
-      transform: translateY(-5px);
+    
+    .mix-item:hover .mix-image {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(120%);
+      border-color: rgba(235, 254, 88, 0.7);
     }
-    .top-left { grid-area: top-left; }
-    .top-right { grid-area: top-right; }
-    .middle { grid-area: middle; }
-    .bottom-left { grid-area: bottom-left; }
-    .bottom-right { grid-area: bottom-right; }
+    
+    .mix-item::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border: 1px solid rgba(235, 254, 88, 0);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .mix-item:hover::after {
+      border-color: rgba(235, 254, 88, 0.4);
+    }
+    
+    .top-left { grid-area: top-left; transform: rotate(0.2deg); }
+    .top-right { grid-area: top-right; transform: rotate(-0.3deg); }
+    .middle { grid-area: middle; transform: rotate(0.1deg); }
+    .bottom-left { grid-area: bottom-left; transform: rotate(-0.2deg); }
+    .bottom-right { grid-area: bottom-right; transform: rotate(0.4deg); }
     
     .back-link {
-      display: block;
-      margin-bottom: 20px;
-      color: black;
+      display: inline-block;
       text-decoration: none;
+      color: #f6f1e6;
       font-weight: bold;
+      position: relative;
+      overflow: visible;
+      text-transform: uppercase;
+      font-size: 16px;
+      padding: 15px 30px;
+      transition: all 0.3s ease;
+      border: 2px solid #f6f1e6;
+      transform: rotate(-0.5deg);
+      margin-top: 20px;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+    
+    /* Offset effect for hover - behind the border */
+    .back-link::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
+      background: #EBFE58;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .back-link:hover::before {
+      opacity: 1;
+    }
+    
+    .back-link:hover {
+      color: black;
+      background-color: transparent;
+    }
+    
+    /* Analog text effect for button text */
+    .back-link span {
+      display: inline-block;
+      position: relative;
+      letter-spacing: 2px;
+    }
+    
+    .l-1 { transform: translateY(0.3px) rotate(0.1deg); }
+    .l-2 { transform: translateY(-0.2px) translateX(0.2px) rotate(-0.1deg); }
+    .l-3 { transform: translateY(0.1px) translateX(-0.1px) rotate(0.2deg); }
+    .l-4 { transform: translateY(-0.3px) rotate(-0.2deg); }
+    
+    footer {
+      position: fixed;
+      bottom: 5px;
+      right: 20px;
+      font-size: 10px;
+      color: #444;
+    }
+    
+    @media (max-width: 900px) {
+      .mixes-title {
+        font-size: 72px;
+      }
+      
+      .mixes-container {
+        margin-top: 30px;
+        padding: 0 15px;
+      }
+      
+      .dice-layout {
+        gap: 20px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 40px 20px;
+      }
+      
+      .mixes-title {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+      
+      .mixes-container {
+        margin-top: 20px;
+      }
+      
+      .dice-layout {
+        gap: 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="noise"></div>
   
+  <div class="container">
+    <div class="title-block">
+      <h1 class="mixes-title">
+        <span class="letter-M">M</span><span class="letter-I">I</span><span class="letter-X">X</span><span class="letter-E">E</span><span class="letter-S">S</span>
+      </h1>
+    </div>
     
-    <div class="dice-layout">
-      <!-- Top left - 1st chronologically -->
-      <a href="century.html" class="top-left">
-        <img src="century.jpg" alt="Century" class="mix-image">
-      </a>
+    <div class="mixes-container">
+      <div class="dice-layout">
+        <!-- Top left - 1st chronologically -->
+        <a href="century.html" class="mix-item top-left">
+          <img src="century.jpg" alt="Century" class="mix-image">
+        </a>
+        
+        <!-- Top right - 2nd chronologically -->
+        <a href="arbscenity.html" class="mix-item top-right">
+          <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
+        </a>
+        
+        <!-- Middle - 3rd chronologically -->
+        <a href="scum.html" class="mix-item middle">
+          <img src="scum.jpg" alt="SCUM" class="mix-image">
+        </a>
+        
+        <!-- Bottom left - 4th chronologically -->
+        <a href="dry.html" class="mix-item bottom-left">
+          <img src="dry.jpg" alt="DRY" class="mix-image">
+        </a>
+        
+        <!-- Bottom right - 5th chronologically -->
+        <a href="scherzophonia.html" class="mix-item bottom-right">
+          <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
+        </a>
+      </div>
       
-      <!-- Top right - 2nd chronologically -->
-      <a href="arbscenity.html" class="top-right">
-        <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
-      </a>
-      
-      <!-- Middle - 3rd chronologically -->
-      <a href="scum.html" class="middle">
-        <img src="scum.jpg" alt="SCUM" class="mix-image">
-      </a>
-      
-      <!-- Bottom left - 4th chronologically -->
-      <a href="dry.html" class="bottom-left">
-        <img src="dry.jpg" alt="DRY" class="mix-image">
-      </a>
-      
-      <!-- Bottom right - 5th chronologically -->
-      <a href="scherzophonia.html" class="bottom-right">
-        <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
+      <a href="index.html" class="back-link">
+        <span class="l-1">←</span> <span class="l-2">B</span><span class="l-3">a</span><span class="l-4">c</span><span class="l-1">k</span>
       </a>
     </div>
-<a href="index.html" class="back-link">← Back</a>  </div>
+  </div>
+  
+  <footer>
+    <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
+  </footer>
 </body>
 </html>
