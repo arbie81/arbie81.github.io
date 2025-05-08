@@ -375,110 +375,107 @@
       }
     }
     
-    @media (max-width: 600px) {
+   @media (max-width: 600px) {
   .dada-container {
-    padding: 20px 15px; /* Adjusted padding */
+    padding: 20px 15px;
   }
   
   .title-block {
-    margin-bottom: 20px; /* Reduced margin after title to move elements up */
+    margin-bottom: 20px; /* Reduced margin to move everything up */
   }
   
   .title-main {
-    font-size: 100px; /* Keep the same font size */
-    letter-spacing: 0px; /* Adjusted letter spacing for ARB title */
-    margin-top: 0; /* Ensure it's at the top */
-    transform: rotate(-2deg); /* Match desktop rotation */
+    font-size: 100px;
+    letter-spacing: 0px;
+    margin-top: 0;
+    transform: rotate(-2deg);
   }
   
-  /* Adjust ARB letters spacing */
-  .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: 5px; } /* Added space between letters */
-  .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: 5px; } /* Added space between letters */
+  /* Add spacing between ARB letters */
+  .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: 10px; }
+  .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: 10px; }
   .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
   
-  /* RADIO ART positioned to be fully visible */
+  /* Move subtitle down significantly to make RADIO fully visible */
   .subtitle {
     font-size: 22px;
     position: absolute;
-    top: 110px; /* Move down to be fully visible */
+    top: 160px; /* Moved down substantially */
     right: 10px;
     left: auto;
     transform: rotate(90deg);
     transform-origin: right top;
-    visibility: visible;
-    opacity: 1;
   }
   
   .nav-grid {
-    display: block; /* Change to block layout for mobile */
-    margin-top: 10px; /* Reduced space after ARB to move items up */
+    display: block;
+    margin-top: -40px; /* Negative margin to move everything up closer to title */
     transform: none;
-    position: relative;
   }
   
-  /* Common styling for all nav items in mobile */
+  /* Make all buttons smaller */
   .nav-item, .email-nav {
     display: block;
-    margin: 12px 0; /* Less spacing between items to move them up */
-    width: auto;
-    height: auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    white-space: nowrap; /* Keep text on one line */
+    margin: 8px 0; /* Reduced vertical spacing between items */
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 14px; /* Smaller font */
   }
   
-  /* Position each item according to left-right-right-right-left pattern */
+  /* Adjust individual button sizes and positioning */
   .item-1 {
-    position: relative;
-    width: 75%;
-    margin: 12px auto 12px 0; /* Left-aligned */
+    width: 60%; /* Reduced width */
+    margin: 8px auto 8px 0;
     transform: rotate(-2deg);
+    padding: 8px 15px; /* Smaller padding helps with line wrapping */
+    font-size: 13px; /* Smaller text to fit better */
+    line-height: 1.2; /* Allow text to wrap in two lines */
+    height: auto; /* Auto height for wrapped content */
   }
   
   .item-2 {
-    position: relative;
-    width: 60%;
-    margin: 12px 0 12px auto; /* Right-aligned */
+    width: 45%; /* Reduced width */
+    margin: 8px 0 8px auto;
     transform: rotate(1deg);
-    white-space: nowrap; /* Ensure text stays on one line */
-    padding: 10px 15px; /* Slightly adjust padding to fit text */
-    overflow: visible; /* Allow text to be visible */
+    white-space: normal; /* Allow text to wrap */
+    padding: 8px 12px;
+    font-size: 13px;
   }
   
   .item-3 {
-    position: relative;
-    width: 40%;
-    margin: 12px 0 12px auto; /* Right-aligned */
+    width: 30%; /* Reduced width */
+    margin: 8px 0 8px auto;
     transform: rotate(-1deg);
   }
   
   .item-4 {
-    position: relative;
-    width: 60%;
-    margin: 12px 0 12px auto; /* Right-aligned */
+    width: 40%; /* Reduced width to 2/3 */
+    margin: 8px 0 8px auto;
     transform: rotate(2deg);
   }
   
   .item-5 {
-    position: relative;
-    width: 55%;
-    margin: 12px auto 12px 0; /* Left-aligned */
+    width: 40%; /* Reduced width */
+    margin: 8px auto 8px 0;
     transform: rotate(-1.5deg);
   }
   
-  /* Email link should be vertical and moved left to avoid Instagram */
+  /* Adjust email position */
   .email-nav {
     position: absolute;
-    right: 45px; /* Moved left to avoid overlap with Instagram */
-    top: 180px; /* Positioned higher to be with other items */
+    right: 45px;
+    top: 140px; /* Moved up */
     writing-mode: vertical-rl;
-    height: 180px;
-    width: 15px;
-    padding: 10px 10px;
+    height: 160px;
+    width: 12px;
+    padding: 8px 8px;
     transform: rotate(1deg);
     margin: 0;
+    font-size: 13px;
+  }
+  
+  /* Adjust word spacing in buttons */
+  .word-space {
+    margin-left: 5px; /* Reduced space between words */
   }
   
   /* Instagram positioned at bottom right */
