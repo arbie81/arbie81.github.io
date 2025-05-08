@@ -98,11 +98,29 @@
       z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
 }
+/* Tooltip that appears directly over ARB letters */
+.title-tooltip {
+  position: absolute;
+  left: 0;
+  top: -190px; /* Position above the ARB */
+  background-color: #EBFE58; /* Yellow tooltip background */
+  color: black;
+  padding: 2px 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Don't allow the tooltip itself to trigger hover */
+  z-index: 50; /* Higher z-index to appear on top */
+  text-align: center;
+}
 
 /* Make tooltip visible when hovering over ARB text */
 .title-main .arb-text:hover + .title-tooltip {
   opacity: 1; /* Shows the tooltip */
 }
+
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
