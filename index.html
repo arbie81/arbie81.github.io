@@ -102,7 +102,49 @@
 /* Make tooltip visible when hovering over ARB text */
 .title-main .arb-text:hover + .title-tooltip {
   opacity: 1; /* Shows the tooltip */
+
+  /* Make buttons have higher priority than tooltips */
+.button {
+  position: relative;
+  z-index: 1000; /* Higher z-index to override tooltip */
+  pointer-events: auto; /* Ensure clicks work */
 }
+
+/* Make tooltip container only respond to hover on the text itself */
+.tooltip-container {
+  display: inline-block; /* Only takes up space of content */
+  position: relative;
+}
+
+/* ARB text specific styling to ensure hover works only on text */
+.arb-text {
+  display: inline-block;
+  position: relative;
+}
+
+/* Make tooltip hover area smaller */
+.tooltip {
+  pointer-events: none; /* Tooltip itself doesn't capture events */
+}
+}/* Tooltip fixes - do not modify anything above this line */
+a {
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto !important;
+}
+
+.tooltip-container {
+  pointer-events: none;
+}
+
+.tooltip-container span {
+  pointer-events: auto;
+}
+
+.tooltip {
+  pointer-events: none;
+}
+/* End tooltip fixes */
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
@@ -473,7 +515,7 @@
     <div class="title-block">
       <h1 class="title-main">
         <span class="arb-text"><span class="letter-A">A</span><span class="letter-R">R</span><span class="letter-B">B</span></span>
-        <span class="title-tooltip">
+        <span class="title-tooltip tooltip-container">
           <span class="tooltip-span tooltip-word">
             <span class="l-1">A</span><span class="l-2">l</span><span class="l-3">i</span><span class="l-4">n</span><span class="l-5">a</span>
           </span>
