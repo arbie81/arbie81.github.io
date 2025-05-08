@@ -80,48 +80,40 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-   /* Reset tooltip behavior */
-.title-tooltip {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  top: -190px;
-  background-color: #EBFE58;
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 50;
-  text-align: center;
+    /* Tooltip that appears directly over ARB letters */
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
 }
 
-/* Limit hover area to individual letter spans */
-.l-1:hover ~ .title-tooltip,
-.l-2:hover ~ .title-tooltip,
-.l-3:hover ~ .title-tooltip,
-.l-4:hover ~ .title-tooltip,
-.l-5:hover ~ .title-tooltip,
-.l-6:hover ~ .title-tooltip,
-.l-7:hover ~ .title-tooltip,
-.l-8:hover ~ .title-tooltip,
-.l-9:hover ~ .title-tooltip,
-.l-10:hover ~ .title-tooltip {
-  opacity: 1;
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
+
+  /* Make buttons have higher priority than tooltips */
+.button {
+  position: relative;
+  z-index: 1000; /* Higher z-index to override tooltip */
+  pointer-events: auto; /* Ensure clicks work */
 }
 
-/* Give all links absolute priority */
-a, button, .button, [href] {
-  position: relative !important;
-  z-index: 1000 !important;
-  pointer-events: auto !important;
-}
-
-/* Debugging helper - add this temporarily */
-.tooltip-span {
-  border: 1px dotted red;
+/* Make tooltip container only respond to hover on the text itself */
+.tooltip-container {
+  display: inline-block; /* Only takes up space of content */
+  position: relative;
 }
 
 /* ARB text specific styling to ensure hover works only on text */
