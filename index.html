@@ -116,6 +116,11 @@
   text-align: center;
 }
 
+/* Tooltip should only appear when hovering over the letters in the ARB text */
+.title-main .arb-text:hover .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
+}
+
 /* Make tooltip visible when hovering over ARB text */
 .title-main .arb-text:hover + .title-tooltip {
   opacity: 1; /* Shows the tooltip */
