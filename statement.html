@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artist Statement | ARB.GAY</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23121212' filter='url(%23noiseFilter)'/%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Ctext x='15' y='70' font-family='Helvetica Neue, Futura, sans-serif' font-size='40' font-weight='bold' fill='%23EBFE58'%3EARB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <style>
     @font-face {
       font-family: 'Futura';
@@ -11,14 +12,16 @@
       font-weight: normal;
       font-style: normal;
     }
+    
     body { 
-      background-color: #EBFE58; /* Yellow background from hover state */
-      color: #121212; /* Dark text on yellow background */
+      background-color: #121212; 
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E"); 
+      color: #f6f1e6; 
       font-family: 'Helvetica Neue', 'Futura', sans-serif; 
       margin: 0; 
       padding: 0; 
       overflow-x: hidden; 
-      min-height: 100vh;
+      min-height: 100vh; 
     } 
     
     .noise { 
@@ -26,161 +29,210 @@
       top: 0; 
       left: 0; 
       width: 100%; 
-      height: 100%;  
-      opacity: 0.08; 
+      height: 100%; 
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"); 
+      opacity: 0.12; 
       pointer-events: none; 
       z-index: 100; 
     }
     
-    .content-container {
+    .dada-container {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 30px;
-      box-sizing: border-box;
+      padding: 40px 20px;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      box-sizing: border-box;
     }
     
-    .page-header {
+    .title-block {
       position: relative;
-      margin-bottom: 50px;
-    }
-    
-    .page-title {
-      font-family: 'Helvetica Neue', 'Futura', sans-serif;
-      font-size: 80px;
-      line-height: 0.9;
-      font-weight: bold;
-      margin: 0;
-      transform: rotate(-1.5deg);
-      display: inline-block;
-      color: #121212;
-      position: relative;
+      margin-bottom: 60px;
       z-index: 10;
     }
     
-    .title-offset {
+    .title-main {
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
+      font-size: 100px;
+      line-height: 0.8;
+      margin: 0;
+      transform: rotate(-3deg);
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    
+    /* Applying analog treatment to title */
+    .title-main span {
+      display: inline-block;
+      position: relative;
+      transform-origin: center;
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+    
+    /* Enhanced analog treatment for statement title */
+    .letter-1 { transform: translateY(2px) rotate(1.2deg) scale(0.98); }
+    .letter-2 { transform: translateY(-1px) rotate(-0.8deg) scale(1.02); }
+    .letter-3 { transform: translateY(1.5px) rotate(0.6deg) scale(0.97); }
+    .letter-4 { transform: translateY(-2px) rotate(-1.2deg) scale(1.01); }
+    .letter-5 { transform: translateY(1.8px) rotate(0.9deg) scale(0.99); }
+    .letter-6 { transform: translateY(-1.5px) rotate(-0.7deg) scale(1.03); }
+    .letter-7 { transform: translateY(2.2px) rotate(1.1deg) scale(0.96); }
+    .letter-8 { transform: translateY(-1.2px) rotate(-1deg) scale(1.04); }
+    .letter-9 { transform: translateY(1.7px) rotate(0.5deg) scale(0.98); }
+    .letter-10 { transform: translateY(-1.8px) rotate(-0.9deg) scale(1.02); }
+    .letter-11 { transform: translateY(1.9px) rotate(0.8deg) scale(0.97); }
+    .letter-12 { transform: translateY(-1.3px) rotate(-1.1deg) scale(1.01); }
+    .letter-13 { transform: translateY(2.1px) rotate(1deg) scale(0.99); }
+    .letter-14 { transform: translateY(-1.6px) rotate(-0.6deg) scale(1.03); }
+    .letter-15 { transform: translateY(1.3px) rotate(0.7deg) scale(0.98); }
+    
+    .statement-container {
+      position: relative;
+      margin-top: 80px;
+      margin-bottom: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .statement-text {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 50px;
+      position: relative;
+      transform: rotate(-0.3deg);
+    }
+    
+    .statement-text p {
+      margin-bottom: 30px;
+    }
+    
+    /* Back button styled like nav items on index */
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #f6f1e6;
+      font-weight: bold;
+      position: relative;
+      overflow: visible;
+      text-transform: uppercase;
+      font-size: 16px;
+      padding: 15px 30px;
+      transition: all 0.3s ease;
+      border: 2px solid #f6f1e6;
+      transform: rotate(-2deg);
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    
+    /* Offset effect for hover - behind the border */
+    .back-btn::before {
+      content: '';
       position: absolute;
       top: 6px;
       left: 6px;
       width: 100%;
       height: 100%;
-      background: #121212;
-      z-index: -1;
-      opacity: 0.15;
-    }
-    
-    .statement-body {
-      position: relative;
-      z-index: 10;
-      padding: 20px 0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    
-    .statement-body p {
-      margin-bottom: 24px;
-    }
-    
-    .back-btn {
-      display: inline-block;
-      margin-top: 05px;
-      padding: 12px 24px;
-      background-color: #121212;
-      color: #EBFE58;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transform: rotate(-1deg);
-      border: 2px solid #121212;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 15;
-      cursor: pointer;
-    }
-    
-    .back-btn::before {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 6px;
-      width: 100%;
-      height: 100%;
-      background: #f6f1e6;
+      background: #EBFE58;
       z-index: -1;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
     
+    .back-btn:hover::before {
+      opacity: 1;
+    }
+    
     .back-btn:hover {
-      color: #121212;
+      color: black;
       background-color: transparent;
     }
     
-    .back-btn:hover::before {
-      opacity: 0.3;
+    /* Analog text effect for button text */
+    .back-btn span {
+      display: inline-block;
+      position: relative;
+      letter-spacing: 2px;
     }
+    
+    .l-1 { transform: translateY(0.3px) rotate(0.1deg); }
+    .l-2 { transform: translateY(-0.2px) translateX(0.2px) rotate(-0.1deg); }
+    .l-3 { transform: translateY(0.1px) translateX(-0.1px) rotate(0.2deg); }
+    .l-4 { transform: translateY(-0.3px) rotate(-0.2deg); }
+
     
     footer {
       position: fixed;
-      bottom: 10px;
+      bottom: 5px;
       right: 20px;
-      font-size: 12px;
-      color: #121212;
-      opacity: 0.5;
+      font-size: 10px;
+      color: #444;
     }
     
     @media (max-width: 900px) {
-      .page-title {
-        font-size: 60px;
+      .title-main {
+        font-size: 72px;
+      }
+      
+      .statement-container {
+        margin-top: 50px;
+        padding: 0 15px;
       }
     }
     
     @media (max-width: 600px) {
-      .content-container {
-        padding: 40px 20px;
+      .dada-container {
+        padding: 20px 15px;
       }
       
-      .page-title {
-        font-size: 46px;
+      .title-main {
+        font-size: 42px;
+        margin-bottom: 40px;
       }
       
-      .statement-body {
+      .statement-container {
+        margin-top: 40px;
+      }
+      
+      .statement-text {
         font-size: 16px;
+        line-height: 1.6;
       }
-      
     }
   </style>
 </head>
 <body>
   <div class="noise"></div>
   
-  <div class="content-container">
-    <div class="page-header">
-      <h1 class="page-title">
-        Artist Statement
-        <div class="title-offset"></div>
+  <div class="dada-container">
+    <div class="title-block">
+      <h1 class="title-main">
+        <span class="letter-1">A</span><span class="letter-2">r</span><span class="letter-3">t</span><span class="letter-4">i</span><span class="letter-5">s</span><span class="letter-6">t</span>
+        <span class="letter-7">S</span><span class="letter-8">t</span><span class="letter-9">a</span><span class="letter-10">t</span><span class="letter-11">e</span><span class="letter-12">m</span><span class="letter-13">e</span><span class="letter-14">n</span><span class="letter-15">t</span>
       </h1>
+    </div>
+
+    <div class="statement-container">
+      <div class="statement-text">
+        <p>I create performance art for radio. My live audio collages transgress boundaries without sacrificing accessibility—a tension that fuels my work. Each program builds connections across subcultures, highlighting threads of subversion in sound and themes.</p>
+
+        <p>I recombine fragments of underground culture—spoken word, experimental music, sound poetry, DIY recordings, and captured voices—from around the world, spanning the late 20th century to the present. By centering voice and language, I create narratives that illuminate how contemporary issues echo historical struggles. I use comedic elements to create moments of release, allowing listeners to process tragedy, anger and political urgency through an absurdist lens. With my queer feminist spirit, I seek out, recontextualize, and amplify perspectives that challenge the established order. These elements work together to generate moments of surprise that disrupt patterns of predictable, passive listening.</p>
+
+        <p>Radio offers an intimate connection with listeners, enabling artistic content to infiltrate everyday life. Freeform radio exists beyond commercial constraints, creating a platform for authentic expression. My work extends this opposition by featuring nonconforming artists who confront systems of power. The live format adds risk and immediacy that recorded media cannot replicate.</p>
+
+        <p>Through my weekly practice and relentless research, I transform radio into something more uncompromising, and immediate—a performative space where unheard voices reimagine our relationship to audio, protest, collective memory.</p>
+      </div>
+
+      <a href="index.html" class="back-btn">
+        <span class="l-1">←</span> <span class="l-2">B</span><span class="l-3">a</span><span class="l-4">c</span><span class="l-1">k</span>
+      </a>
+    </div>
     
-    <div class="statement-body">
-      <p>I create performance art for radio. My live audio collages transgress boundaries without sacrificing accessibility—a tension that fuels my work. Each program builds connections across subcultures, highlighting threads of subversion in sound and themes.</p>
-
-      <p>I recombine fragments of underground culture—spoken word, experimental music, sound poetry, DIY recordings, and captured voices—from around the world, spanning the late 20th century to the present. By centering voice and language, I create narratives that illuminate how contemporary issues echo historical struggles. I use comedic elements to create moments of release, allowing listeners to process tragedy, anger and political urgency through an absurdist lens. With my queer feminist spirit, I seek out, recontextualize, and amplify perspectives that challenge the established order. These elements work together to generate moments of surprise that disrupt patterns of predictable, passive listening.</p>
-
-      <p>Radio offers an intimate connection with listeners, enabling artistic content to infiltrate everyday life. Freeform radio exists beyond commercial constraints, creating a platform for authentic expression. My work extends this opposition by featuring nonconforming artists who confront systems of power. The live format adds risk and immediacy that recorded media cannot replicate.</p>
-
-      <p>Through my weekly practice and relentless research, I transform radio into something more uncompromising, and immediate—a performative space where unheard voices reimagine our relationship to audio, protest, collective memory.</p>
   
-    
-    <a href="index.html" class="back-btn">← Back</a>
-    
-      </svg>
-    </a>
-  </div>
   
   <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
