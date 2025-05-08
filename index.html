@@ -80,13 +80,6 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-    /* Modified arb-text to limit hover area */
-    .arb-text {
-      display: inline-block;
-      position: relative;
-      z-index: 5; /* Lower z-index than buttons */
-    }
-    
     /* Tooltip that appears directly over ARB letters */
     .title-tooltip {
       position: absolute;
@@ -102,15 +95,14 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
-      z-index: 4; /* Lower z-index than buttons */
+      z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
-    }
+}
 
-    /* Make tooltip visible only when hovering over ARB text */
-    .arb-text:hover + .title-tooltip {
-      opacity: 1; /* Shows the tooltip */
-    }
-    
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
+}
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
@@ -151,6 +143,7 @@
       position: relative;
       margin-top: 0px;
       transform: translateY(-25vh);
+
     }
     
     /* Common styles for all navigation items */
@@ -167,8 +160,7 @@
       font-size: 16px;
       transition: all 0.3s ease;
       border: 2px solid #f6f1e6;
-      z-index: 20; /* Increased z-index to ensure buttons are on top of tooltip */
-      pointer-events: auto; /* Ensure button events are always detected */
+      z-index: 2; /* Higher z-index to keep border on top */
     }
     
     /* Offset effect for hover - behind the border */
@@ -238,6 +230,7 @@
       grid-column: 3 / span 2; /* Bio positioned in middle */
       grid-row: 3 / span 1;
       transform: rotate(-2deg);
+      
     }
     
     /* Compilations slightly higher than BIO but not too high */
@@ -268,8 +261,7 @@
       padding: 15px 10px; /* Increased padding for more space around the text */
       transform: translateY(150px); 
       transform: translateX(80px); 
-    }
-    
+}
     .insta-link {
       position: fixed;
       bottom: 80px;
