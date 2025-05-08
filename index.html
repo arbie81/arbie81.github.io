@@ -139,19 +139,29 @@ a {
 /* End tooltip fixes */
     
     /* RADIO ART positioned to align with the O in BIO */
-    .subtitle {
-      font-size: 28px;
-      text-transform: uppercase;
-      letter-spacing: 3px; /* Base letter spacing */
-      position: absolute;
-      top: 10px; /* Modified to align with the O in BIO */
-      left: 25px; /* Positioned to align with the O in BIO */
-      font-weight: bold;
-      white-space: nowrap; /* Keep all text on one line */
-      transform: rotate(90deg); /* Make it vertical */
-      transform-origin: left top; /* Rotate from the top left corner */
-      z-index: 5;
-    }
+    
+    /* Subtitle Fix */
+.subtitle {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: absolute;
+  top: 10px;
+  left: 50%; /* Centers it horizontally */
+  transform: translateX(-50%) rotate(90deg); /* Centers and rotates */
+  font-weight: bold;
+  white-space: nowrap;
+  transform-origin: left top;
+  z-index: 10; /* Adjusted z-index */
+  visibility: visible; /* Ensure visibility */
+  opacity: 1; /* Ensure full opacity */
+}
+
+/* Make sure the parent container is positioned correctly */
+.parent-container { /* Adjust this selector to match your actual parent */
+  position: relative;
+}
+
     /* High-priority button fixes */
 a[href], 
 a[href="artist-statement.html"],
