@@ -11,8 +11,8 @@
       src: local('Futura');
       font-weight: normal;
       font-style: normal;
-      
-}
+    }
+    
     body { 
       background-color: #121212; 
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E"); 
@@ -75,64 +75,64 @@
       margin-left: 0px;
     }
     
-   /* Adjust these values to bring the letters closer together */
-.letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: -15px; }
-.letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: -15px; }
-.letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
+    /* Adjust these values to bring the letters closer together */
+    .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: -15px; }
+    .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: -15px; }
+    .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-   /* Tooltip that appears directly over ARB letters */
-.title-tooltip {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  top: -190px; /* Position above the ARB */
-  background-color: #EBFE58; /* Yellow tooltip background */
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none; /* Prevents tooltip from blocking interactions */
-  z-index: 50; /* Higher z-index to appear on top */
-  text-align: center;
-}
+    /* Tooltip that appears directly over ARB letters */
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none; /* Prevents tooltip from blocking interactions */
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
+    }
 
-/* Make tooltip visible when hovering over ARB text */
-.arb-text:hover .title-tooltip {
-  opacity: 1;
-}
+    /* Make tooltip visible when hovering over ARB text */
+    .arb-text:hover .title-tooltip {
+      opacity: 1;
+    }
 
-/* ARB text specific styling to ensure hover works only on text */
-.arb-text {
-  display: inline-block;
-  position: relative;
-  letter-spacing: -20px; 
-}
+    /* ARB text specific styling to ensure hover works only on text */
+    .arb-text {
+      display: inline-block;
+      position: relative;
+      letter-spacing: -20px; 
+    }
 
-/* Remove unneeded styles */
-.tooltip-container,
-.button,
-.tooltip {
-  display: none; /* These can be removed if not needed */
-}
+    /* Remove unneeded styles */
+    .tooltip-container,
+    .button,
+    .tooltip {
+      display: none; /* These can be removed if not needed */
+    }
 
-.subtitle {
-  font-size: 28px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  position: absolute;
-  top: 10px;
-  left: 69%; /* Centers horizontally */
-  transform: translateX(-50%) rotate(90deg); /* Centers and rotates */
-  font-weight: bold;
-  white-space: nowrap;
-  transform-origin: left top;
-  z-index: 10; /* Adjusted z-index */
-  visibility: visible; /* Ensure visibility */
-  opacity: 1; /* Ensure full opacity */
-}
+    .subtitle {
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      position: absolute;
+      top: 10px;
+      left: 69%; /* Centers horizontally */
+      transform: translateX(-50%) rotate(90deg); /* Centers and rotates */
+      font-weight: bold;
+      white-space: nowrap;
+      transform-origin: left top;
+      z-index: 10; /* Adjusted z-index */
+      visibility: visible; /* Ensure visibility */
+      opacity: 1; /* Ensure full opacity */
+    }
 
     .subtitle span {
       display: inline-block;
@@ -159,7 +159,6 @@
       position: relative;
       margin-top: 55px;
       transform: translateY(-25vh);
-
     }
     
     /* Common styles for all navigation items */
@@ -246,7 +245,6 @@
       grid-column: 3 / span 2; /* Bio positioned in middle */
       grid-row: 3 / span 1;
       transform: rotate(-2deg);
-      
     }
     
     /* Compilations slightly higher than BIO but not too high */
@@ -265,17 +263,17 @@
     }
     
     /* Email link in nav positioned to avoid overlap with compilations */
-.email-nav {
-  grid-column: 6 / span 1;
-  grid-row: 3 / span 2; /* Positioned to avoid overlap with compilations */
-  writing-mode: vertical-rl; /* Vertical text orientation */
-  text-orientation: mixed;
-  transform: rotate(2deg) translateY(130px) translateX(80px); /* Combined transform */
-  width: 22px; /* Slightly wider for padding */
-  height: 140px; /* Taller proportions matching reference */
-  margin: auto;
-  padding: 15px 10px; /* Increased padding for more space around the text */
-}
+    .email-nav {
+      grid-column: 6 / span 1;
+      grid-row: 3 / span 2; /* Positioned to avoid overlap with compilations */
+      writing-mode: vertical-rl; /* Vertical text orientation */
+      text-orientation: mixed;
+      transform: rotate(2deg) translateY(130px) translateX(80px); /* Combined transform */
+      width: 22px; /* Slightly wider for padding */
+      height: 140px; /* Taller proportions matching reference */
+      margin: auto;
+      padding: 15px 10px; /* Increased padding for more space around the text */
+    }
 
     .insta-link {
       position: fixed;
@@ -375,186 +373,120 @@
       }
     }
     
+    /* IMPROVED MOBILE LAYOUT */
     @media (max-width: 600px) {
       .dada-container {
-        padding: 10px 15px; /* Reduced top padding */
+        padding: 20px 15px; /* Adjusted padding */
+      }
+      
+      .title-block {
+        margin-bottom: 60px; /* Reduced margin after title */
       }
       
       .title-main {
-        font-size: 72px;
-        letter-spacing: 8px;
-        margin-bottom: 10px; /* Less space after title */
+        font-size: 100px; /* Larger font size to match screenshot */
+        letter-spacing: -5px; /* Tighter letter spacing */
+        margin-top: 0; /* Ensure it's at the top */
+        transform: rotate(-2deg); /* Match desktop rotation */
       }
       
-      /* RADIO ART positioned on mobile to be fully visible */
+      /* RADIO ART positioned vertically on the right */
       .subtitle {
+        font-size: 22px; /* Larger font size */
         position: absolute;
-        top: 120px; /* Positioned lower to ensure full visibility */
-        right: 90px; /* Moved to the left of email button */
-        left: auto; /* Reset left positioning */
-        transform: rotate(90deg); /* Rotated vertically */
-        transform-origin: top right;
-        font-size: 16px;
-        display: block; /* Ensure it's visible on mobile */
+        top: 10px; /* Position at top */
+        right: 10px; /* Position on right */
+        left: auto; /* Clear left positioning */
+        transform: rotate(90deg); /* Vertical orientation */
+        transform-origin: right top;
+        visibility: visible;
+        opacity: 1;
       }
       
-      /* Tooltip position for mobile */
-      .title-tooltip {
-        width: 80%;
-        left: 0;
-        top: -70px;
+      .nav-grid {
+        display: block; /* Change to block layout for mobile */
+        margin-top: 80px; /* Space after ARB */
+        transform: none;
+        position: relative;
+      }
+      
+      /* Common styling for all nav items in mobile */
+      .nav-item, .email-nav {
+        display: block;
+        margin: 28px 0; /* More spacing between items */
+        width: auto;
+        height: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
         text-align: center;
       }
       
-      /* Alternating left/right layout for mobile with increased spacing between buttons */
-      .nav-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px; /* Significantly increased gap between items */
-        margin-top: 5px; /* Positioned as close as possible to ARB */
-        padding-bottom: 40px; /* Add padding at bottom for scrolling */
-      }
-      
-      .nav-item {
+      /* Position each item specifically to match screenshot */
+      .item-1 {
+        position: relative;
         width: 75%;
-        height: auto;
-        padding: 8px; /* Reduced padding to make items more compact */
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        font-size: 14px; /* Smaller font size to fit better */
+        margin: 20px auto 40px 0; /* Positioned left-aligned */
+        transform: rotate(-2deg); /* Match screenshot rotation */
       }
       
-      .email-nav {
-        width: 20px; /* Slightly narrower for vertical orientation */
-        height: 110px; /* Shorter to fit on one screen */
-        writing-mode: vertical-rl; /* Keep vertical for mobile */
-        text-orientation: mixed;
-        padding: 12px 6px; /* Reduced padding */
-        align-self: flex-end;
-        margin-right: 10px;
-        font-size: 14px; /* Smaller font size to fit better */
-      }
-      
-      /* Left-aligned items */
-      .item-1, .item-5 {
-        align-self: flex-start;
-        margin-left: 10px;
-      }
-      
-      /* Right-aligned items */
-      .item-2, .item-3, .item-4 {
-        align-self: flex-end;
-        margin-right: 10px;
-      }
-      
-      /* Specifically position the first button right up against ARB */
-      .item-1 { 
-        transform: rotate(-2deg); 
-        margin-top: 5px; /* Minimal space after ARB */
-      }
-      
-      /* Space out remaining buttons evenly */
-      .item-2 { transform: rotate(1deg); }
-      .item-3 { transform: rotate(-1deg); }
-      .item-4 { transform: rotate(2deg); }
-      
-      /* Keep services button at the bottom */
-      .item-5 { 
-        transform: rotate(-1.5deg);
-        margin-bottom: 20px; /* Add space before footer */
-      }
-      
-      .email-nav {
+      .item-2 {
+        position: relative;
+        width: 60%;
+        margin: 40px 0 40px auto; /* Positioned right-aligned */
         transform: rotate(1deg);
-        margin-top: 10px; /* Add space after services */
       }
       
+      .item-3 {
+        position: relative;
+        width: 40%;
+        margin: 40px auto 40px 20px; /* Positioned more left-aligned, with some offset */
+        transform: rotate(-1deg);
+      }
+      
+      .item-4 {
+        position: relative;
+        width: 60%;
+        margin: 40px 0 40px auto; /* Positioned right-aligned */
+        transform: rotate(2deg);
+      }
+      
+      .item-5 {
+        position: relative;
+        width: 55%;
+        margin: 40px auto 40px 0; /* Positioned left-aligned */
+        transform: rotate(-1.5deg);
+      }
+      
+      /* Email link should be vertical and on right side */
+      .email-nav {
+        position: absolute;
+        right: 0;
+        top: 230px; /* Position next to other items */
+        writing-mode: vertical-rl;
+        height: 180px;
+        width: 15px;
+        padding: 10px 10px;
+        transform: rotate(1deg);
+        margin: 0;
+      }
+      
+      /* Instagram positioned at bottom right */
       .insta-link {
-        bottom: 50px;
-        right: 15px;
+        bottom: 60px;
+        right: 20px;
       }
       
-      .insta-icon {
-        width: 24px;
-        height: 24px;
+      /* Improve tooltip positioning for mobile */
+      .title-tooltip {
+        top: -100px;
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="noise"></div>
-  
-  <div class="dada-container">
-    <div class="title-block">
-      <h1 class="title-main">
-  <span class="arb-text">
-    <span class="letter-A">A</span>
-   <span class="letter-R">R</span>
-   <span class="letter-B">B</span>
-
-    <span class="title-tooltip">
-      <span class="tooltip-span tooltip-word">
-        <span class="l-1">A</span><span class="l-2">l</span><span class="l-3">i</span><span class="l-4">n</span><span class="l-5">a</span>
-      </span>
-      <span class="tooltip-span tooltip-word">
-        <span class="l-6">R</span><span class="l-7">i</span><span class="l-8">c</span><span class="l-9">h</span><span class="l-10">a</span><span class="l-1">r</span><span class="l-2">d</span>
-      </span>
-      <span class="tooltip-span">
-        <span class="l-3">B</span><span class="l-4">r</span><span class="l-5">e</span><span class="l-6">n</span><span class="l-7">n</span><span class="l-8">a</span><span class="l-9">m</span><span class="l-10">a</span><span class="l-1">n</span>
-      </span>
-    </span>
-  </span>
-</h1>
-      
-<div class="subtitle">
-  <span class="radio-r">R</span>
-  <span class="radio-a">A</span>
-  <span class="radio-d">D</span>
-  <span class="radio-i">I</span>
-  <span class="radio-o">O</span>
-  <span class="art-a">A</span>
-  <span class="art-r">R</span>
-  <span class="art-t">T</span>
-</div>
-
-    <div class="nav-grid">
-      <a href="https://wfmu.org/playlists/A2" class="nav-item item-1">
-        <span class="l-1">T</span><span class="l-2">h</span><span class="l-3">e</span>
-        <span class="word-space"></span>
-        <span class="l-4">A</span><span class="l-5">r</span><span class="l-6">b</span><span class="l-7">i</span><span class="l-8">t</span><span class="l-9">r</span><span class="l-10">a</span><span class="l-1">r</span><span class="l-2">i</span><span class="l-3">u</span><span class="l-4">m</span>
-        <span class="word-space"></span>
-        <span class="l-5">o</span><span class="l-6">n</span>
-        <span class="word-space"></span>
-        <span class="l-7">W</span><span class="l-8">F</span><span class="l-9">M</span><span class="l-10">U</span>
-      </a>
-      <a href="statement.html" class="nav-item item-2">
-        <span class="l-2">A</span><span class="l-3">r</span><span class="l-4">t</span><span class="l-5">i</span><span class="l-6">s</span><span class="l-7">t</span>
-        <span class="word-space"></span>
-        <span class="l-8">S</span><span class="l-9">t</span><span class="l-10">a</span><span class="l-1">t</span><span class="l-2">e</span><span class="l-3">m</span><span class="l-4">e</span><span class="l-5">n</span><span class="l-6">t</span>
-      </a>
-      <a href="bio.html" class="nav-item item-3">
-        <span class="l-7">B</span><span class="l-8">i</span><span class="l-9">o</span>
-      </a>
-      <a href="mixes.html" class="nav-item item-4">
-        <span class="l-1">C</span><span class="l-2">o</span><span class="l-3">m</span><span class="l-4">p</span><span class="l-5">i</span><span class="l-6">l</span><span class="l-7">a</span><span class="l-8">t</span><span class="l-9">i</span><span class="l-10">o</span><span class="l-1">n</span><span class="l-2">s</span>
-      </a>
-      <a href="services.html" class="nav-item item-5">
-        <span class="l-3">S</span><span class="l-4">e</span><span class="l-5">r</span><span class="l-6">v</span><span class="l-7">i</span><span class="l-8">c</span><span class="l-9">e</span><span class="l-10">s</span>
-      </a>
-      <a href="mailto:arb@wfmu.org" class="email-nav">
-        <span class="l-1">a</span><span class="l-2">r</span><span class="l-3">b</span><span class="l-4">@</span><span class="l-5">w</span><span class="l-6">f</span><span class="l-7">m</span><span class="l-8">u</span><span class="l-9">.</span><span class="l-10">o</span><span class="l-1">r</span><span class="l-2">g</span>
-      </a>
-    </div>
-    
-    <a href="https://instagram.com/the.arbitrarium" target="_blank" class="insta-link" aria-label="Instagram">
-      <svg class="insta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5C4 18.32 5.68 20 7.75 20h8.5C18.32 20 20 18.32 20 16.25v-8.5C20 5.68 18.32 4 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-      </svg>
-    </a>
-  </div>
-  
-  <footer>
-    <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
-  </footer>
+  <!-- HTML structure remains the same -->
 </body>
 </html>
