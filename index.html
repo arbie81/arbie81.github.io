@@ -80,36 +80,29 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-    /* Tooltip container */
-.title-tooltip {
-  position: absolute;
-  left: 0;
-  top: -190px;
-  background-color: #EBFE58;
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none; /* Prevents tooltip from triggering hover */
-  z-index: 50;
-  text-align: center;
+    /* Tooltip that appears directly over ARB letters */
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
 }
 
-/* Tooltip visibility only when hovering over the specific letters */
-.arb-text .letter-A:hover ~ .title-tooltip,
-.arb-text .letter-R:hover ~ .title-tooltip,
-.arb-text .letter-B:hover ~ .title-tooltip {
-  opacity: 1; /* Shows the tooltip when hovering over the letters */
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
 }
-
-/* Ensure the letters themselves are clickable */
-.letter-A, .letter-R, .letter-B {
-  cursor: pointer;
-}
-
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
