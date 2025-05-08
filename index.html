@@ -381,7 +381,7 @@
   }
   
   .title-block {
-    margin-bottom: 40px; /* Reduced margin after title to move elements up */
+    margin-bottom: 20px; /* Reduced margin after title to move elements up */
   }
   
   .title-main {
@@ -392,15 +392,15 @@
   }
   
   /* Adjust ARB letters spacing */
-  .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: -5px; } /* Increased space between letters */
-  .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: -5px; } /* Increased space between letters */
+  .letter-A { transform: translateY(3px) rotate(1.2deg) scale(0.98); margin-right: 5px; } /* Added space between letters */
+  .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: 5px; } /* Added space between letters */
   .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
   
-  /* RADIO ART positioned to be visible */
+  /* RADIO ART positioned to be fully visible */
   .subtitle {
     font-size: 22px;
     position: absolute;
-    top: 80px; /* Move down to be visible */
+    top: 110px; /* Move down to be fully visible */
     right: 10px;
     left: auto;
     transform: rotate(90deg);
@@ -411,7 +411,7 @@
   
   .nav-grid {
     display: block; /* Change to block layout for mobile */
-    margin-top: 30px; /* Reduced space after ARB to move items up */
+    margin-top: 10px; /* Reduced space after ARB to move items up */
     transform: none;
     position: relative;
   }
@@ -419,56 +419,60 @@
   /* Common styling for all nav items in mobile */
   .nav-item, .email-nav {
     display: block;
-    margin: 20px 0; /* Less spacing between items to move them up */
+    margin: 12px 0; /* Less spacing between items to move them up */
     width: auto;
     height: auto;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
+    white-space: nowrap; /* Keep text on one line */
   }
   
   /* Position each item according to left-right-right-right-left pattern */
   .item-1 {
     position: relative;
     width: 75%;
-    margin: 20px auto 20px 0; /* Left-aligned */
+    margin: 12px auto 12px 0; /* Left-aligned */
     transform: rotate(-2deg);
   }
   
   .item-2 {
     position: relative;
     width: 60%;
-    margin: 20px 0 20px auto; /* Right-aligned */
+    margin: 12px 0 12px auto; /* Right-aligned */
     transform: rotate(1deg);
+    white-space: nowrap; /* Ensure text stays on one line */
+    padding: 10px 15px; /* Slightly adjust padding to fit text */
+    overflow: visible; /* Allow text to be visible */
   }
   
   .item-3 {
     position: relative;
     width: 40%;
-    margin: 20px 0 20px auto; /* Right-aligned */
+    margin: 12px 0 12px auto; /* Right-aligned */
     transform: rotate(-1deg);
   }
   
   .item-4 {
     position: relative;
     width: 60%;
-    margin: 20px 0 20px auto; /* Right-aligned */
+    margin: 12px 0 12px auto; /* Right-aligned */
     transform: rotate(2deg);
   }
   
   .item-5 {
     position: relative;
     width: 55%;
-    margin: 20px auto 20px 0; /* Left-aligned */
+    margin: 12px auto 12px 0; /* Left-aligned */
     transform: rotate(-1.5deg);
   }
   
-  /* Email link should be vertical and on right side */
+  /* Email link should be vertical and moved left to avoid Instagram */
   .email-nav {
     position: absolute;
-    right: 0;
-    top: 200px; /* Positioned higher to be with other items */
+    right: 45px; /* Moved left to avoid overlap with Instagram */
+    top: 180px; /* Positioned higher to be with other items */
     writing-mode: vertical-rl;
     height: 180px;
     width: 15px;
