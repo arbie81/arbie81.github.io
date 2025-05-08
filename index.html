@@ -80,51 +80,71 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-   /* Tooltip container that wraps ARB and the tooltip */
+    /* Tooltip that appears directly over ARB letters */
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
+}
+
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
+  opacity: 1; /* Shows the tooltip */
+
+  /* Make buttons have higher priority than tooltips */
+.button {
+  position: relative;
+  z-index: 1000; /* Higher z-index to override tooltip */
+  pointer-events: auto; /* Ensure clicks work */
+}
+
+/* Make tooltip container only respond to hover on the text itself */
 .tooltip-container {
-  display: inline-block;
+  display: inline-block; /* Only takes up space of content */
   position: relative;
 }
 
-/* ARB text */
+/* ARB text specific styling to ensure hover works only on text */
 .arb-text {
   display: inline-block;
   position: relative;
-  z-index: 1;
 }
 
-/* Tooltip that appears directly over ARB letters */
-.title-tooltip {
-  position: absolute;
-  top: -190px;
-  left: 0;
-  background-color: #EBFE58;
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  font-weight: bold;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none; /* Tooltip won't interfere with mouse events */
-  z-index: 100;
-  text-align: center;
+/* Make tooltip hover area smaller */
+.tooltip {
+  pointer-events: none; /* Tooltip itself doesn't capture events */
 }
-
-/* Reveal tooltip when hovering over ARB */
-.tooltip-container:hover .title-tooltip {
-  opacity: 1;
-}
-
-/* Buttons and links always stay clickable and on top */
-a[href],
-.button {
+}/* Tooltip fixes - do not modify anything above this line */
+a {
   position: relative;
   z-index: 1000;
-  pointer-events: auto;
-  cursor: pointer;
+  pointer-events: auto !important;
 }
 
+.tooltip-container {
+  pointer-events: none;
+}
+
+.tooltip-container span {
+  pointer-events: auto;
+}
+
+.tooltip {
+  pointer-events: none;
+}
+/* End tooltip fixes */
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
