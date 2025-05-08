@@ -13,11 +13,11 @@
       font-style: normal;
     }
     .button-row {
-  display: flex;
-  gap: 12px; /* this creates space between the buttons */
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
+      display: flex;
+      gap: 12px; /* this creates space between the buttons */
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 
     body {
       background-color: #121212; 
@@ -118,64 +118,31 @@
       margin-bottom: 20px;
     }
     
-    .contact-btn {
-  display: inline-block;
-  text-decoration: none;
-  color: #f6f1e6;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 8px 16px;
-  border: 2px solid #f6f1e6;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  margin: 10px 0;
-}
-
-    
-    /* Offset effect for hover - behind the border */
-    .contact-btn::before {
-      content: '';
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 100%;
-      height: 100%;
-      background: #EBFE58;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .contact-btn:hover::before {
-      opacity: 1;
-    }
-    
-    .contact-btn:hover {
-      color: black;
-      background-color: transparent;
-    }
-    
-    .back-link {
+    .contact-btn, .back-link {
       display: inline-block;
       text-decoration: none;
       color: #f6f1e6;
       font-weight: bold;
-      position: relative;
-      overflow: visible;
       text-transform: uppercase;
       font-size: 16px;
       padding: 15px 30px;
-      transition: all 0.3s ease;
       border: 2px solid #f6f1e6;
-      transform: rotate(-0.5deg);
-      margin-top: 20px;
-      margin-bottom: 40px;
+      transition: all 0.3s ease;
       letter-spacing: 2px;
+      position: relative;
+      overflow: visible;
+    }
+    
+    .back-link {
+      transform: rotate(-0.5deg);
+    }
+    
+    .contact-btn {
+      transform: rotate(-0.5deg);
     }
     
     /* Offset effect for hover - behind the border */
-    .back-link::before {
+    .contact-btn::before, .back-link::before {
       content: '';
       position: absolute;
       top: 6px;
@@ -188,11 +155,11 @@
       transition: opacity 0.3s ease;
     }
     
-    .back-link:hover::before {
+    .contact-btn:hover::before, .back-link:hover::before {
       opacity: 1;
     }
     
-    .back-link:hover {
+    .contact-btn:hover, .back-link:hover {
       color: black;
       background-color: transparent;
     }
@@ -282,11 +249,11 @@
       </div>
       
       <div class="button-row">
-  <a href="/back" class="back-link"><span>Back</span></a>
-  <a href="/contact" class="contact-btn"><span>Get in Touch</span></a>
-</div>
-
-      
+        <a href="index.html" class="back-link"><span>Back</span></a>
+        <a href="contact.html" class="contact-btn"><span>Get in Touch</span></a>
+      </div>
+    </div>
+  </div>
   
   <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
