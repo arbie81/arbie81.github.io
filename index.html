@@ -80,30 +80,12 @@
     .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); }
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-    /* Tooltip that appears directly over ARB letters */
-    .title-tooltip {
-      position: absolute;
-      width: 50%;
-      left: 0;
-      top: -190px; /* Position above the ARB */
-      background-color: #EBFE58; /* Yellow tooltip background */
-      color: black;
-      padding: 2px 4px;
-      font-size: 14px;
-      white-space: nowrap;
-      font-weight: bold;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      z-index: 50; /* Higher z-index to appear on top */
-      text-align: center;
-}
-/* Tooltip that appears directly over ARB letters */
+   /* Tooltip container */
 .title-tooltip {
   position: absolute;
   left: 0;
-  top: -190px; /* Position above the ARB */
-  background-color: #EBFE58; /* Yellow tooltip background */
+  top: -190px;
+  background-color: #EBFE58;
   color: black;
   padding: 2px 4px;
   font-size: 14px;
@@ -111,20 +93,23 @@
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; /* Don't allow the tooltip itself to trigger hover */
-  z-index: 50; /* Higher z-index to appear on top */
+  pointer-events: none; /* Prevents the tooltip from being a trigger */
+  z-index: 50;
   text-align: center;
 }
 
-/* Tooltip should only appear when hovering over the letters in the ARB text */
-.title-main .arb-text:hover .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
+/* Show tooltip only when hovering over specific letters (A, R, B) */
+.arb-text .letter-A:hover ~ .title-tooltip,
+.arb-text .letter-R:hover ~ .title-tooltip,
+.arb-text .letter-B:hover ~ .title-tooltip {
+  opacity: 1;
 }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
+/* Make sure the letters are clickable */
+.letter-A, .letter-R, .letter-B {
+  cursor: pointer;
 }
+
 
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
