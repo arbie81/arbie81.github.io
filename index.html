@@ -319,12 +319,17 @@
         letter-spacing: 12px; /* Adjusted letter spacing for smaller screens */
       }
       
-      .subtitle {
-        top: -25px; /* Position above ARB for tablets */
-        left: 190px; /* Keep aligned with desktop */
-        font-size: 22px;
-      }
-      
+    /* Move subtitle down significantly to make RADIO fully visible */
+  .subtitle {
+    font-size: 22px;
+    position: absolute;
+    top: 190px; /* Moved down substantially */
+    right: 10px;
+    left: auto;
+    transform: rotate(90deg);
+    transform-origin: right top;
+    letter-spacing: -4px; /* Add this line to reduce space between letters */
+  }
       .nav-grid {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(8, 60px);
