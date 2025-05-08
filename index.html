@@ -162,7 +162,25 @@ a {
       transform-origin: left top; /* Rotate from the top left corner */
       z-index: 5;
     }
-    
+    /* High-priority button fixes */
+a[href], 
+a[href="artist-statement.html"],
+a[href="arbitarium.html"] {
+  position: relative !important;
+  z-index: 9999 !important; /* Extremely high z-index */
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Block tooltip interaction where buttons are */
+.title-tooltip {
+  pointer-events: none !important;
+}
+
+/* Target the exact area causing issues */
+body > * > *:first-child {
+  pointer-events: auto !important;
+}
     .subtitle span {
       display: inline-block;
       letter-spacing: 5px; /* Increased space between letters */
