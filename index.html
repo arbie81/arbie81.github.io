@@ -97,12 +97,13 @@
       pointer-events: none;
       z-index: 50; /* Higher z-index to appear on top */
       text-align: center;
+}.letter-A:hover + .title-tooltip,
+.letter-R:hover + .title-tooltip,
+.letter-B:hover + .title-tooltip {
+  opacity: 1;
 }
 
-/* Make tooltip visible when hovering over ARB text */
-.title-main .arb-text:hover + .title-tooltip {
-  opacity: 1; /* Shows the tooltip */
-}
+
     /* RADIO ART positioned to align with the O in BIO */
     .subtitle {
       font-size: 28px;
