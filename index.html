@@ -81,53 +81,85 @@
     .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
     /* Tooltip that appears directly over ARB letters */
-.title-tooltip {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  top: -190px; /* Position above the ARB */
-  background-color: #EBFE58; /* Yellow tooltip background */
-  color: black;
-  padding: 2px 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 50; /* Higher z-index to appear on top */
-  text-align: center;
+    .title-tooltip {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: -190px; /* Position above the ARB */
+      background-color: #EBFE58; /* Yellow tooltip background */
+      color: black;
+      padding: 2px 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 50; /* Higher z-index to appear on top */
+      text-align: center;
 }
 
-/* Make tooltip visible when hovering over letter spans */
-.tooltip-span:hover ~ .title-tooltip,
-.tooltip-span:hover .title-tooltip,
-.tooltip-word:hover ~ .title-tooltip,
-.tooltip-word:hover .title-tooltip {
+/* Make tooltip visible when hovering over ARB text */
+.title-main .arb-text:hover + .title-tooltip {
   opacity: 1; /* Shows the tooltip */
+
+  /* Make buttons have higher priority than tooltips */
+.button {
+  position: relative;
+  z-index: 1000; /* Higher z-index to override tooltip */
+  pointer-events: auto; /* Ensure clicks work */
 }
 
-/* Tooltip container fixes */
+/* Make tooltip container only respond to hover on the text itself */
+.tooltip-container {
+  display: inline-block; /* Only takes up space of content */
+  position: relative;
+}
+
+/* ARB text specific styling to ensure hover works only on text */
+.arb-text {
+  display: inline-block;
+  position: relative;
+}
+
+/* Make tooltip hover area smaller */
+.tooltip {
+  pointer-events: none; /* Tooltip itself doesn't capture events */
+}
+}/* Tooltip fixes - do not modify anything above this line */
+a {
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto !important;
+}
+
 .tooltip-container {
   pointer-events: none;
 }
 
-/* Individual letter spans capture hover events */
-.tooltip-span {
+.tooltip-container span {
   pointer-events: auto;
 }
 
-/* Give all links higher z-index and pointer events priority */
-a, button, .button {
-  position: relative;
-  z-index: 1000; /* Higher z-index to override tooltip */
-  pointer-events: auto !important; /* Ensure clicks work */
-}
-
-/* Make sure tooltip doesn't interfere with clicks */
-.title-tooltip {
+.tooltip {
   pointer-events: none;
 }
+/* End tooltip fixes */
+    /* RADIO ART positioned to align with the O in BIO */
+    .subtitle {
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 3px; /* Base letter spacing */
+      position: absolute;
+      top: 10px; /* Modified to align with the O in BIO */
+      left: 625px; /* Positioned to align with the O in BIO */
+      font-weight: bold;
+      white-space: nowrap; /* Keep all text on one line */
+      transform: rotate(90deg); /* Make it vertical */
+      transform-origin: left top; /* Rotate from the top left corner */
+      z-index: 5;
+    }
+    
     .subtitle span {
       display: inline-block;
       letter-spacing: 5px; /* Increased space between letters */
