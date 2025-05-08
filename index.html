@@ -264,19 +264,18 @@
     }
     
     /* Email link in nav positioned to avoid overlap with compilations */
-    .email-nav {
-      grid-column: 6 / span 1;
-      grid-row: 3 / span 2; /* Positioned to avoid overlap with compilations */
-      writing-mode: vertical-rl; /* Vertical text orientation */
-      text-orientation: mixed;
-      transform: rotate(2deg);
-      width: 22px; /* Slightly wider for padding */
-      height: 140px; /* Taller proportions matching reference */
-      margin: auto;
-      padding: 15px 10px; /* Increased padding for more space around the text */
-      transform: translateY(200px); 
-      transform: translateX(80px); 
+.email-nav {
+  grid-column: 6 / span 1;
+  grid-row: 3 / span 2; /* Positioned to avoid overlap with compilations */
+  writing-mode: vertical-rl; /* Vertical text orientation */
+  text-orientation: mixed;
+  transform: rotate(2deg) translateY(200px) translateX(80px); /* Combined transform */
+  width: 22px; /* Slightly wider for padding */
+  height: 140px; /* Taller proportions matching reference */
+  margin: auto;
+  padding: 15px 10px; /* Increased padding for more space around the text */
 }
+
     .insta-link {
       position: fixed;
       bottom: 80px;
