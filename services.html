@@ -197,22 +197,53 @@
     }
     
     @media (max-width: 600px) {
-      .container {
-        padding: 40px 20px;
-      }
-      
-      .services-title {
-        font-size: 42px;
-        margin-bottom: 20px;
-      }
-      
-      .services-container {
-        margin-top: 20px;
-      }
-      
-      .service-text {
-        font-size: 16px;
-        line-height: 1.6;
+  .container {
+    padding: 40px 20px;
+  }
+
+  .services-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .services-container {
+    margin-top: 20px;
+  }
+
+  .service-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .contact-btn {
+    width: auto;
+    line-height: 1.2; /* Adjust line height for correct spacing */
+    display: inline-block; /* Ensure button stays within content width */
+  }
+
+  .contact-btn span {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .contact-btn span::before {
+    content: "Get in";
+    display: block;
+  }
+
+  .contact-btn span::after {
+    content: "Touch";
+    display: block;
+  }
+
+  .back-link {
+    /* Ensure back-link stays in one line with no wrapping */
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
       }
     }
   </style>
