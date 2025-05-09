@@ -517,9 +517,12 @@
   
   /* Improve tooltip positioning for mobile */
   .title-tooltip {
-    top: -100px;
-    width: 60%;
-    text-align: center;
+   width: auto !important;
+    min-width: 90% !important; /* Wider on mobile */
+    max-width: 95% !important;
+    white-space: normal !important; /* Allow wrapping if needed */
+    display: flex !important;
+    justify-content: space-between !important;
   }
 }
   </style>
