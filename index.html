@@ -535,6 +535,22 @@
      }
     /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
+  .title-tooltip {
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 13px;
+  }
+
+  .title-tooltip span span {
+    letter-spacing: normal;
+  }
+}
+
   .title-tooltip span span {
     letter-spacing: normal; /* Resets any letter-spacing for mobile */
   }
