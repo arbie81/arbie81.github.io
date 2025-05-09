@@ -214,6 +214,32 @@
         font-size: 16px;
         line-height: 1.6;
       }
+        .back-link {
+    white-space: nowrap;
+  }
+
+  .contact-btn {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .contact-btn span {
+    display: block;
+  }
+
+  .contact-btn span::before {
+    content: "GET IN";
+    display: block;
+  }
+
+  .contact-btn span::after {
+    content: "TOUCH";
+    display: block;
+  }
+
+  .contact-btn span {
+    visibility: hidden;
+  }
     }
   </style>
 </head>
