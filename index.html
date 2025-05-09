@@ -292,20 +292,21 @@
     }
     
     /* New Latest Episode button - desktop version */
-    .latest-episode {
-      grid-column: 1 / span 1;
-      grid-row: 4 / span 1;
-      width: 45%; /* Make it about 1/4 the size of item-1 */
-      height: 60px; /* Make it square-ish with two lines of text */
-      justify-self: end; /* Align to right edge */
-      align-self: start; /* Align to top */
-      transform: rotate(-1.5deg) translateY(160px) translateX(10px); /* Position it under item-1 */
-      display: flex;
-      flex-direction: column; /* Stack "Latest" and "Episode" */
-      font-size: 14px; /* Slightly smaller text */
-      line-height: 1.2;
-      padding: 5px;
-    }
+.latest-episode {
+  grid-column: 1 / span 2;
+  grid-row: 4 / span 1;
+  width: 30%; /* Reduced width to 2/3 original size */
+  height: 60px;
+  justify-self: end; /* Align to right edge of item-1 */
+  align-self: start;
+  transform: rotate(-1.5deg) translateY(160px); /* Position under item-1 */
+  display: flex;
+  flex-direction: column; /* Stack "Latest" and "Episode" */
+  font-size: 14px;
+  line-height: 1.2;
+  padding: 5px;
+  text-align: center;
+}
     
     /* Email link in nav positioned to avoid overlap with compilations */
 .email-nav {
@@ -535,15 +536,16 @@
     transform: rotate(-1.5deg);
   }
   
+ @media (max-width: 600px) {
   /* Latest Episode - mobile version */
   .latest-episode {
     position: relative;
-    width: 40%;
-    margin: 40px 0 20px 60%; /* Right-aligned with more space above */
-    transform: rotate(1.5deg);
+    width: 30%;
+    margin: 40px auto 20px 0; /* Left-aligned under services */
+    transform: rotate(-1.5deg);
     padding: 8px 15px;
   }
-  
+}
   /* Email link should be vertical and on right side */
   .email-nav {
     position: absolute;
@@ -679,10 +681,10 @@
       </a>
       <!-- New Latest Episode Button -->
       <a href="https://wfmu.org/archiveplayer/?show=151753&archive=270127" target="_blank" class="nav-item latest-episode" id="latest-episode-link">
-        <span class="l-4">L</span><span class="l-5">a</span><span class="l-6">t</span><span class="l-7">e</span><span class="l-8">s</span><span class="l-9">t</span>
-        <br>
-        <span class="l-1">E</span><span class="l-2">p</span><span class="l-3">i</span><span class="l-4">s</span><span class="l-5">o</span><span class="l-6">d</span><span class="l-7">e</span>
-      </a>
+  <span class="l-4">L</span><span class="l-5">a</span><span class="l-6">t</span><span class="l-7">e</span><span class="l-8">s</span><span class="l-9">t</span>
+  <br>
+  <span class="l-1">E</span><span class="l-2">p</span><span class="l-3">i</span><span class="l-4">s</span><span class="l-5">o</span><span class="l-6">d</span><span class="l-7">e</span>
+</a>
       <a href="mailto:arb@wfmu.org" class="email-nav">
         <span class="l-1">a</span><span class="l-2">r</span><span class="l-3">b</span><span class="l-4">@</span><span class="l-5">w</span><span class="l-6">f</span><span class="l-7">m</span><span class="l-8">u</span><span class="l-9">.</span><span class="l-10">o</span><span class="l-1">r</span><span class="l-2">g</span>
       </a>
