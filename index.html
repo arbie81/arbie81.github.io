@@ -80,7 +80,7 @@
 .letter-R { transform: translateY(-2px) rotate(-0.8deg) scale(1.02); margin-right: -15px; }
 .letter-B { transform: translateY(2.5px) rotate(0.6deg) scale(0.97); }
     
-   /* Tooltip that appears directly over ARB letters */
+  /* Tooltip that appears directly over ARB letters */
 .title-tooltip {
   position: absolute;
   width: 65%;
@@ -98,9 +98,17 @@
   z-index: 50; /* Higher z-index to appear on top */
   text-align: center;
 }
+
+/* Adjust letter spacing within the tooltip (individual letters) */
 .title-tooltip span span {
   display: inline-block;
-  margin-right: 1.5px;
+  margin-right: 3px; /* Increase spacing between letters */
+  letter-spacing: 0.5px; /* Adjust letter-spacing to add space between letters */
+}
+
+/* Add more space between words (using the .tooltip-span selector) */
+.title-tooltip .tooltip-span {
+  margin-right: 8px; /* Increase space between the words */
 }
 
 /* Make tooltip visible when hovering over ARB text */
@@ -112,7 +120,7 @@
 .arb-text {
   display: inline-block;
   position: relative;
-  letter-spacing: -20px; 
+  letter-spacing: -20px; /* Adjust if needed */
 }
 
 /* Remove unneeded styles */
@@ -121,6 +129,7 @@
 .tooltip {
   display: none; /* These can be removed if not needed */
 }
+
 
 .subtitle {
   font-size: 28px;
