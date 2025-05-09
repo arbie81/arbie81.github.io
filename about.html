@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bio - ARB.GAY</title>
+  <title>About - ARB.GAY</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23121212' filter='url(%23noiseFilter)'/%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Ctext x='15' y='70' font-family='Helvetica Neue, Futura, sans-serif' font-size='40' font-weight='bold' fill='%23EBFE58'%3EARB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <style>
     @font-face {
@@ -52,7 +52,7 @@
       text-align: center;
     }
     
-    .bio-title {
+    .about-title {
       font-family: 'Helvetica Neue', 'Futura', sans-serif;
       font-size: 100px;
       margin: 0 auto;
@@ -63,8 +63,8 @@
       display: inline-block;
     }
     
-    /* Subtle analog treatment to BIO letters */
-    .bio-title span {
+    /* Subtle analog treatment to ABOUT letters */
+    .about-title span {
       display: inline-block;
       position: relative;
       transform-origin: center;
@@ -73,11 +73,13 @@
     }
     
     /* Subtle letter variations */
+    .letter-A { transform: translateY(0.7px) rotate(0.3deg) scale(0.995); }
     .letter-B { transform: translateY(0.7px) rotate(0.3deg) scale(0.995); }
-    .letter-I { transform: translateY(-0.5px) rotate(-0.2deg) scale(1.005); }
     .letter-O { transform: translateY(0.4px) rotate(0.2deg) scale(0.997); }
+    .letter-U { transform: translateY(-0.3px) rotate(-0.1deg) scale(1.002); }
+    .letter-T { transform: translateY(-0.5px) rotate(-0.2deg) scale(1.005); }
     
-    .bio-container {
+    .about-container {
       position: relative;
       margin-top: 20px; /* Reduced from 40px */
       margin-bottom: 60px;
@@ -86,7 +88,7 @@
       margin-right: auto;
     }
     
-    .bio-text {
+    .about-text {
       font-size: 18px;
       line-height: 1.8;
       margin-bottom: 50px;
@@ -95,7 +97,7 @@
       letter-spacing: 0.5px;
     }
     
-    .bio-text p {
+    .about-text p {
       margin-bottom: 30px;
     }
     
@@ -161,11 +163,11 @@
     }
     
     @media (max-width: 900px) {
-      .bio-title {
+      .about-title {
         font-size: 72px;
       }
       
-      .bio-container {
+      .about-container {
         margin-top: 30px; /* Reduced from 50px */
         padding: 0 15px;
       }
@@ -176,16 +178,16 @@
         padding: 40px 20px;
       }
       
-      .bio-title {
+      .about-title {
         font-size: 42px;
         margin-bottom: 20px; /* Reduced from 30px */
       }
       
-      .bio-container {
+      .about-container {
         margin-top: 20px; /* Reduced from 30px */
       }
       
-      .bio-text {
+      .about-text {
         font-size: 16px;
         line-height: 1.6;
       }
@@ -197,13 +199,13 @@
   
   <div class="container">
     <div class="title-block">
-      <h1 class="bio-title">
-        <span class="letter-B">B</span><span class="letter-I">I</span><span class="letter-O">O</span>
+      <h1 class="about-title">
+        <span class="letter-A">A</span><span class="letter-B">B</span><span class="letter-O">O</span><span class="letter-U">U</span><span class="letter-T">T</span>
       </h1>
     </div>
     
-    <div class="bio-container">
-      <div class="bio-text">
+    <div class="about-container">
+      <div class="about-text">
         <p>Alina Richard Brennaman (b. 1981, Kansas, USA) is a self-taught artist, archivist, researcher, and writer. Her work focuses on sound, radio, and experimental media, developed through years of involvement in DIY punk communities, underground music scenes, and independent travel. Since 2014, ARB has been creating radio works, and since 2019, has hosted a weekly show on WFMU. Having lived in various locations and traveled widely, she draws inspiration from cultures that exist beyond mainstream visibility. Her work documents and amplifies subversive voices while operating independently of both capitalist and academic frameworks.</p>
       </div>
       
