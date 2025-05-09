@@ -215,32 +215,20 @@
         line-height: 1.6;
       }
         .back-link {
-    white-space: nowrap;
-  }
-
-  .contact-btn {
-    white-space: normal;
-    word-break: break-word;
-  }
+  white-space: normal;
+  text-align: center;
+}
 
   .contact-btn span {
-    display: block;
-  }
+  display: inline;
+}
 
-  .contact-btn span::before {
-    content: "GET IN";
-    display: block;
-  }
-
-  .contact-btn span::after {
-    content: "TOUCH";
-    display: block;
-  }
-
-  .contact-btn span {
-    visibility: hidden;
+.contact-btn span::before {
+  content: "GET IN\nTOUCH";
+  white-space: pre;
   }
     }
+    
   </style>
 </head>
 <body>
