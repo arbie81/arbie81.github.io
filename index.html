@@ -291,21 +291,21 @@
       transform: translateY(100px); 
     }
     
-    /* New Latest Episode button - desktop version */
+/* Desktop version */
 .latest-episode {
   grid-column: 1 / span 2;
   grid-row: 4 / span 1;
-  width: 30%; /* Reduced width to 2/3 original size */
-  height: 60px;
-  justify-self: end; /* Align to right edge of item-1 */
+  width: 30%;
+  height: auto;
+  justify-self: end;
   align-self: start;
-  transform: rotate(-1.5deg) translateY(160px); /* Position under item-1 */
+  transform: rotate(-1.5deg) translateY(50px); /* Moved up significantly */
   display: flex;
-  flex-direction: column; /* Stack "Latest" and "Episode" */
-  font-size: 14px;
-  line-height: 1.2;
-  padding: 5px;
+  flex-direction: column;
   text-align: center;
+  writing-mode: horizontal-tb; /* Force horizontal text */
+  text-orientation: mixed;
+  padding: 10px;
 }
     
     /* Email link in nav positioned to avoid overlap with compilations */
