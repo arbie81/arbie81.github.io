@@ -44,7 +44,6 @@
       margin: 0 auto;
       padding: 40px 20px;
       box-sizing: border-box;
-      min-height: calc(100vh - 30px); /* Make container fill viewport minus footer height */
     }
     
     .title-block {
@@ -185,8 +184,8 @@
       gap: 20px;
       position: relative;
       margin-top: 55px;
-      /* Changed from -25vh to reduce empty space */
-      transform: translateY(-120px);
+      transform: translateY(-25vh);
+
     }
     
     /* Common styles for all navigation items */
@@ -306,7 +305,7 @@
 
     .insta-link {
       position: fixed;
-      bottom: 40px; /* Moved up slightly to avoid overlap with footer */
+      bottom: 80px;
       right: 40px;
       z-index: 20;
     }
@@ -338,8 +337,6 @@
       right: 20px;
       font-size: 10px; /* Smaller font size */
       color: #444; /* dark gray, barely visible */
-      margin: 0;
-      padding: 0;
     }
     
     @media (max-width: 900px) {
@@ -363,7 +360,6 @@
         grid-template-rows: repeat(8, 60px);
         gap: 15px;
         margin-bottom: 40px;
-        transform: translateY(-80px); /* Less extreme transform for tablets */
       }
       
       .item-1 {
@@ -424,7 +420,6 @@
 
   .dada-container {
     padding: 20px 15px; /* Adjusted padding */
-    min-height: 100vh; /* Full height on mobile */
   }
   
   .title-block {
@@ -459,9 +454,8 @@
   .nav-grid {
     display: block; /* Change to block layout for mobile */
     margin-top: -50px; /* Reduced space after ARB to move items up */
-    transform: none; /* No transform on mobile to avoid empty space */
+    transform: none;
     position: relative;
-    margin-bottom: 60px; /* Add bottom margin to account for footer */
   }
   
   /* Common styling for all nav items in mobile */
@@ -532,7 +526,7 @@
   
   /* Instagram positioned at bottom right */
   .insta-link {
-    bottom: 40px;
+    bottom: 60px;
     right: 20px;
   }
  /* Mobile-specific adjustments */
@@ -557,24 +551,34 @@
     letter-spacing: normal; /* Resets any letter-spacing for mobile */
   }
 }
+@media (min-width: 768px) {
+  body {
+    overflow-x: hidden; /* This will stop horizontal scrolling */
+    overflow-y: auto;   /* Ensures vertical scroll appears when needed */
+  }
 
-/* Fix for horizontal scroll and empty space */
-html, body {
-  overflow-x: hidden;
-  height: 100%;
-  position: relative;
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dada-container {
+    padding-bottom: 0 !important; /* Remove any extra bottom padding */
+    margin-bottom: 0 !important;  /* Ensure no margin at the bottom */
+  }
+
+  #__next, .main-content, .content-wrapper {
+    min-height: 100vh; /* Make sure content fills the screen */
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto; /* Pushes footer to the bottom of the page */
+  }
 }
 
-/* Additional fix to remove empty space */
-.dada-container {
-  overflow: hidden; /* Contain everything inside */
-}
-
-/* Fix for the footer to stay at bottom without creating extra space */
-footer p {
-  margin: 0;
-  padding: 0;
-}
   </style>
 </head>
 <body>
