@@ -551,25 +551,31 @@
     letter-spacing: normal; /* Resets any letter-spacing for mobile */
   }
 }
-    
- @media (min-width: 768px) {
+@media (min-width: 768px) {
   body {
-    overflow-y: scroll;
+    overflow-x: hidden; /* This will stop horizontal scrolling */
+    overflow-y: auto;   /* Ensures vertical scroll appears when needed */
   }
 
-  html, body {
+  html {
     height: 100%;
     margin: 0;
     padding: 0;
   }
 
   .dada-container {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
+    padding-bottom: 0 !important; /* Remove any extra bottom padding */
+    margin-bottom: 0 !important;  /* Ensure no margin at the bottom */
   }
 
   #__next, .main-content, .content-wrapper {
-    min-height: 100vh;
+    min-height: 100vh; /* Make sure content fills the screen */
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto; /* Pushes footer to the bottom of the page */
   }
 }
 
