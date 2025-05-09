@@ -553,12 +553,25 @@
 }
     
  @media (min-width: 768px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   .dada-container {
     padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #__next, .main-content, .content-wrapper {
+    min-height: 100vh;
   }
 }
-
-
 
   </style>
 </head>
