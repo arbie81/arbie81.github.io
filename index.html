@@ -98,7 +98,20 @@
   z-index: 50; /* Higher z-index to appear on top */
   text-align: center;
 }
+/* Mobile-specific adjustments */
+@media screen and (max-width: 767px) {
+  .title-tooltip {
+    top: -100px;
+    width: 85%; /* You can tweak this number as needed */
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 
+  .title-tooltip span span {
+    letter-spacing: normal;
+  }
+}
 /* Adjust letter spacing within the tooltip (individual letters) */
 .title-tooltip span span {
   display: inline-block;
