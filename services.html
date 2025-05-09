@@ -185,50 +185,45 @@
       color: #444;
     }
     
-    @media (max-width: 900px) {
-      .services-title {
-        font-size: 72px;
-      }
-      
-      .services-container {
-        margin-top: 30px;
-        padding: 0 15px;
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .container {
-        padding: 40px 20px;
-      }
-      
-      .services-title {
-        font-size: 42px;
-        margin-bottom: 20px;
-      }
-      
-      .services-container {
-        margin-top: 20px;
-      }
-      
-      .service-text {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-        .back-link {
-  white-space: normal;
-  text-align: center;
-}
+   @media (max-width: 600px) {
+  .contact-btn span {
+    white-space: normal;      /* Allow breaking */
+    display: block;           /* Stack words */
+    text-align: center;       /* Optional: looks cleaner */
+  }
+
+  .contact-btn span::after {
+    content: "Touch";
+    display: block;
+  }
+
+  .contact-btn span::before {
+    content: "Get in";
+    display: block;
+  }
 
   .contact-btn span {
-  display: inline;
+    visibility: hidden;
+    position: relative;
+  }
+
+  .contact-btn span::before,
+  .contact-btn span::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    visibility: visible;
+  }
+
+  .contact-btn span::before {
+    top: 0;
+  }
+
+  .contact-btn span::after {
+    top: 1.2em; /* Adjust based on font size */
+  }
 }
 
-.contact-btn span::before {
-  content: "GET IN\nTOUCH";
-  white-space: pre;
-  }
-    }
-    
   </style>
 </head>
 <body>
