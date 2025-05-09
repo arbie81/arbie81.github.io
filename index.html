@@ -303,17 +303,7 @@
     
     .tooltip-word {
       margin-right: 8px; /* Increased space between words */
-      !important; /* Add space after each word */
     }
-    
-/* Make the tooltip adapt to content */
-.title-tooltip {
-  width: auto !important; /* Allow width to adjust to content */
-  min-width: 50%; /* Minimum width */
-  padding: 2px 10px !important; /* Add more horizontal padding */
-  display: flex !important;
-  justify-content: space-between !important; /* Distribute words evenly */
-}
     
     footer {
       position: fixed;
@@ -517,12 +507,9 @@
   
   /* Improve tooltip positioning for mobile */
   .title-tooltip {
-   width: auto !important;
-    min-width: 90% !important; /* Wider on mobile */
-    max-width: 95% !important;
-    white-space: normal !important; /* Allow wrapping if needed */
-    display: flex !important;
-    justify-content: space-between !important;
+    top: -100px;
+    width: 60%;
+    text-align: center;
   }
 }
   </style>
