@@ -339,6 +339,23 @@
       fill: #EBFE58;
     }
     
+    .bsky-link {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
+}
+
+.bsky-icon {
+  width: 28px;
+  height: 28px;
+  fill: #f6f1e6;
+  transition: fill 0.3s ease;
+}
+
+.bsky-link:hover .bsky-icon {
+  fill: #EBFE58;
+}
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
@@ -567,6 +584,12 @@
     bottom: 60px;
     right: 20px;
   }
+
+      .bsky-link {
+  bottom: 20px;
+  right: 20px;
+}
+      
  /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
   .title-tooltip {
@@ -715,6 +738,13 @@
       </svg>
     </a>
   </div>
+    
+    <a href="https://bsky.app/profile/arbitrarium.bsky.social" target="_blank" class="bsky-link" aria-label="Bluesky">
+  <svg class="bsky-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M12.002 1c-1.09 0-2.175.29-3.127.865a6.482 6.482 0 0 0-2.363 2.363 6.487 6.487 0 0 0-.865 3.126v4.441c0 2.483 1.23 4.032 3.134 4.032 2.148 0 3.766-2.191 3.766-4.926v-1.25h-.766v1.25c0 2.008-1.158 3.16-3 3.16-.892 0-1.429-.691-1.429-2.266v-4.44c0-.763.193-1.518.565-2.184A4.194 4.194 0 0 1 9.518 3.17a4.192 4.192 0 0 1 2.484-.874 4.17 4.17 0 0 1 2.479.874 4.194 4.194 0 0 1 1.605 2.02c.37.666.565 1.421.565 2.183v4.442c0 1.575-.537 2.266-1.429 2.266-.892 0-1.429-.691-1.429-2.266V8.44h-.765v3.375c0 1.853.993 3.032 2.194 3.032 1.904 0 3.134-1.55 3.134-4.032V5.354c0-1.09-.29-2.175-.865-3.126a6.482 6.482 0 0 0-2.363-2.363A6.487 6.487 0 0 0 12.002 1z"/>
+    <path d="M7.362 17.44v-3.765h.766v3.765c0 1.575.537 2.266 1.429 2.266.892 0 1.429-.691 1.429-2.266V12.41h.765v5.03c0 2.483-1.23 4.032-3.134 4.032-1.904 0-3.134-1.55-3.134-4.032h-.121z"/>
+  </svg>
+</a>
   
   <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
