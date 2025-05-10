@@ -321,42 +321,10 @@
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
 
-    /* Added styles for the social links stack */
-    .social-links-stack {
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 20;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .cu-link {
-      display: block;
-      position: relative;
-      z-index: 20;
-    }
-    
-    .cu-emoji {
-      width: 28px;
-      height: 28px;
-      display: inline-block;
-      color: #f6f1e6;
-      filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
-      transition: filter 0.3s ease;
-      font-size: 24px;
-      line-height: 28px;
-      text-align: center;
-    }
-    
-    .cu-link:hover .cu-emoji {
-      filter: brightness(1.2) sepia(1) hue-rotate(60deg);
-    }
-    
     .insta-link {
-      display: block;
-      position: relative;
+      position: fixed;
+      bottom: 80px;
+      right: 40px;
       z-index: 20;
     }
     
@@ -372,22 +340,22 @@
     }
     
     .bsky-link {
-      display: block;
-      position: relative;
-      z-index: 20;
-    }
-    
-    .bsky-icon {
-      width: 28px;
-      height: 28px;
-      fill: #f6f1e6;
-      transition: fill 0.3s ease;
-    }
-    
-    .bsky-link:hover .bsky-icon {
-      fill: #EBFE58;
-    }
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
+}
 
+.bsky-icon {
+  width: 28px;
+  height: 28px;
+  fill: #f6f1e6;
+  transition: fill 0.3s ease;
+}
+
+.bsky-link:hover .bsky-icon {
+  fill: #EBFE58;
+}
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
@@ -481,13 +449,6 @@
         width: auto;
         height: auto;
         padding: 15px 8px;
-      }
-      
-      /* Social links stack - tablet */
-      .social-links-stack {
-        bottom: 20px;
-        right: 20px;
-        gap: 10px;
       }
     }
     
@@ -618,12 +579,16 @@
     white-space: nowrap !important; /* New line */
   }
   
-  /* Social links stack - mobile */
-  .social-links-stack {
-    bottom: 20px;
+  /* Instagram positioned at bottom right */
+  .insta-link {
+    bottom: 60px;
     right: 20px;
-    gap: 10px;
   }
+
+      .bsky-link {
+  bottom: 20px;
+  right: 20px;
+}
       
  /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
@@ -732,8 +697,6 @@
         <span class="l-7">A</span><span class="l-8">b</span><span class="l-9">o</span><span class="l-10">u</span><span class="l-11">t</span>
       </a>
       <a href="mixes.html" class="nav-item item-4">
-        <span class="l-1">C</span><span class="l-2">o</span><span class="l-3">m</span><span class="l-4">p</span><span class="l-5">i</span><span class="l-6">l</span><span class="l-7">a</span><span class="l-8">t</span><span class="l-9">i</span><span class="l-10">o</span><span class="l-1">n</span><span class="l-2">s
-      <a href="mixes.html" class="nav-item item-4">
         <span class="l-1">C</span><span class="l-2">o</span><span class="l-3">m</span><span class="l-4">p</span><span class="l-5">i</span><span class="l-6">l</span><span class="l-7">a</span><span class="l-8">t</span><span class="l-9">i</span><span class="l-10">o</span><span class="l-1">n</span><span class="l-2">s</span>
       </a>
       <a href="services.html" class="nav-item item-5">
@@ -778,14 +741,10 @@
     
 <a href="https://bsky.app/profile/arbitrarium.bsky.social" target="_blank" class="bsky-link" aria-label="Bluesky">
   <svg class="bsky-icon" xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 430 390">
-    <path d="M180 141.964C163.699 110.262 119.308 51.1817 78.0347 22.044C38.4971 -5.86834 23.414 -1.03207 13.526 3.43594C2.08093 8.60755 0 26.1785 0 36.5164C0 46.8542 5.66748 121.272 9.36416 133.694C21.5786 174.738 65.0603 188.607 105.104 184.156C107.151 183.852 109.227 183.572 111.329 183.312C109.267 183.642 107.19 183.924 105.104 184.156C46.4204 192.847 -5.69621 214.233 62.6582 290.33C137.848 368.18 165.705 273.637 180 225.702C194.295 273.637 210.76 364.771 295.995 290.33C360 225.702 313.58 192.85 254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158C294.94 188.61 338.421 174.74 350.636 133.697C354.333 121.275 360 46.8568 360 36.519C360 26.1811 357.919 8.61012 346.474 3.43851C336.586 -1.02949 321.503 -5.86576 281.965 22.0466C240.692 51.1843 196.301 110.262 180 141.964Z"></path>
+    <path d="M180 141.964C163.699 110.262 119.308 51.1817 78.0347 22.044C38.4971 -5.86834 23.414 -1.03207 13.526 3.43594C2.08093 8.60755 0 26.1785 0 36.5164C0 46.8542 5.66748 121.272 9.36416 133.694C21.5786 174.738 65.0603 188.607 105.104 184.156C107.151 183.852 109.227 183.572 111.329 183.312C109.267 183.642 107.19 183.924 105.104 184.156C46.4204 192.847 -5.69621 214.233 62.6582 290.33C137.848 368.18 165.705 273.637 180 225.702C194.295 273.637 210.76 364.771 295.995 290.33C360 225.702 313.58 192.85 254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158C294.94 188.61 338.421 174.74 350.636 133.697C354.333 121.275 360 46.8568 360 36.519C360 26.1811 357.919 8.61012 346.474 3.43851C336.586 -1.02949 321.503 -5.86576 281.965 22.0466C240.692 51.1843 196.301 110.262 180 141.964Z" fill="#f6f1e6"></path>
   </svg>
 </a>
-          
-    <a href="https://www.wfmu.org/playlists/CU" target="_blank" class="cu-link" aria-label="Cinematic Universe">
-  <span class="cu-emoji">👠</span>
-</a>
-          
+    
   <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
   </footer>
