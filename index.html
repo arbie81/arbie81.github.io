@@ -356,33 +356,6 @@
 .bsky-link:hover .bsky-icon {
   fill: #EBFE58;
 }
-    
-.cu-emoji {
-  font-size: 28px;
-  display: inline-block;
-  color: #f6f1e6;
-  text-decoration: none;
-  filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
-  transition: filter 0.3s ease;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-}
-
-.cu-link:hover .cu-emoji {
-  filter: brightness(1.2) sepia(1) hue-rotate(60deg);
-}
-
-.cu-emoji {
-  font-size: 28px;
-  color: #f6f1e6;
-  transition: opacity 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.cu-link:hover .cu-emoji {
-  opacity: 0.7;
-}
-    
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
@@ -617,20 +590,12 @@
   right: 20px;
 }
       
-/* Mobile layout override */
-@media only screen and (max-width: 600px) {
-  .cu-link {
-    bottom: 60px; /* same as insta-link on mobile */
-    right: 20px;
-  }
-}
-      
  /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
   .title-tooltip {
     top: -100px;
     left: 50%;
-    transform: translateX(-40%);
+    transform: translateX(-50%);
     width: 65%;
     text-align: center;
     box-sizing: border-box;
@@ -778,10 +743,6 @@
   <svg class="bsky-icon" xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 430 390">
     <path d="M180 141.964C163.699 110.262 119.308 51.1817 78.0347 22.044C38.4971 -5.86834 23.414 -1.03207 13.526 3.43594C2.08093 8.60755 0 26.1785 0 36.5164C0 46.8542 5.66748 121.272 9.36416 133.694C21.5786 174.738 65.0603 188.607 105.104 184.156C107.151 183.852 109.227 183.572 111.329 183.312C109.267 183.642 107.19 183.924 105.104 184.156C46.4204 192.847 -5.69621 214.233 62.6582 290.33C137.848 368.18 165.705 273.637 180 225.702C194.295 273.637 210.76 364.771 295.995 290.33C360 225.702 313.58 192.85 254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158C294.94 188.61 338.421 174.74 350.636 133.697C354.333 121.275 360 46.8568 360 36.519C360 26.1811 357.919 8.61012 346.474 3.43851C336.586 -1.02949 321.503 -5.86576 281.965 22.0466C240.692 51.1843 196.301 110.262 180 141.964Z" fill="#f6f1e6"></path>
   </svg>
-</a>
-    
-<a href="https://www.wfmu.org/playlists/CU" target="_blank" class="cu-link" aria-label="Cinematic Universe">
-  <span class="cu-emoji">👠</span>
 </a>
     
   <footer>
