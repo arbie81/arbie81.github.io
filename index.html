@@ -321,24 +321,33 @@
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
 
-    .cu-link {
+ .cu-link {
   position: fixed;
   bottom: 120px;
   right: 40px;
   z-index: 20;
 }
 
-.heel-icon {
-  width: 28px;
-  height: 28px;
-  fill: #f6f1e6;
-  transition: fill 0.3s ease;
+.cu-emoji {
+  font-size: 28px;
+  display: inline-block;
+  color: #f6f1e6;
+  text-decoration: none;
+  filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
+  transition: filter 0.3s ease;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 }
 
-.cu-link:hover .heel-icon {
-  fill: #EBFE58;
+.cu-link:hover .cu-emoji {
+  filter: brightness(1.2) sepia(1) hue-rotate(60deg);
 }
 
+@media (max-width: 600px) {
+  .cu-link {
+    bottom: 100px;
+    right: 20px;
+  }
+}
     .insta-link {
       position: fixed;
       bottom: 80px;
