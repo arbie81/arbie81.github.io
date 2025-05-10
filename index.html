@@ -321,10 +321,42 @@
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
 
-    .insta-link {
+    /* Added styles for the social links stack */
+    .social-links-stack {
       position: fixed;
-      bottom: 80px;
+      bottom: 40px;
       right: 40px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .cu-link {
+      display: block;
+      position: relative;
+      z-index: 20;
+    }
+    
+    .cu-emoji {
+      width: 28px;
+      height: 28px;
+      display: inline-block;
+      color: #f6f1e6;
+      filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
+      transition: filter 0.3s ease;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+    }
+    
+    .cu-link:hover .cu-emoji {
+      filter: brightness(1.2) sepia(1) hue-rotate(60deg);
+    }
+    
+    .insta-link {
+      display: block;
+      position: relative;
       z-index: 20;
     }
     
@@ -340,22 +372,22 @@
     }
     
     .bsky-link {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  z-index: 20;
-}
+      display: block;
+      position: relative;
+      z-index: 20;
+    }
+    
+    .bsky-icon {
+      width: 28px;
+      height: 28px;
+      fill: #f6f1e6;
+      transition: fill 0.3s ease;
+    }
+    
+    .bsky-link:hover .bsky-icon {
+      fill: #EBFE58;
+    }
 
-.bsky-icon {
-  width: 28px;
-  height: 28px;
-  fill: #f6f1e6;
-  transition: fill 0.3s ease;
-}
-
-.bsky-link:hover .bsky-icon {
-  fill: #EBFE58;
-}
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
@@ -449,6 +481,13 @@
         width: auto;
         height: auto;
         padding: 15px 8px;
+      }
+      
+      /* Social links stack - tablet */
+      .social-links-stack {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
       }
     }
     
@@ -579,16 +618,12 @@
     white-space: nowrap !important; /* New line */
   }
   
-  /* Instagram positioned at bottom right */
-  .insta-link {
-    bottom: 60px;
+  /* Social links stack - mobile */
+  .social-links-stack {
+    bottom: 20px;
     right: 20px;
+    gap: 10px;
   }
-
-      .bsky-link {
-  bottom: 20px;
-  right: 20px;
-}
       
  /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
@@ -696,6 +731,8 @@
       <a href="about.html" class="nav-item item-3">
         <span class="l-7">A</span><span class="l-8">b</span><span class="l-9">o</span><span class="l-10">u</span><span class="l-11">t</span>
       </a>
+      <a href="mixes.html" class="nav-item item-4">
+        <span class="l-1">C</span><span class="l-2">o</span><span class="l-3">m</span><span class="l-4">p</span><span class="l-5">i</span><span class="l-6">l</span><span class="l-7">a</span><span class="l-8">t</span><span class="l-9">i</span><span class="l-10">o</span><span class="l-1">n</span><span class="l-2">s
       <a href="mixes.html" class="nav-item item-4">
         <span class="l-1">C</span><span class="l-2">o</span><span class="l-3">m</span><span class="l-4">p</span><span class="l-5">i</span><span class="l-6">l</span><span class="l-7">a</span><span class="l-8">t</span><span class="l-9">i</span><span class="l-10">o</span><span class="l-1">n</span><span class="l-2">s</span>
       </a>
