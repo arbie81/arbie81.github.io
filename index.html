@@ -299,7 +299,7 @@
   height: auto;
   justify-self: end;
   align-self: start;
-  transform: rotate(-1.5deg) translateX(65px); /* Moved up significantly */
+  transform: rotate(-1.5deg) translateX(70px); /* Moved up significantly */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -679,12 +679,23 @@
       <a href="services.html" class="nav-item item-5">
         <span class="l-3">S</span><span class="l-4">e</span><span class="l-5">r</span><span class="l-6">v</span><span class="l-7">i</span><span class="l-8">c</span><span class="l-9">e</span><span class="l-10">s</span>
       </a>
-      <!-- New Latest Episode Button -->
-      <a href="https://wfmu.org/archiveplayer/?show=151753&archive=270127" target="_blank" class="nav-item latest-episode" id="latest-episode-link">
+     <!-- Latest Episode Button with Popup Window at Upper Left -->
+<a href="#" onclick="openEpisodePlayer(); return false;" class="nav-item latest-episode" id="latest-episode-link">
   <span class="l-4">L</span><span class="l-5">a</span><span class="l-6">t</span><span class="l-7">e</span><span class="l-8">s</span><span class="l-9">t</span>
   <br>
   <span class="l-1">E</span><span class="l-2">p</span><span class="l-3">i</span><span class="l-4">s</span><span class="l-5">o</span><span class="l-6">d</span><span class="l-7">e</span>
 </a>
+
+<script>
+  function openEpisodePlayer() {
+    window.open(
+      'https://wfmu.org/archiveplayer/?show=151753&archive=270127',
+      'episodePlayer',
+      'width=450,height=160,scrollbars=no,resizable=no,top=0,left=0'
+    );
+  }
+</script>
+
       <a href="mailto:arb@wfmu.org" class="email-nav">
         <span class="l-1">a</span><span class="l-2">r</span><span class="l-3">b</span><span class="l-4">@</span><span class="l-5">w</span><span class="l-6">f</span><span class="l-7">m</span><span class="l-8">u</span><span class="l-9">.</span><span class="l-10">o</span><span class="l-1">r</span><span class="l-2">g</span>
       </a>
