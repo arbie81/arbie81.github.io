@@ -1,63 +1,75 @@
 .audio-player {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 20;
+  transform: rotate(-2deg);
 }
 
 .dotted-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px dotted #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.dotted-circle:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.9);
+  width: 50px;
+  height: 50px;
+  border: 2px dotted #f6f1e6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .play-triangle {
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left: 20px solid #333;
-    margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #f6f1e6;
+  margin-left: 3px;
+  transition: border-left-color 0.3s ease;
 }
 
 .pause-bars {
-    display: none;
-    width: 20px;
-    height: 20px;
-    position: relative;
+  display: none;
+  width: 15px;
+  height: 18px;
+  position: relative;
 }
 
-.pause-bars:before, .pause-bars:after {
-    content: "";
-    width: 6px;
-    height: 20px;
-    background-color: #333;
-    position: absolute;
+.pause-bars::before, .pause-bars::after {
+  content: "";
+  position: absolute;
+  background-color: #f6f1e6;
+  width: 4px;
+  height: 18px;
+  transition: background-color 0.3s ease;
 }
 
-.pause-bars:before {
-    left: 4px;
+.pause-bars::before {
+  left: 3px;
 }
 
-.pause-bars:after {
-    right: 4px;
+.pause-bars::after {
+  right: 3px;
 }
 
-/* Main content container */
-.dada-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.audio-player:hover .dotted-circle {
+  border-color: #EBFE58;
+}
+
+.audio-player:hover .play-triangle {
+  border-left-color: #EBFE58;
+}
+
+.audio-player:hover .pause-bars::before,
+.audio-player:hover .pause-bars::after {
+  background-color: #EBFE58;
+}
+
+@media (max-width: 768px) {
+  .audio-player {
+    top: 20px;
+    right: 20px;
+  }
 }
