@@ -646,13 +646,33 @@
   }
 }
 @media (min-width: 768px) {
-  html {
-    overflow-y: hidden; /* Completely prevent scrolling */
-  }
-  
+  /* First, let's ensure all content is contained */
   body {
-    height: 100vh;
-    overflow-y: auto; /* Make body the scrollable container */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* This is the key part - limit the height and use overflow */
+  .dada-container {
+    height: 100vh; /* Force container to be exactly viewport height */
+    max-height: 100vh;
+    overflow-y: auto; /* Allow scrolling within container */
+    position: relative;
+  }
+
+  /* Create a hard boundary for content */
+  .nav-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Add a hard stop to prevent scrolling beyond content */
+  .dada-container::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: -1px; /* Pull it up so it doesn't add space */
+    clear: both;
   }
 }
   </style>
