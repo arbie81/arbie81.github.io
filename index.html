@@ -972,41 +972,6 @@ footer {
     localStorage.setItem('audioPosition', audioSample.currentTime.toString());
   });
 </script>
-    <script>
-  // Direct fix for extra space - runs immediately and doesn't wait for DOMContentLoaded
-  (function() {
-    // Function to remove extra space
-    function removeExtraSpace() {
-      // Find the footer
-      const footer = document.querySelector('footer');
-      
-      // Add a minimal margin at the bottom of the body
-      const bodyRect = document.body.getBoundingClientRect();
-      const footerRect = footer.getBoundingClientRect();
-      
-      // Calculate the actual height needed
-      let neededHeight = footerRect.bottom + 10; // footer bottom + small buffer
-      
-      // Apply the height directly to the body and html elements
-      document.documentElement.style.height = neededHeight + 'px';
-      document.body.style.height = neededHeight + 'px';
-      
-      // For good measure, also set the container height
-      const container = document.querySelector('.dada-container');
-      if (container) {
-        container.style.height = 'auto';
-        container.style.marginBottom = '0';
-        container.style.paddingBottom = '0';
-      }
-    }
-    
-    // Run the fix immediately
-    removeExtraSpace();
-    
-    // Re-run on load and resize for good measure
-    window.addEventListener('load', removeExtraSpace);
-    window.addEventListener('resize', removeExtraSpace);
-  })();
 </script>
 </body>
 </html>
