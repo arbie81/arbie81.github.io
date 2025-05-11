@@ -1,0 +1,63 @@
+.audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.dotted-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px dotted #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dotted-circle:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.play-triangle {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #333;
+    margin-left: 5px;
+}
+
+.pause-bars {
+    display: none;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.pause-bars:before, .pause-bars:after {
+    content: "";
+    width: 6px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+}
+
+.pause-bars:before {
+    left: 4px;
+}
+
+.pause-bars:after {
+    right: 4px;
+}
+
+/* Main content container */
+.dada-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
