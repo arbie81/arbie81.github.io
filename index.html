@@ -337,52 +337,31 @@
   margin: auto;
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
-.cu-link {
+.cu-link,
+.insta-link,
+.bsky-link {
   position: fixed;
-  bottom: 120px;
-  right: 20px; /* Keep it fixed at 20px from the right side */
+  right: 20px; /* Ensure all icons are aligned to the right edge */
   z-index: 20;
 }
 
-.cu-emoji {
-  font-size: 28px;
-  display: inline-block;
-  color: #f6f1e6;
-  text-decoration: none;
-  filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
-  transition: filter 0.3s ease;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+/* BlueSky remains fixed with its own behavior */
+.bsky-link {
+  bottom: 40px; /* This works because you set it for BlueSky already */
 }
 
-.cu-link:hover .cu-emoji {
-  filter: brightness(1.2) sepia(1) hue-rotate(60deg);
+/* Ensure the other icons are set with the same idea */
+.cu-link {
+  bottom: 120px; /* Adjusted for consistency */
 }
 
 .insta-link {
-  position: fixed;
-  bottom: 80px;
-  right: 20px; /* Keep fixed position from the right */
-  z-index: 20;
+  bottom: 80px; /* Adjusted for consistency */
 }
 
-.insta-icon {
-  width: 28px;
-  height: 28px;
-  fill: #f6f1e6;
-  transition: fill 0.3s ease;
-}
-
-.insta-link:hover .insta-icon {
-  fill: #EBFE58;
-}
-
-.bsky-link {
-  position: fixed;
-  bottom: 40px;
-  right: 20px; /* Same fixed right positioning */
-  z-index: 20;
-}
-
+/* Icon styles */
+.cu-emoji,
+.insta-icon,
 .bsky-icon {
   width: 28px;
   height: 28px;
@@ -390,6 +369,12 @@
   transition: fill 0.3s ease;
 }
 
+.cu-emoji {
+  font-size: 28px;
+}
+
+.cu-link:hover .cu-emoji,
+.insta-link:hover .insta-icon,
 .bsky-link:hover .bsky-icon {
   fill: #EBFE58;
 }
@@ -398,19 +383,32 @@
 @media (min-width: 1024px) {
   .cu-link {
     bottom: 120px;
-    right: 20px; /* Fixed position from the right */
   }
 
   .insta-link {
     bottom: 80px;
-    right: 20px;
   }
 
   .bsky-link {
     bottom: 40px;
-    right: 20px;
   }
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .cu-link {
+    bottom: 60px; /* Adjust for smaller screens */
+  }
+
+  .insta-link {
+    bottom: 40px;
+  }
+
+  .bsky-link {
+    bottom: 20px;
+  }
+}
+
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
