@@ -416,13 +416,15 @@
       margin-right: 8px; /* Increased space between words */
     }
     
-    footer {
-      position: fixed;
-      bottom: 5px;
-      right: 20px;
-      font-size: 10px; /* Smaller font size */
-      color: #444; /* dark gray, barely visible */
-    }
+   footer {
+  position: relative; /* let it stay in flow */
+  text-align: right;
+  font-size: 10px;
+  color: #444;
+  margin-top: 80px; /* optional: space from above content */
+  padding-right: 20px;
+}
+
     
     @media (max-width: 900px) {
       .title-main {
