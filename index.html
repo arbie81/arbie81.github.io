@@ -646,27 +646,35 @@
   }
 }
 @media (min-width: 768px) {
-  html, body {
-    height: 100%;
-    overflow: hidden;
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
   }
   
   .dada-container {
-    height: 100vh;
-    overflow-y: auto;
-    position: relative;
-    box-sizing: border-box;
+    min-height: 0; /* Remove any height constraints */
+    height: auto;
   }
   
+  .nav-grid::after {
+    content: "";
+    display: block;
+    height: 0; /* No height */
+    clear: both; /* Clear all floats */
+  }
+  
+  /* This is critical - it will put a hard stop to the document */
   .nav-grid {
-    position: relative;
-    margin-bottom: 60px; /* Space for footer */
+    margin-bottom: 0 !important;
+    padding-bottom: 80px !important; /* Space for footer + social links */
   }
   
+  /* Fix footer */
   footer {
-    position: absolute;
     bottom: 5px;
     right: 20px;
+    position: fixed; /* Not absolute - ensures it stays at viewport bottom */
   }
 }
   </style>
