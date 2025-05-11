@@ -761,24 +761,7 @@ footer {
     letter-spacing: normal; /* Resets any letter-spacing for mobile */
   }
 }
-  /* Fix for extra space at bottom */
-body {
-  min-height: 100vh;
-  height: auto;
-  overflow-x: hidden;
-}
 
-.nav-grid {
-  transform: translateY(-25vh); /* This is your existing transform */
-  margin-bottom: -25vh; /* This counteracts the negative transform for layout flow */
-}
-
-/* This is a "hard stop" for the document */
-.dada-container::after {
-  content: "";
-  display: block;
-  clear: both;
-}
   </style>
 </head>
 <body>
