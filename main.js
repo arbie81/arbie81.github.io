@@ -1,137 +1,140 @@
-// main.js - Fixed version
+// main.js - Simplified version
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize audio player
-  initAudioPlayer();
+  // Create persistent audio player that works across all pages
+  createAudioPlayer();
   
-  // Handle navigation
-  document.querySelectorAll('a:not([target="_blank"])').forEach(link => {
-    if (link.hostname === window.location.hostname) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        loadPage(href);
-      });
-    }
-  });
-  
-  // Handle back/forward browser buttons
-  window.addEventListener('popstate', function(e) {
-    if (e.state && e.state.path) {
-      loadPage(e.state.path, false);
-    }
-  });
-  
-  // Load initial page content
-  history.replaceState({path: window.location.pathname}, '', window.location.pathname);
+  // Set up SPA navigation
+  setupSPANavigation();
 });
 
-function initAudioPlayer() {
-  // Only create audio player if it doesn't exist
+function createAudioPlayer() {
+  // Create the audio player if it doesn't exist yet
   if (!document.getElementById('persistentAudio')) {
-    const audioContainer = document.createElement('div');
-    audioContainer.className = 'audio-player';
-    audioContainer.id = 'audioPlayer';
+    console.log('Creating audio player...');
     
-    audioContainer.innerHTML = `
+    // Create the container
+    const playerContainer = document.createElement('div');
+    playerContainer.className = 'audio-player';
+    playerContainer.id = 'audioPlayer';
+    
+    // Create the HTML structure
+    playerContainer.innerHTML = `
       <div class="dotted-circle">
         <div class="play-triangle" id="playIcon"></div>
         <div class="pause-bars" id="pauseIcon"></div>
       </div>
-      <audio id="persistentAudio" preload="metadata">
+      <audio id="persistentAudio">
         <source src="/Audio Sample.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
       </audio>
     `;
     
-    document.body.appendChild(audioContainer);
+    // Add to the body
+    document.body.appendChild(playerContainer);
     
-    // Make sure these are loaded into variables AFTER they're added to the DOM
-    const audioSample = document.getElementById('persistentAudio');
+    // Get references to elements
+    const audio = document.getElementById('persistentAudio');
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
     
-    // Initialize player state
+    // Initialize the player state
     pauseIcon.style.display = 'none';
     playIcon.style.display = 'block';
     
-    // Add a debug check to ensure audio element is working
-    console.log('Audio element loaded:', audioSample);
-    console.log('Audio source:', audioSample.querySelector('source').src);
-    
-    // Use event delegation for better click handling
-    audioContainer.addEventListener('click', function() {
-      console.log('Audio player clicked');
-      if (audioSample.paused) {
-        // Try to play and handle any errors
-        const playPromise = audioSample.play();
-        
-        if (playPromise !== undefined) {
-          playPromise.then(_ => {
-            // Playback started successfully
-            console.log('Audio playback started');
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
-          })
-          .catch(error => {
-            // Auto-play was prevented
-            console.error('Playback failed:', error);
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-          });
-        }
+    // Add click event
+    playerContainer.addEventListener('click', function() {
+      console.log('Player clicked');
+      
+      if (audio.paused) {
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        console.log('Playing audio');
       } else {
-        audioSample.pause();
-        console.log('Audio paused');
+        audio.pause();
         playIcon.style.display = 'block';
         pauseIcon.style.display = 'none';
+        console.log('Paused audio');
       }
     });
     
-    audioSample.addEventListener('ended', function() {
-      console.log('Audio playback ended');
+    // Handle when audio ends
+    audio.addEventListener('ended', function() {
       playIcon.style.display = 'block';
       pauseIcon.style.display = 'none';
     });
   }
 }
 
-function loadPage(url, pushState = true) {
-  fetch(url)
-    .then(response => response.text())
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      
-      // Get the main content area
-      const newContent = doc.querySelector('.dada-container');
-      const currentContent = document.querySelector('.dada-container');
-      
-      // Update only the content area, preserving audio player
-      if (newContent && currentContent) {
-        currentContent.innerHTML = newContent.innerHTML;
-      }
-      
-      // Update page title
-      document.title = doc.title;
-      
-      // Update URL in browser if needed
-      if (pushState) {
-        history.pushState({path: url}, doc.title, url);
-      }
-      
-      // Reattach event listeners to new content
-      document.querySelectorAll('a:not([target="_blank"])').forEach(link => {
-        if (link.hostname === window.location.hostname) {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            loadPage(href);
+function setupSPANavigation() {
+  // Set up click handlers for all internal links
+  document.querySelectorAll('a').forEach(function(link) {
+    // Only handle links to the same site
+    if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.href;
+        
+        console.log('Navigating to:', url);
+        
+        // Load the new page content
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            // Parse the HTML
+            const parser = new DOMParser();
+            const newDoc = parser.parseFromString(html, 'text/html');
+            
+            // Find the content container in the new page
+            const newContent = newDoc.querySelector('.dada-container');
+            
+            if (newContent) {
+              // Update the current page's content
+              document.querySelector('.dada-container').innerHTML = newContent.innerHTML;
+              
+              // Update page title
+              document.title = newDoc.title;
+              
+              // Update URL
+              history.pushState({path: url}, newDoc.title, url);
+              
+              // Re-attach event handlers to the new content
+              setupSPANavigation();
+            } else {
+              console.error('No .dada-container found in the loaded page');
+              window.location.href = url; // Fallback
+            }
+          })
+          .catch(error => {
+            console.error('Error loading page:', error);
+            window.location.href = url; // Fallback
           });
-        }
       });
-    })
-    .catch(error => {
-      console.error('Error loading page:', error);
-      window.location.href = url; // Fallback to normal navigation
-    });
+    }
+  });
+  
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.path) {
+      // Load the page content without pushing a new state
+      fetch(e.state.path)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const newDoc = parser.parseFromString(html, 'text/html');
+          const newContent = newDoc.querySelector('.dada-container');
+          
+          if (newContent) {
+            document.querySelector('.dada-container').innerHTML = newContent.innerHTML;
+            document.title = newDoc.title;
+            setupSPANavigation();
+          } else {
+            window.location.href = e.state.path; // Fallback
+          }
+        })
+        .catch(error => {
+          console.error('Error loading page:', error);
+          window.location.href = e.state.path; // Fallback
+        });
+    }
+  });
 }
