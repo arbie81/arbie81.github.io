@@ -341,22 +341,24 @@
 .insta-link,
 .bsky-link {
   position: fixed;
-  right: 20px; /* Ensure all icons are aligned to the right edge */
+  right: 20px; /* Fix all icons to the right edge */
   z-index: 20;
 }
 
-/* BlueSky remains fixed with its own behavior */
-.bsky-link {
-  bottom: 40px; /* This works because you set it for BlueSky already */
-}
-
-/* Ensure the other icons are set with the same idea */
+/* Position icons using viewport relative units for better scaling */
 .cu-link {
-  bottom: 120px; /* Adjusted for consistency */
+  top: 50vh; /* Set it to the middle of the viewport */
+  transform: translateY(-50%); /* Ensure it's vertically centered */
 }
 
 .insta-link {
-  bottom: 80px; /* Adjusted for consistency */
+  top: 60vh; /* Set it a bit lower */
+  transform: translateY(-50%);
+}
+
+.bsky-link {
+  top: 70vh; /* Further down */
+  transform: translateY(-50%);
 }
 
 /* Icon styles */
@@ -382,33 +384,32 @@
 /* Media query for larger screens */
 @media (min-width: 1024px) {
   .cu-link {
-    bottom: 120px;
+    top: 50vh;
   }
 
   .insta-link {
-    bottom: 80px;
+    top: 60vh;
   }
 
   .bsky-link {
-    bottom: 40px;
+    top: 70vh;
   }
 }
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .cu-link {
-    bottom: 60px; /* Adjust for smaller screens */
+    top: 45vh; /* Adjust for smaller screens */
   }
 
   .insta-link {
-    bottom: 40px;
+    top: 55vh;
   }
 
   .bsky-link {
-    bottom: 20px;
+    top: 65vh;
   }
 }
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
