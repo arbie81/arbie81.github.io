@@ -649,10 +649,6 @@
   body {
     overflow-x: hidden; /* This will stop horizontal scrolling */
     overflow-y: auto;   /* Ensures vertical scroll appears when needed */
-    min-height: 100vh;  /* Full viewport height */
-    max-height: 100vh;  /* Constrains to viewport */
-    margin: 0;
-    padding: 0;
 }
   }
 
@@ -663,6 +659,8 @@
   }
 
   .dada-container {
+     position: relative;
+    min-height: 100vh;
     padding-bottom: 0 !important; /* Remove any extra bottom padding */
     margin-bottom: 0 !important;  /* Ensure no margin at the bottom */
   }
