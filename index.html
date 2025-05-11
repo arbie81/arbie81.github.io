@@ -791,39 +791,5 @@
     <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
   </footer>
-  
-  <!-- Insert JavaScript right here, before the closing body tag -->
-  <script>
-    // Only run on desktop
-    if (window.innerWidth >= 768) {
-      // Find the lowest element on the page
-      function findLowestElement() {
-        const elements = document.querySelectorAll('*');
-        let lowestBottom = 0;
-        let lowestElement = null;
-        
-        elements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          const bottom = rect.bottom + window.scrollY;
-          if (bottom > lowestBottom) {
-            lowestBottom = bottom;
-            lowestElement = el;
-          }
-        });
-        
-        return { element: lowestElement, bottom: lowestBottom };
-      }
-      
-      // Set document height to match the lowest element
-      function setDocumentHeight() {
-        const { bottom } = findLowestElement();
-        document.body.style.height = bottom + 'px';
-      }
-      
-      // Run on load and resize
-      window.addEventListener('load', setDocumentHeight);
-      window.addEventListener('resize', setDocumentHeight);
-    }
-  </script>
 </body>
 </html>
