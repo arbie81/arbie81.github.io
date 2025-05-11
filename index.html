@@ -929,6 +929,28 @@ body {
     });
   });
 </script>
-   
+   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Force document height to match viewport
+    function adjustHeight() {
+      // Find the visual bottom of content (including footer)
+      const footer = document.querySelector('footer');
+      const footerBottom = footer.getBoundingClientRect().bottom + window.scrollY + 20;
+      const windowHeight = window.innerHeight;
+      
+      // If content is shorter than viewport, set body height to viewport height
+      if (footerBottom < windowHeight) {
+        document.body.style.height = '100vh';
+      } else {
+        // Else set it to match content plus a small buffer
+        document.body.style.height = footerBottom + 'px';
+      }
+    }
+    
+    // Run on load and resize
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
+  });
+</script>
 </body>
 </html>
