@@ -791,16 +791,24 @@ footer {
     clear: both;
   }
 }
-  #site-footer {
-  position: fixed !important;
-  bottom: 5px !important;
-  right: 20px !important;
-  left: auto !important;
-  font-size: 10px !important;
-  color: #444 !important; /* dark gray */
-  background: none !important;
-  text-align: right !important;
-  width: auto !important;
+/* Add this at the end of your CSS */
+html, body {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+
+.dada-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden; /* This prevents content from extending beyond */
+}
+
+/* This forces the body to only be as tall as needed */
+body::after {
+  content: "";
+  display: block;
+  clear: both;
 }
   </style>
 </head>
