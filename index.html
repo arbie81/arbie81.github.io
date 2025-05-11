@@ -761,71 +761,6 @@ footer {
     letter-spacing: normal; /* Resets any letter-spacing for mobile */
   }
 }
-@media (min-width: 768px) {
-  /* First, let's ensure all content is contained */
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  /* This is the key part - limit the height and use overflow */
-  .dada-container {
-    height: 100vh; /* Force container to be exactly viewport height */
-    max-height: 100vh;
-    overflow-y: auto; /* Allow scrolling within container */
-    position: relative;
-  }
-
-  /* Create a hard boundary for content */
-  .nav-grid {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Add a hard stop to prevent scrolling beyond content */
-  .dada-container::after {
-    content: '';
-    display: block;
-    height: 1px;
-    margin-top: -1px; /* Pull it up so it doesn't add space */
-    clear: both;
-  }
-}
-/* Add this at the end of your CSS */
-html, body {
-  min-height: 100%;
-  height: auto;
-  overflow-x: hidden;
-}
-
-.dada-container {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden; /* This prevents content from extending beyond */
-}
-
-/* This forces the body to only be as tall as needed */
-body::after {
-  content: "";
-  display: block;
-  clear: both;
-}
- @media (min-width: 601px) {
-  /* For tablets and larger */
-  .nav-grid {
-    margin-bottom: 0; /* Remove any bottom margin */
-    padding-bottom: 0; /* Remove any bottom padding */
-    height: auto; /* Let height be determined by content */
-  }
-  
-  /* This is a "stopping point" for the document flow */
-  .nav-grid::after {
-    content: "";
-    display: table;
-    clear: both;
-    height: 0;
-  }
-}
   </style>
 </head>
 <body>
@@ -976,22 +911,6 @@ body::after {
     });
   });
 </script>
-    <!-- Add this just before your closing </body> tag -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Find the lowest positioned element
-    const allElements = document.querySelectorAll('body *');
-    let lowestPoint = 0;
-    
-    allElements.forEach(function(el) {
-      const rect = el.getBoundingClientRect();
-      const bottom = rect.bottom + window.scrollY;
-      if (bottom > lowestPoint) lowestPoint = bottom;
-    });
-    
-    // Add a small buffer and set body height
-    document.body.style.height = (lowestPoint + 30) + 'px';
-  });
-</script>
+   
 </body>
 </html>
