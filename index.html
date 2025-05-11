@@ -626,7 +626,17 @@ footer {
     visibility: visible;
     opacity: 1;
   }
-  
+  @media (max-width: 600px) {
+  .audio-player {
+    right: 40px; /* This keeps it at the default position for larger screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .audio-player {
+    right: 60px; /* Move 20px to the left on mobile */
+  }
+}
   .nav-grid {
     display: block; /* Change to block layout for mobile */
     margin-top: -50px; /* Reduced space after ARB to move items up */
