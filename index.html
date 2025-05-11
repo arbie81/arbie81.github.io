@@ -976,5 +976,20 @@ body::after {
     });
   });
 </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Find the lowest positioned element
+    const allElements = document.querySelectorAll('body *');
+    let lowestPoint = 0;
+    
+    allElements.forEach(function(el) {
+      const rect = el.getBoundingClientRect();
+      const bottom = rect.bottom + window.scrollY;
+      if (bottom > lowestPoint) lowestPoint = bottom;
+    });
+    
+    // Add a small buffer and set body height
+    document.body.style.height = (lowestPoint + 30) + 'px';
+  });
+</script>
 </body>
 </html>
