@@ -888,89 +888,139 @@ footer {
 <script data-goatcounter="https://arbie81.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const audioPlayer = document.getElementById('audioPlayer');
-    const audioSample = document.getElementById('audioSample');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    
-    // Get saved position from localStorage if exists
-    const savedTime = localStorage.getItem('audioPosition');
-    if (savedTime) {
-      audioSample.currentTime = parseFloat(savedTime);
-    }
-    
-    // Check if it was playing before navigation
-    const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
-    if (wasPlaying) {
-      // Auto-play is often blocked by browsers, so we'll need user interaction
-      playIcon.style.display = 'none';
-      pauseIcon.style.display = 'block';
-      // We'll show a notification that audio is ready to resume
-      const resumeNotice = document.createElement('div');
-      resumeNotice.className = 'resume-notice';
-      resumeNotice.innerHTML = 'resume';
-      resumeNotice.style.position = 'absolute';
-      resumeNotice.style.top = '95px';
-      resumeNotice.style.right = '40px';
-      resumeNotice.style.color = '#EBFE58';
-      resumeNotice.style.fontSize = '12px';
-      resumeNotice.style.transform = 'rotate(-2deg)';
-      document.body.appendChild(resumeNotice);
+  // Add this code where your existing audio player script is
+
+document.addEventListener('DOMContentLoaded', function() {
+  const audioPlayer = document.getElementById('audioPlayer');
+  const audioSample = document.getElementById('audioSample');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  
+  // Get saved position from localStorage if exists
+  const savedTime = localStorage.getItem('audioPosition');
+  if (savedTime) {
+    audioSample.currentTime = parseFloat(savedTime);
+  }
+  
+  // Check if it was playing before navigation and auto-resume
+  const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
+  
+  // Listen for when the page becomes visible again
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden && wasPlaying) {
+      // Try to auto-play when returning to the page
+      const playPromise = audioSample.play();
       
-      // Remove notice after 5 seconds
-      setTimeout(() => {
-        if (document.body.contains(resumeNotice)) {
-          document.body.removeChild(resumeNotice);
-        }
-      }, 5000);
+      if (playPromise !== undefined) {
+        playPromise.then(_ => {
+          // Auto-play started successfully
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+        })
+        .catch(error => {
+          // Auto-play was prevented
+          console.log("Auto-play prevented:", error);
+          showResumeNotice();
+        });
+      }
     }
+  });
+  
+  // Initial setup: If it was playing before
+  if (wasPlaying) {
+    // Try auto-play on page load
+    const playPromise = audioSample.play();
     
-    audioPlayer.addEventListener('click', function() {
-      if (audioSample.paused) {
-        audioSample.play();
+    if (playPromise !== undefined) {
+      playPromise.then(_ => {
+        // Auto-play started successfully
         playIcon.style.display = 'none';
         pauseIcon.style.display = 'block';
-        localStorage.setItem('audioPlaying', 'true');
-        
-        // Remove notice if it exists
-        const notice = document.querySelector('.resume-notice');
-        if (notice) {
-          document.body.removeChild(notice);
-        }
-      } else {
-        audioSample.pause();
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-        localStorage.setItem('audioPlaying', 'false');
-      }
-    });
+      })
+      .catch(error => {
+        // Auto-play was prevented
+        console.log("Auto-play prevented:", error);
+        showResumeNotice();
+      });
+    }
+  }
+  
+  function showResumeNotice() {
+    // Show a notification that audio is ready to resume
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
     
-    // Save position every second
-    setInterval(() => {
-      if (!audioSample.paused) {
-        localStorage.setItem('audioPosition', audioSample.currentTime.toString());
-      }
-    }, 1000);
+    // Remove existing notice if any
+    const existingNotice = document.querySelector('.resume-notice');
+    if (existingNotice) {
+      document.body.removeChild(existingNotice);
+    }
     
-    audioSample.addEventListener('ended', function() {
+    const resumeNotice = document.createElement('div');
+    resumeNotice.className = 'resume-notice';
+    resumeNotice.innerHTML = 'resume';
+    resumeNotice.style.position = 'absolute';
+    resumeNotice.style.top = '95px';
+    resumeNotice.style.right = '40px';
+    resumeNotice.style.color = '#EBFE58';
+    resumeNotice.style.fontSize = '12px';
+    resumeNotice.style.transform = 'rotate(-2deg)';
+    
+    // Mobile adjustments for the resume text
+    if (window.innerWidth <= 600) {
+      resumeNotice.style.top = '70px';
+      resumeNotice.style.right = '55px';
+    }
+    
+    document.body.appendChild(resumeNotice);
+    
+    // Remove notice after 5 seconds
+    setTimeout(() => {
+      if (document.body.contains(resumeNotice)) {
+        document.body.removeChild(resumeNotice);
+      }
+    }, 5000);
+  }
+  
+  audioPlayer.addEventListener('click', function() {
+    if (audioSample.paused) {
+      audioSample.play();
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+      localStorage.setItem('audioPlaying', 'true');
+      
+      // Remove notice if it exists
+      const notice = document.querySelector('.resume-notice');
+      if (notice) {
+        document.body.removeChild(notice);
+      }
+    } else {
+      audioSample.pause();
       playIcon.style.display = 'block';
       pauseIcon.style.display = 'none';
       localStorage.setItem('audioPlaying', 'false');
-      localStorage.removeItem('audioPosition');
-    });
-    
-    // Clear position when manually reset
-    audioSample.addEventListener('seeked', function() {
-      localStorage.setItem('audioPosition', audioSample.currentTime.toString());
-    });
+    }
   });
   
-  // Save position when leaving page
-  window.addEventListener('beforeunload', function() {
-    const audioSample = document.getElementById('audioSample');
+  // Save position every second
+  setInterval(() => {
+    if (!audioSample.paused) {
+      localStorage.setItem('audioPosition', audioSample.currentTime.toString());
+    }
+  }, 1000);
+  
+  audioSample.addEventListener('ended', function() {
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+    localStorage.setItem('audioPlaying', 'false');
+    localStorage.removeItem('audioPosition');
+  });
+  
+  // Clear position when manually reset
+  audioSample.addEventListener('seeked', function() {
     localStorage.setItem('audioPosition', audioSample.currentTime.toString());
   });
+});
 </script>
 </script>
 </body>
