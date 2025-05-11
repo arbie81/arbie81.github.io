@@ -24,12 +24,6 @@
       overflow-x: hidden; 
       min-height: 100vh; 
       @media (min-width: 768px) 
-    overflow-x: hidden; /* This will stop horizontal scrolling */
-    overflow-y: auto;   /* Ensures vertical scroll appears when needed */
-    min-height: 100vh;  /* Full viewport height */
-    max-height: 100vh;  /* Constrains to viewport */
-    margin: 0;
-    padding: 0;
   }
 }
     } 
@@ -53,6 +47,7 @@
       margin: 0 auto;
       padding: 40px 20px;
       box-sizing: border-box;
+  
     }
     
     .title-block {
@@ -654,6 +649,11 @@
   body {
     overflow-x: hidden; /* This will stop horizontal scrolling */
     overflow-y: auto;   /* Ensures vertical scroll appears when needed */
+    min-height: 100vh;  /* Full viewport height */
+    max-height: 100vh;  /* Constrains to viewport */
+    margin: 0;
+    padding: 0;
+}
   }
 
   html {
