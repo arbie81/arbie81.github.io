@@ -1,4 +1,4 @@
-// main.js
+// main.js - Fixed version
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize audio player
   initAudioPlayer();
@@ -45,23 +45,50 @@ function initAudioPlayer() {
     
     document.body.appendChild(audioContainer);
     
+    // Make sure these are loaded into variables AFTER they're added to the DOM
     const audioSample = document.getElementById('persistentAudio');
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
     
+    // Initialize player state
+    pauseIcon.style.display = 'none';
+    playIcon.style.display = 'block';
+    
+    // Add a debug check to ensure audio element is working
+    console.log('Audio element loaded:', audioSample);
+    console.log('Audio source:', audioSample.querySelector('source').src);
+    
+    // Use event delegation for better click handling
     audioContainer.addEventListener('click', function() {
+      console.log('Audio player clicked');
       if (audioSample.paused) {
-        audioSample.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
+        // Try to play and handle any errors
+        const playPromise = audioSample.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(_ => {
+            // Playback started successfully
+            console.log('Audio playback started');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+          })
+          .catch(error => {
+            // Auto-play was prevented
+            console.error('Playback failed:', error);
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+          });
+        }
       } else {
         audioSample.pause();
+        console.log('Audio paused');
         playIcon.style.display = 'block';
         pauseIcon.style.display = 'none';
       }
     });
     
     audioSample.addEventListener('ended', function() {
+      console.log('Audio playback ended');
       playIcon.style.display = 'block';
       pauseIcon.style.display = 'none';
     });
