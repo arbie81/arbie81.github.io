@@ -810,24 +810,21 @@ body::after {
   display: block;
   clear: both;
 }
-  /* Add this at the end of your CSS */
-html, body {
-  min-height: 100%;
-  height: auto;
-  overflow-x: hidden;
-}
-
-.dada-container {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden; /* This prevents content from extending beyond */
-}
-
-/* This forces the body to only be as tall as needed */
-body::after {
-  content: "";
-  display: block;
-  clear: both;
+ @media (min-width: 601px) {
+  /* For tablets and larger */
+  .nav-grid {
+    margin-bottom: 0; /* Remove any bottom margin */
+    padding-bottom: 0; /* Remove any bottom padding */
+    height: auto; /* Let height be determined by content */
+  }
+  
+  /* This is a "stopping point" for the document flow */
+  .nav-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 0;
+  }
 }
   </style>
 </head>
