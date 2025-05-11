@@ -337,33 +337,53 @@
   margin: auto;
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
-.cu-link,
-.insta-link,
-.bsky-link {
+
+  .cu-link {
   position: fixed;
-  right: 20px; /* Fix all icons to the right edge */
+  bottom: 120px;
+  right: 40px;
   z-index: 20;
 }
 
-/* Position icons using viewport relative units for better scaling */
-.cu-link {
-  top: 50vh; /* Set it to the middle of the viewport */
-  transform: translateY(-50%); /* Ensure it's vertically centered */
+.cu-emoji {
+  font-size: 28px;
+  display: inline-block;
+  color: #f6f1e6;
+  text-decoration: none;
+  filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(221%) hue-rotate(316deg) brightness(102%) contrast(93%);
+  transition: filter 0.3s ease;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 }
 
-.insta-link {
-  top: 60vh; /* Set it a bit lower */
-  transform: translateY(-50%);
+.cu-link:hover .cu-emoji {
+  filter: brightness(1.2) sepia(1) hue-rotate(60deg);
+}
+    
+    .insta-link {
+      position: fixed;
+      bottom: 80px;
+      right: 40px;
+      z-index: 20;
+    }
+    
+    .insta-icon {
+      width: 28px;
+      height: 28px;
+      fill: #f6f1e6;
+      transition: fill 0.3s ease;
+    }
+    
+    .insta-link:hover .insta-icon {
+      fill: #EBFE58;
+    }
+    
+    .bsky-link {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
 }
 
-.bsky-link {
-  top: 70vh; /* Further down */
-  transform: translateY(-50%);
-}
-
-/* Icon styles */
-.cu-emoji,
-.insta-icon,
 .bsky-icon {
   width: 28px;
   height: 28px;
@@ -371,66 +391,9 @@
   transition: fill 0.3s ease;
 }
 
-.cu-emoji {
-  font-size: 28px;
-}
-
-.cu-link:hover .cu-emoji,
-.insta-link:hover .insta-icon,
 .bsky-link:hover .bsky-icon {
   fill: #EBFE58;
 }
-
-/* Media query for larger screens */
-@media (min-width: 1024px) {
-  .cu-link {
-    top: 50vh;
-  }
-
-  .insta-link {
-    top: 60vh;
-  }
-
-  .bsky-link {
-    top: 70vh;
-  }
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .cu-link {
-    top: 45vh; /* Adjust for smaller screens */
-  }
-
-  .insta-link {
-    top: 55vh;
-  }
-
-  .bsky-link {
-    top: 65vh;
-  }
-}
-
-
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .cu-link {
-    bottom: 60px;
-    right: 20px; /* Adjust for smaller screens */
-  }
-  
-  .insta-link {
-    bottom: 40px;
-    right: 20px;
-  }
-
-  .bsky-link {
-    bottom: 20px;
-    right: 20px;
-  }
-}
-
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
