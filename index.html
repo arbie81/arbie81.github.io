@@ -646,33 +646,29 @@
   }
 }
 @media (min-width: 768px) {
-  body {
-    overflow-x: hidden; /* This will stop horizontal scrolling */
-    overflow-y: auto;   /* Ensures vertical scroll appears when needed */
-  }
-
-  html {
+  html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
   }
-
+  
   .dada-container {
-    padding-bottom: 0 !important; /* Remove any extra bottom padding */
-    margin-bottom: 0 !important;  /* Ensure no margin at the bottom */
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    box-sizing: border-box;
   }
-
-  #__next, .main-content, .content-wrapper {
-    min-height: 100vh; /* Make sure content fills the screen */
-    display: flex;
-    flex-direction: column;
+  
+  .nav-grid {
+    position: relative;
+    margin-bottom: 60px; /* Space for footer */
   }
-
+  
   footer {
-    margin-top: auto; /* Pushes footer to the bottom of the page */
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
   }
 }
-
   </style>
 </head>
 <body>
