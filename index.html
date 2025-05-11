@@ -338,11 +338,16 @@
   padding: 15px 10px; /* Increased padding for more space around the text */
 }
 
-  .cu-link {
+  /* General Styles for All Links */
+.cu-link, .insta-link, .bsky-link {
   position: fixed;
-  bottom: 120px;
-  right: 40px;
+  right: 40px; /* Keeping the right position the same for alignment */
   z-index: 20;
+}
+
+/* Cha Cha Heels */
+.cu-link {
+  bottom: 120px; /* Keeping your original bottom positioning */
 }
 
 .cu-emoji {
@@ -358,30 +363,26 @@
 .cu-link:hover .cu-emoji {
   filter: brightness(1.2) sepia(1) hue-rotate(60deg);
 }
-    
-    .insta-link {
-      position: fixed;
-      bottom: 80px;
-      right: 40px;
-      z-index: 20;
-    }
-    
-    .insta-icon {
-      width: 28px;
-      height: 28px;
-      fill: #f6f1e6;
-      transition: fill 0.3s ease;
-    }
-    
-    .insta-link:hover .insta-icon {
-      fill: #EBFE58;
-    }
-    
-    .bsky-link {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  z-index: 20;
+
+/* Instagram Link */
+.insta-link {
+  bottom: 80px; /* Adjusted for consistency */
+}
+
+.insta-icon {
+  width: 28px;
+  height: 28px;
+  fill: #f6f1e6;
+  transition: fill 0.3s ease;
+}
+
+.insta-link:hover .insta-icon {
+  fill: #EBFE58;
+}
+
+/* BlueSky Link */
+.bsky-link {
+  bottom: 40px; /* This one works perfectly, so we'll keep this the same */
 }
 
 .bsky-icon {
@@ -394,6 +395,17 @@
 .bsky-link:hover .bsky-icon {
   fill: #EBFE58;
 }
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .cu-link {
+    bottom: 60px; /* Slight adjustment for smaller screens */
+  }
+
+  .insta-link {
+    bottom: 40px;
+  }
+
     .tooltip-span {
       display: inline-block;
       letter-spacing: 2px; /* Increased spacing between letters */
