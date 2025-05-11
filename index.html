@@ -340,7 +340,7 @@
 .cu-link {
   position: fixed;
   bottom: 120px;
-  right: 5%; /* Use percentage to adjust relative to the screen size */
+  right: 20px; /* Keep it fixed at 20px from the right side */
   z-index: 20;
 }
 
@@ -361,7 +361,7 @@
 .insta-link {
   position: fixed;
   bottom: 80px;
-  right: 5%; /* Adjust for consistency */
+  right: 20px; /* Keep fixed position from the right */
   z-index: 20;
 }
 
@@ -379,7 +379,7 @@
 .bsky-link {
   position: fixed;
   bottom: 40px;
-  right: 5%; /* Use the same right value for all */
+  right: 20px; /* Same fixed right positioning */
   z-index: 20;
 }
 
@@ -398,17 +398,17 @@
 @media (min-width: 1024px) {
   .cu-link {
     bottom: 120px;
-    right: 5%; /* Same as BlueSky */
+    right: 20px; /* Fixed position from the right */
   }
 
   .insta-link {
     bottom: 80px;
-    right: 5%; /* Same as BlueSky */
+    right: 20px;
   }
 
   .bsky-link {
     bottom: 40px;
-    right: 5%; /* Same as BlueSky */
+    right: 20px;
   }
 }
 
@@ -416,20 +416,19 @@
 @media (max-width: 768px) {
   .cu-link {
     bottom: 60px;
-    right: 5%; /* Consistent with BlueSky */
+    right: 20px; /* Same fixed right positioning */
   }
-  
+
   .insta-link {
     bottom: 40px;
-    right: 5%;
+    right: 20px;
   }
 
   .bsky-link {
     bottom: 20px;
-    right: 5%;
+    right: 20px;
   }
 }
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
