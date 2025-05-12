@@ -106,27 +106,12 @@
   }
   
   body.century .audio-player,
+body.arbscenity .audio-player,
+body.scum .audio-player,
+body.dry .audio-player,
+body.scherzophonia .audio-player {
   top: 10px !important;
-    right: 10px !important;
-  }
-
-  body.arbscenity .audio-player,
-  top: 10px !important;
-    right: 10px !important;
-  }
-
-  body.scum .audio-player,
-top: 10px !important;
-    right: 10px !important;
+  right: 10px !important;
 }
 
-  body.dry .audio-player,
-top: 10px !important;
-    right: 10px !important;
-}
-
-  body.scherzophonia .audio-player {
-    top: 10px !important;
-    right: 10px !important;
-  }
 }
