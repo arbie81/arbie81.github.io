@@ -1,4 +1,4 @@
-// Simplified solution - just creates the persistent audio player
+// Simplified solution - creates the persistent audio player
 document.addEventListener('DOMContentLoaded', function() {
   // Check for existing audio state in localStorage
   const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Create audio player
   createAudioPlayer(wasPlaying, currentTime);
-  
-  // Before user leaves the page, save audio state
-  window.addEventListener('beforeunload', saveAudioState);
 });
 
 function createAudioPlayer(shouldPlay, startTime) {
@@ -60,14 +57,11 @@ function createAudioPlayer(shouldPlay, startTime) {
     
     // Start playing if it was playing before
     if (shouldPlay) {
-      audio.play()
-        .then(() => console.log('Auto-resumed audio playback'))
-        .catch(err => {
-          console.error('Could not auto-play:', err);
-          // Reset UI if auto-play fails
-          playIcon.style.display = 'block';
-          pauseIcon.style.display = 'none';
-        });
+      // Use more explicit play method for mobile
+      audio.play().catch(function(error) {
+        console.log('Autoplay was prevented');
+        console.log(error);
+      });
     }
   });
   
@@ -75,47 +69,53 @@ function createAudioPlayer(shouldPlay, startTime) {
     console.error('Audio error:', e);
     console.error('Error code:', audio.error ? audio.error.code : 'unknown');
     console.error('Error message:', audio.error ? audio.error.message : 'unknown');
-    alert('Audio error: Could not load or play the audio file. Please check the console for details.');
   });
   
   // Handle click on the player
   playerContainer.addEventListener('click', function() {
     console.log('Player clicked');
     
+    // Ensure audio is unlocked on mobile
     if (audio.paused) {
-      audio.play()
-        .then(() => {
-          console.log('Audio started playing');
-          playIcon.style.display = 'none';
-          pauseIcon.style.display = 'block';
-        })
-        .catch(err => {
-          console.error('Play failed:', err);
-          alert('Could not play the audio. Please make sure the file exists and is a valid audio file.');
-        });
+      audio.play().then(function() {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        localStorage.setItem('audioPlaying', 'true');
+      }).catch(function(error) {
+        console.log('Play was prevented');
+        console.log(error);
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      });
     } else {
       audio.pause();
       playIcon.style.display = 'block';
       pauseIcon.style.display = 'none';
-      console.log('Paused audio');
+      localStorage.setItem('audioPlaying', 'false');
     }
+    
+    // Always save current time
+    localStorage.setItem('audioTime', audio.currentTime);
   });
   
   // Handle audio ending
   audio.addEventListener('ended', function() {
     playIcon.style.display = 'block';
     pauseIcon.style.display = 'none';
-    console.log('Audio ended');
+    localStorage.setItem('audioPlaying', 'false');
+  });
+  
+  // Additional mobile compatibility
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      // Save state when page is hidden
+      localStorage.setItem('audioPlaying', !audio.paused);
+      localStorage.setItem('audioTime', audio.currentTime);
+    }
   });
 }
 
-function saveAudioState() {
-  const audio = document.getElementById('persistentAudio');
-  if (audio) {
-    // Save if the audio was playing
-    localStorage.setItem('audioPlaying', !audio.paused);
-    // Save the current position
-    localStorage.setItem('audioTime', audio.currentTime);
-    console.log('Saved audio state:', !audio.paused, audio.currentTime);
-  }
-}
+// Optional: Add global error handling
+window.addEventListener('error', function(event) {
+  console.error('Unhandled error:', event.error);
+});
