@@ -91,17 +91,17 @@
   }
   
   body.mixes .audio-player {
-    right: 100px !important;
+    right: 150px !important;
     top: 40px !important;
   }
   
   body.services .audio-player {
-    top: 150px !important;
+    top: 175px !important;
     right: 10px !important;
   }
   
   body.statement .audio-player {
-    top: 62px !important;
+    top: 65px !important;
     right: 10px !important;
   }
   
