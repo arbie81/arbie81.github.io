@@ -86,7 +86,7 @@
   }
   
   body.about .audio-player {
-    right: 5px; !important;
+    right: 10px; !important;
     top: 10px; !important;
   }
   
@@ -97,13 +97,13 @@
   
   body.services .audio-player {
     top: 150px; !important;
-    right: 5px; !important;
+    right: 10px; !important;
   }
   
   /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
     top: 62px !important;
-    right: 5px !important;
+    right: 10px !important;
   }
   
   body.century .audio-player,
