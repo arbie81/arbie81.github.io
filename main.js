@@ -1,13 +1,5 @@
 // main.js - Simplified version
-document.addEventListener('DOMContentLoaded', function() {
-  // Create persistent audio player that works across all pages
-  createAudioPlayer();
-  
-  // Set up SPA navigation
-  setupSPANavigation();
-});
-
-function createAudioPlayer() {
+document.addEventListener('DOMContentLoaded', function createAudioPlayer() {
   // Create the audio player if it doesn't exist yet
   if (!document.getElementById('persistentAudio')) {
     console.log('Creating audio player...');
@@ -24,7 +16,7 @@ function createAudioPlayer() {
         <div class="pause-bars" id="pauseIcon"></div>
       </div>
       <audio id="persistentAudio">
-        <source src="/Audio Sample.mp3" type="audio/mpeg">
+        <source src="Audio%20Sample.mp3" type="audio/mpeg">
       </audio>
     `;
     
@@ -33,8 +25,20 @@ function createAudioPlayer() {
     
     // Get references to elements
     const audio = document.getElementById('persistentAudio');
+    
+    // Set src directly as well (redundant but can help with some browsers)
+    audio.src = "Audio Sample.mp3"; 
+    
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
+    
+    // Add debug event listeners
+    audio.addEventListener('loadeddata', () => {
+      console.log('Audio loaded successfully');
+    });
+    audio.addEventListener('error', (e) => {
+      console.error('Audio error:', e);
+    });
     
     // Initialize the player state
     pauseIcon.style.display = 'none';
@@ -45,10 +49,18 @@ function createAudioPlayer() {
       console.log('Player clicked');
       
       if (audio.paused) {
-        audio.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
-        console.log('Playing audio');
+        // Try playing with a user interaction
+        let playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            console.log('Audio playing successfully');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+          }).catch(error => {
+            console.error('Play failed:', error);
+          });
+        }
       } else {
         audio.pause();
         playIcon.style.display = 'block';
