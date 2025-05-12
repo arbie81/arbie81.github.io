@@ -86,23 +86,23 @@
   }
   
   body.about .audio-player {
-    right: 10px;
-    top: 40px;
+    right: 5px;
+    top: 10px;
   }
   
   body.mixes .audio-player {
-    right: 177px;
+    right: 77px;
     top: 40px;
   }
   
   body.services .audio-player {
-    top: 120px;
-    right: 10px;
+    top: 150px;
+    right: 5px;
   }
   
   /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
-    top: 60px !important;
+    top: 62px !important;
     right: 20px !important;
   }
   
