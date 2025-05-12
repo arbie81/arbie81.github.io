@@ -24,7 +24,7 @@ function createAudioPlayer() {
         <div class="pause-bars" id="pauseIcon"></div>
       </div>
       <audio id="persistentAudio">
-        <source src="/Audio Sample.mp3" type="audio/mpeg">
+        <source src="Audio Sample.mp3" type="audio/mpeg">
       </audio>
     `;
     
