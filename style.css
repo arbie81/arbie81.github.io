@@ -71,7 +71,7 @@
 @media (max-width: 768px) {
   .audio-player {
     top: 20px;
-    right: 77px; /* Your specified mobile index position */
+    right: 76px; /* Your specified mobile index position */
   }
   
   /* Specific page positioning */
