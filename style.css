@@ -82,7 +82,7 @@
   
   /* Specific page positioning with more specific selectors */
   body.index .audio-player {
-    right: 77px; !important;
+    right: 77px !important;
   }
   
   body.about .audio-player {
