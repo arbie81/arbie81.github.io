@@ -1,184 +1,121 @@
-// Universal Persistent Audio Player
-(function() {
-  // Configuration
-  const AUDIO_CONFIG = {
-    source: 'audiosample.mp3',
-    storageKeys: {
-      playing: 'arb_audio_playing',
-      time: 'arb_audio_time'
+// Simplified solution - just creates the persistent audio player
+document.addEventListener('DOMContentLoaded', function() {
+  // Check for existing audio state in localStorage
+  const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
+  const currentTime = parseFloat(localStorage.getItem('audioTime') || '0');
+  
+  console.log('Page loaded. Audio was playing:', wasPlaying, 'Time:', currentTime);
+  
+  // Create audio player
+  createAudioPlayer(wasPlaying, currentTime);
+  
+  // Before user leaves the page, save audio state
+  window.addEventListener('beforeunload', saveAudioState);
+});
+
+function createAudioPlayer(shouldPlay, startTime) {
+  // Create player elements
+  const playerContainer = document.createElement('div');
+  playerContainer.className = 'audio-player';
+  playerContainer.id = 'audioPlayer';
+  
+  playerContainer.innerHTML = `
+    <div class="dotted-circle">
+      <div class="play-triangle" id="playIcon"></div>
+      <div class="pause-bars" id="pauseIcon"></div>
+    </div>
+  `;
+  
+  // Create audio element separately (more reliable)
+  const audio = document.createElement('audio');
+  audio.id = 'persistentAudio';
+  
+  // Add audio to page but keep it hidden
+  audio.style.display = 'none';
+  document.body.appendChild(audio);
+  
+  // Set the audio source - make sure this file exists!
+  audio.src = 'audiosample.mp3';
+  
+  // Add the player UI to the page
+  document.body.appendChild(playerContainer);
+  
+  // Get UI elements
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  
+  // Set initial UI state
+  playIcon.style.display = shouldPlay ? 'none' : 'block';
+  pauseIcon.style.display = shouldPlay ? 'block' : 'none';
+  
+  // Add debugging
+  audio.addEventListener('loadeddata', function() {
+    console.log('Audio loaded successfully');
+    
+    // Set the saved time position
+    if (startTime > 0) {
+      audio.currentTime = startTime;
+      console.log('Set audio position to', startTime);
     }
-  };
-
-  // Global audio and UI elements
-  let audio = null;
-  let playIcon = null;
-  let pauseIcon = null;
-  let playerContainer = null;
-
-  // Initialize function
-  function initAudioPlayer() {
-    // Create or find audio element
-    audio = document.getElementById('persistentAudio');
-    if (!audio) {
-      audio = document.createElement('audio');
-      audio.id = 'persistentAudio';
-      audio.src = AUDIO_CONFIG.source;
-      audio.style.display = 'none';
-      document.body.appendChild(audio);
+    
+    // Start playing if it was playing before
+    if (shouldPlay) {
+      audio.play()
+        .then(() => console.log('Auto-resumed audio playback'))
+        .catch(err => {
+          console.error('Could not auto-play:', err);
+          // Reset UI if auto-play fails
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+        });
     }
-
-    // Create or find player UI
-    playerContainer = document.getElementById('audioPlayer');
-    if (!playerContainer) {
-      playerContainer = document.createElement('div');
-      playerContainer.id = 'audioPlayer';
-      playerContainer.className = 'audio-player';
-      
-      playerContainer.innerHTML = `
-        <div class="dotted-circle">
-          <div class="play-triangle" id="playIcon"></div>
-          <div class="pause-bars" id="pauseIcon"></div>
-        </div>
-      `;
-      
-      document.body.appendChild(playerContainer);
-    }
-
-    // Find UI elements
-    playIcon = document.getElementById('playIcon');
-    pauseIcon = document.getElementById('pauseIcon');
-
-    // Add click event listener
-    playerContainer.removeEventListener('click', togglePlayback);
-    playerContainer.addEventListener('click', togglePlayback);
-
-    // Restore previous state
-    restoreAudioState();
-
-    // Setup additional event listeners
-    setupEventListeners();
-  }
-
-  // Toggle playback function
-  function togglePlayback() {
-    if (!audio) return;
-
+  });
+  
+  audio.addEventListener('error', function(e) {
+    console.error('Audio error:', e);
+    console.error('Error code:', audio.error ? audio.error.code : 'unknown');
+    console.error('Error message:', audio.error ? audio.error.message : 'unknown');
+    alert('Audio error: Could not load or play the audio file. Please check the console for details.');
+  });
+  
+  // Handle click on the player
+  playerContainer.addEventListener('click', function() {
+    console.log('Player clicked');
+    
     if (audio.paused) {
-      playAudio();
+      audio.play()
+        .then(() => {
+          console.log('Audio started playing');
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+        })
+        .catch(err => {
+          console.error('Play failed:', err);
+          alert('Could not play the audio. Please make sure the file exists and is a valid audio file.');
+        });
     } else {
-      pauseAudio();
+      audio.pause();
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      console.log('Paused audio');
     }
+  });
+  
+  // Handle audio ending
+  audio.addEventListener('ended', function() {
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+    console.log('Audio ended');
+  });
+}
+
+function saveAudioState() {
+  const audio = document.getElementById('persistentAudio');
+  if (audio) {
+    // Save if the audio was playing
+    localStorage.setItem('audioPlaying', !audio.paused);
+    // Save the current position
+    localStorage.setItem('audioTime', audio.currentTime);
+    console.log('Saved audio state:', !audio.paused, audio.currentTime);
   }
-
-  // Play audio
-  function playAudio() {
-    if (!audio) return;
-
-    const playPromise = audio.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        updateUIState(true);
-        saveAudioState();
-      }).catch(error => {
-        console.error('Playback failed:', error);
-        updateUIState(false);
-      });
-    }
-  }
-
-  // Pause audio
-  function pauseAudio() {
-    if (!audio) return;
-
-    audio.pause();
-    updateUIState(false);
-    saveAudioState();
-  }
-
-  // Update UI state
-  function updateUIState(isPlaying) {
-    if (playIcon && pauseIcon) {
-      playIcon.style.display = isPlaying ? 'none' : 'block';
-      pauseIcon.style.display = isPlaying ? 'block' : 'none';
-    }
-  }
-
-  // Save audio state to localStorage
-  function saveAudioState() {
-    if (!audio) return;
-
-    localStorage.setItem(
-      AUDIO_CONFIG.storageKeys.playing, 
-      (!audio.paused && !audio.ended).toString()
-    );
-    localStorage.setItem(
-      AUDIO_CONFIG.storageKeys.time, 
-      audio.currentTime.toString()
-    );
-  }
-
-  // Restore audio state from localStorage
-  function restoreAudioState() {
-    if (!audio) return;
-
-    // Restore time
-    const savedTime = parseFloat(
-      localStorage.getItem(AUDIO_CONFIG.storageKeys.time) || '0'
-    );
-    if (savedTime > 0) {
-      try {
-        audio.currentTime = savedTime;
-      } catch (e) {
-        console.error('Could not set saved audio time:', e);
-      }
-    }
-
-    // Restore playing state
-    const wasPlaying = localStorage.getItem(
-      AUDIO_CONFIG.storageKeys.playing
-    ) === 'true';
-
-    if (wasPlaying) {
-      playAudio();
-    } else {
-      updateUIState(false);
-    }
-  }
-
-  // Setup event listeners
-  function setupEventListeners() {
-    if (!audio) return;
-
-    // Handle audio ending
-    audio.addEventListener('ended', () => {
-      updateUIState(false);
-      localStorage.setItem(AUDIO_CONFIG.storageKeys.playing, 'false');
-    });
-
-    // Save state periodically and on page events
-    audio.addEventListener('timeupdate', saveAudioState);
-    
-    window.addEventListener('beforeunload', saveAudioState);
-    
-    // Additional mobile-friendly state preservation
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') {
-        saveAudioState();
-      }
-    });
-  }
-
-  // Initialize on page load
-  function init() {
-    // Wait for DOM to be fully loaded
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAudioPlayer);
-    } else {
-      initAudioPlayer();
-    }
-  }
-
-  // Start initialization
-  init();
-})();
+}
