@@ -102,7 +102,7 @@
   
   /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
-    top: 120px !important;
+    top: 60px !important;
     right: 20px !important;
   }
   
