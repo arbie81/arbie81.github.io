@@ -1,3 +1,5 @@
+/* Add this to your style.css or replace the existing .audio-player media query */
+
 .audio-player {
   position: absolute;
   top: 40px;
@@ -85,22 +87,23 @@
   
   body.about .audio-player {
     right: 10px;
-    top: 40px; /* Adjusted from 10px */
+    top: 40px;
   }
   
   body.mixes .audio-player {
     right: 177px;
-    top: 40px; /* Added top positioning */
+    top: 40px;
   }
   
   body.services .audio-player {
-    top: 220px;
-    right: -40px;
+    top: 120px;
+    right: 10px;
   }
   
+  /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
-    top: 60px;
-    right: 10px;
+    top: 120px !important;
+    right: 20px !important;
   }
   
   body.century .audio-player,
@@ -108,7 +111,7 @@
   body.scum .audio-player,
   body.dry .audio-player,
   body.scherzophonia .audio-player {
-    top: 40px; /* Consistent top positioning */
+    top: 40px;
     right: 10px;
   }
 }
