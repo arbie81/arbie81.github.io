@@ -79,21 +79,21 @@
   }
   
   /* Specific page positioning with more specific selectors */
-  body.index-page .audio-player {
+  body.index .audio-player {
     right: 77px;
   }
   
-  body.about-page .audio-player {
+  body.about .audio-player {
     right: 10px;
     top: 40px; /* Adjusted from 10px */
   }
   
-  body.mixes-page .audio-player {
+  body.mixes .audio-player {
     right: 177px;
     top: 40px; /* Added top positioning */
   }
   
-  body.services-page .audio-player {
+  body.services .audio-player {
     top: 120px;
     right: 10px;
   }
@@ -103,11 +103,11 @@
     right: 50px;
   }
   
-  body.century-page .audio-player,
-  body.arbscenity-page .audio-player,
-  body.scum-page .audio-player,
-  body.dry-page .audio-player,
-  body.scherzophonia-page .audio-player {
+  body.century .audio-player,
+  body.arbscenity .audio-player,
+  body.scum .audio-player,
+  body.dry .audio-player,
+  body.scherzophonia .audio-player {
     top: 40px; /* Consistent top positioning */
     right: 10px;
   }
