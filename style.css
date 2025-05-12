@@ -111,7 +111,7 @@
   body.scum .audio-player,
   body.dry .audio-player,
   body.scherzophonia .audio-player {
-    top: 40px;
-    right: 10px;
+     top: 40px !important;
+    right: 10px !important;
   }
 }
