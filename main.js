@@ -1,4 +1,4 @@
-// Simplified solution - just creates the persistent audio player
+// Simplified solution - creates the persistent audio player
 document.addEventListener('DOMContentLoaded', function() {
   // Check for existing audio state in localStorage
   const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Create audio player
   createAudioPlayer(wasPlaying, currentTime);
   
-  // Before user leaves the page, save audio state
+  // More comprehensive state saving
   window.addEventListener('beforeunload', saveAudioState);
+  window.addEventListener('pagehide', saveAudioState);
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      saveAudioState();
+    }
+  });
 });
 
 function createAudioPlayer(shouldPlay, startTime) {
@@ -44,9 +50,14 @@ function createAudioPlayer(shouldPlay, startTime) {
   const playIcon = document.getElementById('playIcon');
   const pauseIcon = document.getElementById('pauseIcon');
   
+  // Initial state function
+  function updateUIState(isPlaying) {
+    playIcon.style.display = isPlaying ? 'none' : 'block';
+    pauseIcon.style.display = isPlaying ? 'block' : 'none';
+  }
+  
   // Set initial UI state
-  playIcon.style.display = shouldPlay ? 'none' : 'block';
-  pauseIcon.style.display = shouldPlay ? 'block' : 'none';
+  updateUIState(shouldPlay);
   
   // Add debugging
   audio.addEventListener('loadeddata', function() {
@@ -61,12 +72,14 @@ function createAudioPlayer(shouldPlay, startTime) {
     // Start playing if it was playing before
     if (shouldPlay) {
       audio.play()
-        .then(() => console.log('Auto-resumed audio playback'))
+        .then(() => {
+          console.log('Auto-resumed audio playback');
+          updateUIState(true);
+        })
         .catch(err => {
           console.error('Could not auto-play:', err);
           // Reset UI if auto-play fails
-          playIcon.style.display = 'block';
-          pauseIcon.style.display = 'none';
+          updateUIState(false);
         });
     }
   });
@@ -86,25 +99,23 @@ function createAudioPlayer(shouldPlay, startTime) {
       audio.play()
         .then(() => {
           console.log('Audio started playing');
-          playIcon.style.display = 'none';
-          pauseIcon.style.display = 'block';
+          updateUIState(true);
         })
         .catch(err => {
           console.error('Play failed:', err);
+          updateUIState(false);
           alert('Could not play the audio. Please make sure the file exists and is a valid audio file.');
         });
     } else {
       audio.pause();
-      playIcon.style.display = 'block';
-      pauseIcon.style.display = 'none';
+      updateUIState(false);
       console.log('Paused audio');
     }
   });
   
   // Handle audio ending
   audio.addEventListener('ended', function() {
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
+    updateUIState(false);
     console.log('Audio ended');
   });
 }
