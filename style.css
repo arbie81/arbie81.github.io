@@ -86,18 +86,18 @@
   }
   
   body.about .audio-player {
-    right: 10px; !important;
-    top: 10px; !important;
+    right: 10px !important;
+    top: 10px !important;
   }
   
   body.mixes .audio-player {
-    right: 100px; !important;
-    top: 40px; !important;
+    right: 100px !important;
+    top: 40px !important;
   }
   
   body.services .audio-player {
-    top: 150px; !important;
-    right: 10px; !important;
+    top: 150px !important;
+    right: 10px !important;
   }
   
   /* Make the statement selector more specific and !important to ensure it takes precedence */
