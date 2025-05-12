@@ -70,6 +70,6 @@
 @media (max-width: 768px) {
   .audio-player {
     top: 20px;
-    right: 50px; /* Changed from 20px to move it 15px to the left on mobile */
+    right: 80px; /* Changed from 20px to move it 15px to the left on mobile */
   }
 }
