@@ -106,11 +106,24 @@
   }
   
   body.century .audio-player,
+  top: 10px !important;
+    right: 10px !important;
+  }
+
   body.arbscenity .audio-player,
+  top: 10px !important;
+    right: 10px !important;
+  }
   body.scum .audio-player,
+top: 10px !important;
+    right: 10px !important;
+}
   body.dry .audio-player,
+top: 10px !important;
+    right: 10px !important;
+}
   body.scherzophonia .audio-player {
-    top: 40px !important;
+    top: 10px !important;
     right: 10px !important;
   }
 }
