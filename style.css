@@ -82,22 +82,22 @@
   
   /* Specific page positioning with more specific selectors */
   body.index .audio-player {
-    right: 77px;
+    right: 77px; !important;
   }
   
   body.about .audio-player {
-    right: 5px;
-    top: 10px;
+    right: 5px; !important;
+    top: 10px; !important;
   }
   
   body.mixes .audio-player {
-    right: 200px;
-    top: 40px;
+    right: 200px; !important;
+    top: 40px; !important;
   }
   
   body.services .audio-player {
-    top: 150px;
-    right: 5px;
+    top: 150px; !important;
+    right: 5px; !important;
   }
   
   /* Make the statement selector more specific and !important to ensure it takes precedence */
