@@ -91,12 +91,12 @@
   }
   
   body.mixes .audio-player {
-    right: 155px !important;
+    right: 150px !important;
     top: 40px !important;
   }
   
   body.services .audio-player {
-    top: 160px !important;
+    top: 150px !important;
     right: 15px !important;
   }
   
