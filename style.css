@@ -113,5 +113,66 @@ body.scherzophonia .audio-player {
   top: 10px !important;
   right: 10px !important;
 }
+@media (max-width: 768px) {
+  /* Color overrides for final five */
+
+  body.century .play-triangle,
+  body.arbscenity .play-triangle,
+  body.scum .play-triangle,
+  body.dry .play-triangle,
+  body.scherzophonia .play-triangle {
+    border-left-color: #000 !important;
+  }
+
+  body.century .dotted-circle,
+  body.arbscenity .dotted-circle,
+  body.scum .dotted-circle,
+  body.dry .dotted-circle,
+  body.scherzophonia .dotted-circle {
+    border-color: #000 !important;
+  }
+
+  body.century .pause-bars::before,
+  body.century .pause-bars::after,
+  body.arbscenity .pause-bars::before,
+  body.arbscenity .pause-bars::after,
+  body.scum .pause-bars::before,
+  body.scum .pause-bars::after,
+  body.dry .pause-bars::before,
+  body.dry .pause-bars::after,
+  body.scherzophonia .pause-bars::before,
+  body.scherzophonia .pause-bars::after {
+    background-color: #000 !important;
+  }
+
+  body.century .audio-player:hover .dotted-circle,
+  body.arbscenity .audio-player:hover .dotted-circle,
+  body.scum .audio-player:hover .dotted-circle,
+  body.dry .audio-player:hover .dotted-circle,
+  body.scherzophonia .audio-player:hover .dotted-circle {
+    border-color: #EBFE58 !important;
+  }
+
+  body.century .audio-player:hover .play-triangle,
+  body.arbscenity .audio-player:hover .play-triangle,
+  body.scum .audio-player:hover .play-triangle,
+  body.dry .audio-player:hover .play-triangle,
+  body.scherzophonia .audio-player:hover .play-triangle {
+    border-left-color: #EBFE58 !important;
+  }
+
+  body.century .audio-player:hover .pause-bars::before,
+  body.century .audio-player:hover .pause-bars::after,
+  body.arbscenity .audio-player:hover .pause-bars::before,
+  body.arbscenity .audio-player:hover .pause-bars::after,
+  body.scum .audio-player:hover .pause-bars::before,
+  body.scum .audio-player:hover .pause-bars::after,
+  body.dry .audio-player:hover .pause-bars::before,
+  body.dry .audio-player:hover .pause-bars::after,
+  body.scherzophonia .audio-player:hover .pause-bars::before,
+  body.scherzophonia .audio-player:hover .pause-bars::after {
+    background-color: #EBFE58 !important;
+  }
+}
 
 }
