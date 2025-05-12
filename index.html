@@ -66,81 +66,6 @@
       box-sizing: border-box;
 
     }
-    .audio-player {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 20;
-  transform: rotate(-2deg);
-}
-
-.dotted-circle {
-  width: 50px;
-  height: 50px;
-  border: 2px dotted #f6f1e6;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.play-triangle {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #f6f1e6;
-  margin-left: 3px;
-  transition: border-left-color 0.3s ease;
-}
-
-.pause-bars {
-  display: none;
-  width: 15px;
-  height: 18px;
-  position: relative;
-}
-
-.pause-bars::before, .pause-bars::after {
-  content: "";
-  position: absolute;
-  background-color: #f6f1e6;
-  width: 4px;
-  height: 18px;
-  transition: background-color 0.3s ease;
-}
-
-.pause-bars::before {
-  left: 3px;
-}
-
-.pause-bars::after {
-  right: 3px;
-}
-
-.audio-player:hover .dotted-circle {
-  border-color: #EBFE58;
-}
-
-.audio-player:hover .play-triangle {
-  border-left-color: #EBFE58;
-}
-
-.audio-player:hover .pause-bars::before,
-.audio-player:hover .pause-bars::after {
-  background-color: #EBFE58;
-}
-
-@media (max-width: 768px) {
-  .audio-player {
-    top: 20px;
-    right: 20px;
-  }
-}
     
     .title-block {
       position: relative;
@@ -765,16 +690,6 @@ footer {
 </head>
 <body>
   <div class="noise"></div>
-  <div class="audio-player" id="audioPlayer">
-  <div class="dotted-circle">
-    <div class="play-triangle" id="playIcon"></div>
-    <div class="pause-bars" id="pauseIcon"></div>
-  </div>
-  <audio id="audioSample" preload="metadata">
-    <source src="Audio Sample.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-</div>
   <div class="dada-container">
     <div class="title-block">
       <h1 class="title-main">
@@ -887,91 +802,7 @@ footer {
 
 <script data-goatcounter="https://arbie81.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const audioPlayer = document.getElementById('audioPlayer');
-    const audioSample = document.getElementById('audioSample');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    
-    // Get saved position from localStorage if exists
-    const savedTime = localStorage.getItem('audioPosition');
-    if (savedTime) {
-      audioSample.currentTime = parseFloat(savedTime);
-    }
-    
-    // Check if it was playing before navigation
-    const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
-    if (wasPlaying) {
-      // Auto-play is often blocked by browsers, so we'll need user interaction
-      playIcon.style.display = 'none';
-      pauseIcon.style.display = 'block';
-      // We'll show a notification that audio is ready to resume
-      const resumeNotice = document.createElement('div');
-      resumeNotice.className = 'resume-notice';
-      resumeNotice.innerHTML = 'resume';
-      resumeNotice.style.position = 'absolute';
-      resumeNotice.style.top = '95px';
-      resumeNotice.style.right = '40px';
-      resumeNotice.style.color = '#EBFE58';
-      resumeNotice.style.fontSize = '12px';
-      resumeNotice.style.transform = 'rotate(-2deg)';
-      document.body.appendChild(resumeNotice);
-      
-      // Remove notice after 5 seconds
-      setTimeout(() => {
-        if (document.body.contains(resumeNotice)) {
-          document.body.removeChild(resumeNotice);
-        }
-      }, 5000);
-    }
-    
-    audioPlayer.addEventListener('click', function() {
-      if (audioSample.paused) {
-        audioSample.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
-        localStorage.setItem('audioPlaying', 'true');
-        
-        // Remove notice if it exists
-        const notice = document.querySelector('.resume-notice');
-        if (notice) {
-          document.body.removeChild(notice);
-        }
-      } else {
-        audioSample.pause();
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-        localStorage.setItem('audioPlaying', 'false');
-      }
-    });
-    
-    // Save position every second
-    setInterval(() => {
-      if (!audioSample.paused) {
-        localStorage.setItem('audioPosition', audioSample.currentTime.toString());
-      }
-    }, 1000);
-    
-    audioSample.addEventListener('ended', function() {
-      playIcon.style.display = 'block';
-      pauseIcon.style.display = 'none';
-      localStorage.setItem('audioPlaying', 'false');
-      localStorage.removeItem('audioPosition');
-    });
-    
-    // Clear position when manually reset
-    audioSample.addEventListener('seeked', function() {
-      localStorage.setItem('audioPosition', audioSample.currentTime.toString());
-    });
-  });
-  
-  // Save position when leaving page
-  window.addEventListener('beforeunload', function() {
-    const audioSample = document.getElementById('audioSample');
-    localStorage.setItem('audioPosition', audioSample.currentTime.toString());
-  });
-</script>
+
 </script>
 </body>
 </html>
