@@ -91,7 +91,7 @@
   }
   
   body.mixes .audio-player {
-    right: 77px;
+    right: 200px;
     top: 40px;
   }
   
@@ -103,7 +103,7 @@
   /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
     top: 62px !important;
-    right: 20px !important;
+    right: 5px !important;
   }
   
   body.century .audio-player,
