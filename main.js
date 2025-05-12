@@ -24,7 +24,7 @@ function createAudioPlayer() {
         <div class="pause-bars" id="pauseIcon"></div>
       </div>
       <audio id="persistentAudio">
-        <source src="Audio Sample.mp3" type="audio/mpeg">
+        <source src="/Audio Sample.mp3" type="audio/mpeg">
       </audio>
     `;
     
@@ -72,7 +72,7 @@ function setupSPANavigation() {
     if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const url = this.href;
+        const url = this.;
         
         console.log('Navigating to:', url);
         
@@ -101,12 +101,12 @@ function setupSPANavigation() {
               setupSPANavigation();
             } else {
               console.error('No .dada-container found in the loaded page');
-              window.location.href = url; // Fallback
+              window.location. = url; // Fallback
             }
           })
           .catch(error => {
             console.error('Error loading page:', error);
-            window.location.href = url; // Fallback
+            window.location. = url; // Fallback
           });
       });
     }
@@ -128,12 +128,12 @@ function setupSPANavigation() {
             document.title = newDoc.title;
             setupSPANavigation();
           } else {
-            window.location.href = e.state.path; // Fallback
+            window.location. = e.state.path; // Fallback
           }
         })
         .catch(error => {
           console.error('Error loading page:', error);
-          window.location.href = e.state.path; // Fallback
+          window.location. = e.state.path; // Fallback
         });
     }
   });
