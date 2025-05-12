@@ -1,5 +1,4 @@
-/* Add this to your style.css or replace the existing .audio-player media query */
-
+/* Audio player base styles */
 .audio-player {
   position: absolute;
   top: 40px;
@@ -69,9 +68,10 @@
   background-color: #EBFE58;
 }
 
+/* Mobile styles with fixed positioning */
 @media (max-width: 768px) {
+  /* Base mobile positioning */
   .audio-player {
-    /* Base mobile positioning */
     position: absolute;
     top: 20px;
     right: 78px;
@@ -80,7 +80,7 @@
     z-index: 100; /* Ensure it's above other elements */
   }
   
-  /* Specific page positioning with more specific selectors */
+  /* Page-specific positioning */
   body.index .audio-player {
     right: 77px !important;
   }
@@ -100,7 +100,6 @@
     right: 10px !important;
   }
   
-  /* Make the statement selector more specific and !important to ensure it takes precedence */
   body.statement .audio-player {
     top: 62px !important;
     right: 10px !important;
@@ -111,7 +110,7 @@
   body.scum .audio-player,
   body.dry .audio-player,
   body.scherzophonia .audio-player {
-     top: 40px !important;
+    top: 40px !important;
     right: 10px !important;
   }
 }
