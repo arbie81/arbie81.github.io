@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Audio sample</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: 'Helvetica Neue', 'Futura', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .play-btn {
+      width: clamp(140px, 30vmin, 240px);
+      height: clamp(140px, 30vmin, 240px);
+      border-radius: 50%;
+      background-color: #000000;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .play-btn:hover {
+      opacity: 0.85;
+    }
+
+    .play-btn:active {
+      transform: scale(0.97);
+    }
+
+    .play-btn:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 6px;
+    }
+
+    .play-btn svg {
+      width: 40%;
+      height: 40%;
+      fill: #ffffff;
+    }
+
+    /* Nudge the triangle right so it looks optically centered */
+    .icon-play {
+      margin-left: 6%;
+    }
+
+    .icon-pause {
+      display: none;
+    }
+
+    .playing .icon-play {
+      display: none;
+    }
+
+    .playing .icon-pause {
+      display: block;
+    }
+
+    /* Thin progress line, click anywhere on it to jump */
+    .progress {
+      width: clamp(180px, 50vw, 360px);
+      padding: 10px 0;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+
+    .progress-line {
+      height: 4px;
+      background-color: #e6e6e6;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <button class="play-btn" id="playBtn" aria-label="Play">
+    <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+
+  <div class="progress" id="progress">
+    <div class="progress-line"><div class="progress-fill" id="fill"></div></div>
+  </div>
+
+  <audio id="audio" src="pimples.mp3" preload="metadata"></audio>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('audio');
+      var btn = document.getElementById('playBtn');
+      var bar = document.getElementById('progress');
+      var fill = document.getElementById('fill');
+
+      function update() {
+        if (audio.duration) {
+          fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+        }
+      }
+
+      function setPlaying(isPlaying) {
+        document.body.classList.toggle('playing', isPlaying);
+        btn.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
+      }
+
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          var p = audio.play();
+          if (p && p.catch) { p.catch(function () {}); }
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener('play', function () { setPlaying(true); });
+      audio.addEventListener('pause', function () { setPlaying(false); });
+      audio.addEventListener('ended', function () {
+        audio.currentTime = 0;
+        update();
+        setPlaying(false);
+      });
+      audio.addEventListener('timeupdate', update);
+
+      bar.addEventListener('click', function (e) {
+        if (!audio.duration) { return; }
+        var r = bar.getBoundingClientRect();
+        var pct = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+        audio.currentTime = pct * audio.duration;
+        update();
+      });
+    })();
+  </script>
+</body>
+</html>
