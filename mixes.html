@@ -39,7 +39,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 30px 30px;
+      padding: 60px 30px;
       box-sizing: border-box;
       position: relative;
       z-index: 10;
@@ -47,7 +47,7 @@
     
     .title-block {
       position: relative;
-      margin-bottom: 0;
+      margin-bottom: 20px;
       z-index: 10;
       text-align: center;
     }
@@ -56,7 +56,7 @@
       font-family: 'Helvetica Neue', 'Futura', sans-serif;
       font-size: 100px;
       margin: 0 auto;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       transform: rotate(-0.2deg);
       letter-spacing: 5px;
       font-weight: bold;
@@ -81,21 +81,25 @@
     
     .mixes-container {
       position: relative;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      max-width: 900px;
+      margin-top: 20px;
+      margin-bottom: 60px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    /* Six-face dice layout: 3 columns by 2 rows, sized so the whole grid
-       always fits inside the viewport height without scrolling */
     .dice-layout {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      width: min(100%, 900px, max(260px, calc(1.5 * (100vh - 364px) + 48px)));
-      margin: 20px auto;
+      grid-template-areas: 
+        "top-left . top-right"
+        ". middle ."
+        "bottom-left . bottom-right";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 30px;
+      aspect-ratio: 1/1;
+      max-width: 800px;
+      margin: 40px auto;
       transform: rotate(-0.3deg);
     }
     
@@ -106,14 +110,12 @@
     }
     
     .mix-image {
-      display: block;
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
       transition: transform 0.5s ease;
       filter: grayscale(15%) contrast(110%);
       border: 2px solid rgba(246, 241, 230, 0.2);
-      box-sizing: border-box;
     }
     
     .mix-item:hover .mix-image {
@@ -138,12 +140,11 @@
       border-color: rgba(235, 254, 88, 0.4);
     }
     
-    .pos-1 { transform: rotate(0.2deg); }
-    .pos-2 { transform: rotate(-0.3deg); }
-    .pos-3 { transform: rotate(0.1deg); }
-    .pos-4 { transform: rotate(-0.2deg); }
-    .pos-5 { transform: rotate(0.4deg); }
-    .pos-6 { transform: rotate(-0.15deg); }
+    .top-left { grid-area: top-left; transform: rotate(0.2deg); }
+    .top-right { grid-area: top-right; transform: rotate(-0.3deg); }
+    .middle { grid-area: middle; transform: rotate(0.1deg); }
+    .bottom-left { grid-area: bottom-left; transform: rotate(-0.2deg); }
+    .bottom-right { grid-area: bottom-right; transform: rotate(0.4deg); }
     
     .back-link {
       display: inline-block;
@@ -158,8 +159,8 @@
       transition: all 0.3s ease;
       border: 2px solid #f6f1e6;
       transform: rotate(-0.5deg);
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 20px;
+      margin-bottom: 40px;
       letter-spacing: 2px;
     }
     
@@ -212,7 +213,7 @@
       }
       
       .mixes-container {
-        margin-top: 10px;
+        margin-top: 30px;
         padding: 0 15px;
       }
       
@@ -223,16 +224,16 @@
     
     @media (max-width: 600px) {
       .container {
-        padding: 30px 20px;
+        padding: 40px 20px;
       }
       
       .mixes-title {
         font-size: 42px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
       
       .mixes-container {
-        margin-top: 10px;
+        margin-top: 20px;
       }
       
       .dice-layout {
@@ -240,47 +241,40 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
 </head>
-<body>
+  <body class="mixes">
   <div class="noise"></div>
   
-  <div class="container">
-    <div class="title-block">
-      <h1 class="mixes-title">
-        <span class="letter-M">M</span><span class="letter-I">I</span><span class="letter-X">X</span><span class="letter-E">E</span><span class="letter-S">S</span>
-      </h1>
-    </div>
+
     
     <div class="mixes-container">
+       <div class="dada-container">
       <div class="dice-layout">
-        <!-- Row 1, left - 1st chronologically -->
-        <a href="century.html" class="mix-item pos-1">
+        <!-- Top left - 1st chronologically -->
+        <a href="century.html" class="mix-item top-left">
           <img src="century.jpg" alt="Century" class="mix-image">
         </a>
         
-        <!-- Row 1, middle - 2nd chronologically -->
-        <a href="arbscenity.html" class="mix-item pos-2">
+        <!-- Top right - 2nd chronologically -->
+        <a href="arbscenity.html" class="mix-item top-right">
           <img src="arbscenity.jpg" alt="ARBscenity" class="mix-image">
         </a>
         
-        <!-- Row 1, right - 3rd chronologically -->
-        <a href="scum.html" class="mix-item pos-3">
+        <!-- Middle - 3rd chronologically -->
+        <a href="scum.html" class="mix-item middle">
           <img src="scum.jpg" alt="SCUM" class="mix-image">
         </a>
         
-        <!-- Row 2, left - 4th chronologically -->
-        <a href="dry.html" class="mix-item pos-4">
+        <!-- Bottom left - 4th chronologically -->
+        <a href="dry.html" class="mix-item bottom-left">
           <img src="dry.jpg" alt="DRY" class="mix-image">
         </a>
         
-        <!-- Row 2, middle - 5th chronologically -->
-        <a href="scherzophonia.html" class="mix-item pos-5">
+        <!-- Bottom right - 5th chronologically -->
+        <a href="scherzophonia.html" class="mix-item bottom-right">
           <img src="scherzophonia.jpg" alt="Scherzophonia" class="mix-image">
-        </a>
-        
-        <!-- Row 2, right - 6th chronologically -->
-        <a href="pimples.html" class="mix-item pos-6">
-          <img src="pimples.jpg" alt="How to Get Rid of Pimples" class="mix-image">
         </a>
       </div>
       
@@ -289,7 +283,7 @@
       </a>
     </div>
   </div>
-  
+  </div>
   <footer>
     <p>© 2025 <span>Alina Brennaman</span>. All rights reserved.</p>
   </footer>
