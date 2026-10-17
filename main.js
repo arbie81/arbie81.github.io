@@ -41,7 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="pause-bars" id="pauseIcon"></div>
         </div>
       `;
-      
+
+      // "listen" hover tag, one span per letter so each can be nudged by hand
+      const tip = document.createElement('span');
+      tip.className = 'listen-tip';
+      tip.setAttribute('aria-hidden', 'true');
+      'listen'.split('').forEach(function(ch, i) {
+        const letter = document.createElement('span');
+        letter.className = 't-' + (i + 1);
+        letter.textContent = ch;
+        tip.appendChild(letter);
+      });
+      this.playerContainer.appendChild(tip);
+
       document.body.appendChild(this.playerContainer);
       
       // Get UI elements
@@ -78,7 +90,26 @@ document.addEventListener('DOMContentLoaded', function() {
           self.pause();
         }
       });
-      
+
+      // Show the "listen" tag on hover, but only while nothing is playing
+      const player = this.playerContainer;
+      player.addEventListener('mouseenter', function() {
+        if (self.element.paused) {
+          player.classList.add('tip-on');
+        }
+      });
+      player.addEventListener('mouseleave', function() {
+        player.classList.remove('tip-on');
+      });
+      this.element.addEventListener('play', function() {
+        player.classList.remove('tip-on');
+      });
+      this.element.addEventListener('pause', function() {
+        if (player.matches(':hover')) {
+          player.classList.add('tip-on');
+        }
+      });
+
       // Audio ended event
       this.element.addEventListener('ended', function() {
         self.updateUIState(false);
